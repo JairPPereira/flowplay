@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "flowplayer-hlsjs": "github:flowplayer/flowplayer-hlsjs"
+  }
+}
