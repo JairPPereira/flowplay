@@ -4,8 +4,8 @@ var linkAudio = '';
 
 // verifica a radio atual
 if(dataLayer[1]['radio'] == 'aovivo') {
-    linkTocando = 'https://stream-59.zeno.fm/p3yys99taphvv?zs=YmiO2TgATMaHAKx7t057pw'
-    linkAudio = 'https://stream-59.zeno.fm/p3yys99taphvv?zs=YmiO2TgATMaHAKx7t057pw';
+    linkTocando = 'https://stream-59.zeno.fm/p3yys99taphvv'
+    linkAudio = 'https://stream-59.zeno.fm/p3yys99taphvv';
 
 } else if(dataLayer[1]['radio'] == 'sertanejo') {
     linkTocando = 'https://api.metropolitanafm.com.br/home/tocando/sertanejo'
