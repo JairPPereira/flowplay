@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="pt-br" class="mdc-typography"><head>
+        <style>
+            *{
+                font-family: Roboto,sans-serif;
+            }
+            html,body{
+                height:100%; width: 100%;
+            }
+            body{
+                background-color:#1C313A; margin:0;
+            }
+            .search-column-submit:hover,.img:hover{
+                cursor: pointer;
+            }
+            #error_page_content{
+                margin: 30px;
+            }
+            h1{
+                font-size: 100px; margin-bottom: 0px; margin-top: 0px; text-align: center; color:white;
+            }
+            h3{
+                color:white;
+            }
+            a{
+                color:cyan;
+                text-decoration:none;
+            }
+            h3 a {
+                border-bottom:1px dashed cyan;
+            }
+            #inner_container{
+                width: 100%;
+            }
+            img{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #search_form{
+                display:inline-flex; width: 100%; height: 36px; padding-top:15px;
+            }
+            #search_value{
+                width:100%; padding-left: 10px; line-height: 1.5rem; font-size: 16px;
+            }
+            #search_submit{
+                display: inline-flex; width: 100%;
+            }
+            svg{
+                fill: #fff; margin-top: 5px;
+            }
+            @media screen and (min-width: 769px){
+                #error_page_content{
+                    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0;
+                }
+                h1{
+                    font-size: 300px;
+                }
+                #inner_container{
+                    display:inline-flex; width:100%;
+                }
+                #search_form{
+                    padding: 13px;
+                }
+            }
+
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>404 Not Found</title>
+    </head>
+    <body>
+        <div id="error_page_content">
+            <h1>404</h1>
+            <hr>
+            <h3>This page is not available. We apologize for any inconvenience caused.</h3>
+            <h3><a href="/">Click here to go back to the website</a> or try looking for something else.</h3>
+            <div id="inner_container">
+                <a href="/">
+                    <img src="images/br.png" width="64" height="64" align="middle" alt>
+                </a>
+                <div id="search_submit">
+                    <form id="search_form" action="/buscar" method="get">
+                        <input id="search_value" type="text" name="q" class="primary-span-color" placeholder="Buscar rádio ou podcast">
+                    </form>
+                    <svg onclick="submitSearchForm();" class="material-icons md-36 secondary-span-color search-button" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 22 22"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.5 14h-.79l-.28-.27c1.2-1.4 1.82-3.31 1.48-5.34-.47-2.78-2.79-5-5.59-5.34-4.23-.52-7.79 3.04-7.27 7.27.34 2.8 2.56 5.12 5.34 5.59 2.03.34 3.94-.28 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function submitSearchForm() {
+                if (document.getElementById('search_value').value != ''){
+                    document.forms['search_form'].submit();
+                }
+            }
+        </script>
+    
+</body></html>
