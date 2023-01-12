@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -148,6 +148,12 @@ var radio = new Radio([
     freq: '690',
     title: "Clube AM",
     src: 'https://ice01.kshost.com.br:8000/live',
+    howl: null
+  },
+  {
+    freq: '95.9',
+    title: "Liberdade FM",
+    src: 'https://s28.maxcast.com.br:8060/live',
     howl: null
   }
 ]);
