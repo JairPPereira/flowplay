@@ -115,39 +115,33 @@ Radio.prototype = {
 // Setup our new radio and pass in the stations.
 var radio = new Radio([
   {
-    freq: 'JPP',
+    freq: 'JP.M',
     title: "Top Hits",
     src: 'https://stream-59.zeno.fm/p3yys99taphvv?zs=YmiO2TgATMaHAKx7t057pw',
     howl: null
   },
   {
-    freq: 'JPP',
+    freq: 'JP.M',
     title: "Passado",
     src: 'https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA.mp3',
     howl: null
   },
   {
-    freq: 'JPP',
-    title: "Pop Rock",
-    src: 'https://stream-57.zeno.fm/9ts1tgxryhhvv?zs=cwpQYLFdTxmVOaOVAJ_rYQ&aw_0_req_lsid=1663871100546_0.44668418486659633&an-uid=8773777118362868920&triton-uid=cookie%3Ab9e998c5-ed73-45ba-983a-4fef71654a75.mp3',
+    freq: '98.9',
+    title: "CNN",
+    src: 'https://tunein.streamguys1.com/cnn-new',
     howl: null
   },
   {
-    freq: '95.1',
-    title: "Rauland FM",
-    src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live',
+    freq: '103.3',
+    title: "80's Hits",
+    src: 'https://rfcmedia.streamguys1.com/80hits.mp3',
     howl: null
   },
   {
-    freq: '1130',
-    title: "Marajoara AM",
-    src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live',
-    howl: null
-  },
-  {
-    freq: '1130',
-    title: "Rádio Clube AM",
-    src: 'https://ice01.kshost.com.br:8000/live',
+    freq: '107.7',
+    title: "Today's Hits",
+    src: 'https://rfcmedia.streamguys1.com/MusicPulse.mp3',
     howl: null
   }
 ]);
