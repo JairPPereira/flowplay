@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -179,5 +179,18 @@ var radio = new Radio([
     title: "Regional FM",
     src: 'https://wms5.webradios.com.br:19050/9050',
     howl: null
+  },
+  {
+    freq: '90.5',
+    title: "Roma FM",
+    src: 'https://www.bravecenterhost.com:8014/stream',
+    howl: null
+  },
+  {
+    freq: '97.5',
+    title: "Rondon FM",
+    src: 'https://radios.digital:8034/stream',
+    howl: null
   }
+
 ]);
