@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -160,6 +160,12 @@ var radio = new Radio([
     freq: '102.1',
     title: "Paraense FM",
     src: 'https://stm01.virtualcast.com.br:8614/live',
+    howl: null
+  },
+  {
+    freq: '88.5',
+    title: "Amazônia FM",
+    src: 'https://s18.maxcast.com.br:8707/live',
     howl: null
   }
 ]);
