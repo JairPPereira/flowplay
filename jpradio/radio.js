@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -127,21 +127,27 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '98.9',
-    title: "Pop Hits",
+    freq: 'JP.M',
+    title: "Pop Rock",
     src: 'https://stream-57.zeno.fm/9ts1tgxryhhvv?zs=cwpQYLFdTxmVOaOVAJ_rYQ&aw_0_req_lsid=1663871100546_0.44668418486659633&an-uid=8773777118362868920&triton-uid=cookie%3Ab9e998c5-ed73-45ba-983a-4fef71654a75.mp3',
     howl: null
   },
   {
-    freq: '103.3',
-    title: "80's Hits",
-    src: 'https://rfcmedia.streamguys1.com/80hits.mp3',
+    freq: '95.1',
+    title: "Rauland FM",
+    src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live',
     howl: null
   },
   {
-    freq: '107.7',
-    title: "Today's Hits",
-    src: 'https://rfcmedia.streamguys1.com/MusicPulse.mp3',
+    freq: '1130',
+    title: "Marajoara AM",
+    src: 'https://www.bravecenterhost.com:8020/stream',
+    howl: null
+  },
+  {
+    freq: '1130',
+    title: "Clube AM",
+    src: 'https://ice01.kshost.com.br:8000/live',
     howl: null
   }
 ]);
