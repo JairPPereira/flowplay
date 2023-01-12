@@ -145,7 +145,7 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '1130',
+    freq: '690',
     title: "Clube AM",
     src: 'https://ice01.kshost.com.br:8000/live',
     howl: null
