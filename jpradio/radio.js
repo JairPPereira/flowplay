@@ -155,5 +155,11 @@ var radio = new Radio([
     title: "Liberdade FM",
     src: 'https://s28.maxcast.com.br:8060/live',
     howl: null
+  },
+  {
+    freq: '102.1',
+    title: "Paraense FM",
+    src: 'https://stm01.virtualcast.com.br:8614/live',
+    howl: null
   }
 ]);
