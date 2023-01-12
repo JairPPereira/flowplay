@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -169,9 +169,15 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '92.1 FM',
+    freq: '92.1',
     title: "Você FM",
     src: 'https://stream02.ouveai.com.br/8018/stream',
+    howl: null
+  },
+  {
+    freq: '91.3',
+    title: "Regional FM",
+    src: 'https://wms5.webradios.com.br:19050/9050',
     howl: null
   }
 ]);
