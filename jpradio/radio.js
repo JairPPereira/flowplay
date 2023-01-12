@@ -128,8 +128,8 @@ var radio = new Radio([
   },
   {
     freq: '98.9',
-    title: "CNN",
-    src: 'https://tunein.streamguys1.com/cnn-new',
+    title: "Pop Hits",
+    src: 'https://stream-57.zeno.fm/9ts1tgxryhhvv?zs=cwpQYLFdTxmVOaOVAJ_rYQ&aw_0_req_lsid=1663871100546_0.44668418486659633&an-uid=8773777118362868920&triton-uid=cookie%3Ab9e998c5-ed73-45ba-983a-4fef71654a75.mp3',
     howl: null
   },
   {
