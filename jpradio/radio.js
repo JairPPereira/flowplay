@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -208,6 +208,12 @@ var radio = new Radio([
     freq: '93.1',
     title: "Vale do Xingu FM",
     src: 'https://8010.brasilstream.com.br/stream',
+    howl: null
+  },
+  {
+    freq: '104.7',
+    title: "Floresta FM",
+    src: 'https://s30.maxcast.com.br:8180/live',
     howl: null
   }
 ]);
