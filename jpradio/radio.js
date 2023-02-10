@@ -218,7 +218,7 @@ var radio = new Radio([
   },
   {
     freq: '99.9',
-    title: "99 FM ",
+    title: "99 FM Belém",
     src: 'https://hts02.kshost.com.br:8862/;stream/1',
     howl: null
   },
