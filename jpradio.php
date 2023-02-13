@@ -12,7 +12,7 @@
 
 
 <audio autoplay="autoplay" controls="controls">
-<source src="http://fluoz.zeno.fm:80/2cgy8mzvsy8uv/source" type="audio/mp3" />
+<source src="https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA.mp3" type="audio/mp3" />
 seu navegador não suporta HTML5
 </audio>
   
