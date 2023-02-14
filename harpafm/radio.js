@@ -117,7 +117,7 @@ var radio = new Radio([
   {
     freq: '',
     title: "",
-    src: 'https://zenoplay.zenomedia.com/api/zenofm/nowplaying/yyv0vgxz4rhvv',
+    src: 'https://stream-41.zeno.fm/yyv0vgxz4rhvv?zs=ZJpS9c6wTDWHJoFxKU6wcA',
     howl: null
   },
  
