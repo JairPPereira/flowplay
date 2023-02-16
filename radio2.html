@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemplo de uso de API</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="resultado"></div>
+
+    <script>
+      const url = "https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv";
+      
+      // Função que lida com os dados da API
+      function handleData(data) {
+        const resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.innerHTML = "Música tocando agora: " + data.title;
+      }
+
+      // Cria um elemento script para fazer a requisição JSONP
+      const script = document.createElement("script");
+      script.src = url + "?jsonp=handleData";
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>
