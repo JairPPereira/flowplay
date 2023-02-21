@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de acesso a API com proxy</title>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script>
+		const apiURL = 'https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv';
+		const proxyURL = 'https://cors-anywhere.herokuapp.com/';
+		const fullURL = proxyURL + apiURL;
+
+		axios.get(fullURL)
+			.then(response => {
+				const data = response.data;
+				const html = `
+					<ul>
+						<li>Duration: ${data.duration}</li>
+						<li>Thumb: ${data.thumb}</li>
+						<li>Artist: ${data.artist}</li>
+						<li>Buy URLs: ${data.buy_urls}</li>
+						<li>Album: ${data.album}</li>
+						<li>Show: ${JSON.stringify(data.show)}</li>
+						<li>GUID: ${data.guid}</li>
+						<li>SKU: ${data.sku}</li>
+						<li>Title: ${data.title}</li>
+						<li>Info URLs: ${data.info_urls}</li>
+					</ul>
+				`;
+				document.getElementById('data').innerHTML = html;
+			})
+			.catch(error => {
+				console.log(error);
+			});
+	</script>
+</head>
+<body>
+	<div id="data"></div>
+</body>
+</html>
