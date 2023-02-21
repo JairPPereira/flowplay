@@ -1,14 +1,10 @@
-function fetchAndUpdateText() {
-    const apiUrl = 'https://ssl.xcast.com.br:8290/currentsong?sid=1';
-    fetch(apiUrl)
-      .then(response => response.text())
-      .then(data => {
-        const songText = data;
-        document.getElementById('song-text').textContent = songText;
-      })
-      .catch(error => console.error(error));
-  }
-  
-  // Executa a função fetchAndUpdateText() imediatamente e, em seguida, a cada 30 segundos
-  setInterval(fetchAndUpdateText, 30000);
-  
+const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+const apiUrl = 'https://radiojpp.000webhostapp.com/';
+
+fetch(proxyUrl + apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    const songTitle = data.title;
+    document.getElementById('song-title').textContent = songTitle;
+  })
+  .catch(error => console.error(error));
