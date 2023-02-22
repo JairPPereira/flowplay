@@ -315,7 +315,7 @@
                      document.getElementById("texto").innerHTML = this.responseText;
                    }
                  };
-                 xhttp.open("GET", "https://radiobr.vercel.app/passadojpp/index.php", true);
+                 xhttp.open("GET", "https://radiobr.vercel.app/passadojpp/index2.php", true);
                  xhttp.send();
                }
                
