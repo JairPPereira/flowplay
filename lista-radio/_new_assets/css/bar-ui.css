@@ -100,7 +100,7 @@
 }
 .sm2-bar-ui.textured.dark-text .sm2-playlist-wrapper ul li:hover a,.sm2-bar-ui.textured.dark-text .sm2-playlist-wrapper ul li.selected a{
 	background-color:#444444;
-	background-image:url(../img/black-10.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-10.png);
 	background-image:none,none
 }
 .sm2-bar-ui .bd{
@@ -143,12 +143,12 @@
 }
 .sm2-bar-ui .bd .sm2-button-element:hover{
 	background-color:#444444;
-	background-image:url(../img/black-10.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-10.png);
 	background-image:none,none
 }
 .sm2-bar-ui .bd .sm2-button-element:active{
 	background-color:rgba(0,0,0,.25);
-	background-image:url(../img/black-25.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-25.png);
 	background-image:none,none
 }
 .sm2-bar-ui .bd .sm2-extra-controls .sm2-button-element:active .sm2-inline-button,.sm2-bar-ui .bd .active .sm2-inline-button{
@@ -161,7 +161,7 @@
 }
 .sm2-bar-ui .bd .sm2-extra-controls .sm2-button-element:hover,.sm2-bar-ui .bd .sm2-extra-controls .sm2-button-element:active,.sm2-bar-ui .bd .active{
 	background-color:#444444;
-	background-image:url(../img/black-10.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-10.png);
 	background-image:none,none
 }
 .sm2-bar-ui .bd .sm2-extra-controls .sm2-button-element:active{
@@ -294,8 +294,8 @@
 	left:0;
 	top:0;
 	width:0;
-	background-color:#BD2427;
-	background-image:url(../img/black-33.png);
+	background-color:#1e1dab;
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-33.png);
 	background-image:none,none
 }
 .volume-shade,.playing .sm2-progress .sm2-progress-track,.paused .sm2-progress .sm2-progress-track{
@@ -326,7 +326,7 @@
 }
 .sm2-progress .sm2-progress-track{
 	background-color:#777777;
-	background-image:url(../img/black-33.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-33.png);
 	background-image:none,none
 }
 .sm2-playlist-wrapper ul::-webkit-scrollbar-track{
@@ -352,24 +352,24 @@
 	-ms-interpolation-mode:bicubic
 }
 .download{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/music.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/music.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/music.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/music.svg)
 }
 .play-pause,.play-pause:hover,.paused .play-pause:hover{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/play.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/play.svg);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/play.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/play.svg);
 	background-size:67.5%;
 	background-position:40% 53%
 }
 .playing .play-pause{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/pause.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/pause.svg);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/pause.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/pause.svg);
 	background-size:57.6%;
 	background-position:50% 53%
 }
 .sm2-volume-control{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/volume.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/volume.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/volume.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/volume.svg)
 }
 .sm2-volume-control,.sm2-volume-shade{
 	background-position:42% 50%;
@@ -378,22 +378,22 @@
 .volume-shade{
 	filter:alpha(opacity=33);
 	opacity:.33;
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/volume.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/volume.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/volume.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/volume.svg)
 }
 .menu{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/list2.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/list2.svg);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/list2.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/list2.svg);
 	background-size:58%;
 	background-position:54% 51%
 }
 .previous{
-    background-image: url(../img/icomoon/entypo-25px-fffffff/PNG/first.png);
-    background-image: none,url(../img/icomoon/entypo-25px-ffffff/SVG/first.svg)
+    background-image: url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-fffffff/PNG/first.png);
+    background-image: none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/first.svg)
 }
 .next{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/last.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/last.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/last.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/last.svg)
 }
 .previous,.next{
 	background-size:49.5%;
@@ -403,14 +403,14 @@
 	backgound-size:53%
 }
 .shuffle{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/shuffle.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/shuffle.svg);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/shuffle.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/shuffle.svg);
 	background-size:45%;
 	background-position:50% 50%
 }
 .repeat{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/loop.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/loop.svg);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/loop.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/loop.svg);
 	background-position:50% 43%;
 	background-size:54%
 }
@@ -454,21 +454,21 @@
 	border-right:none
 }
 .sm2-playlist-wrapper ul li .sm2-cart,.sm2-playlist-wrapper ul li:hover .sm2-cart,.sm2-playlist-wrapper ul li.selected .sm2-cart{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/cart.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/cart.svg);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/cart.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/cart.svg);
 	background-position:48% 50%
 }
 .sm2-playlist-wrapper ul li .sm2-music,.sm2-playlist-wrapper ul li:hover .sm2-music,.sm2-playlist-wrapper ul li.selected .sm2-music{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/music.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/music.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/music.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/music.svg)
 }
 .sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li .sm2-cart,.sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li:hover .sm2-cart,.sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li.selected .sm2-cart{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/cart.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/cart.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/cart.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/cart.svg)
 }
 .sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li .sm2-music,.sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li:hover .sm2-music,.sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li.selected .sm2-music{
-	background-image:url(../img/icomoon/entypo-25px-ffffff/PNG/music.png);
-	background-image:none,url(../img/icomoon/entypo-25px-ffffff/SVG/music.svg)
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/PNG/music.png);
+	background-image:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/entypo-25px-ffffff/SVG/music.svg)
 }
 .sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li .sm2-col{
 	border-left-color:rgba(0,0,0,.15)
@@ -489,7 +489,7 @@
 	height:100%;
 	top:0;
 	left:0;
-	background:none,url(../img/icomoon/free-25px-ffffff/SVG/spinner.svg);
+	background:none,url(https://radiobr.vercel.app/lista-radio/_new_assets/img/icomoon/free-25px-ffffff/SVG/spinner.svg);
 	background-size:72%;
 	background-position:50%;
 	background-repeat:no-repeat;
@@ -620,22 +620,22 @@
 }
 .sm2-playlist-wrapper ul li:hover a{
 	background-color:#444444;
-	background-image:url(../img/black-20.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-20.png);
 	background-image:none,none
 }
 .sm2-bar-ui.dark-text .sm2-playlist-wrapper ul li:hover a{
 	background-color:rgba(255,255,255,.1);
-	background-image:url(../img/black-10.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-10.png);
 	background-image:none,none
 }
 .sm2-playlist-wrapper ul li.selected a{
-	background-color: #BD2427;
-	background-image:url(../img/black-20.png);
+	background-color: #1e1dab;
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-20.png);
 	background-image:none,none
 }
 .sm2-bar-ui.dark-text ul li.selected a{
 	background-color:rgba(255,255,255,.1);
-	background-image:url(../img/black-10.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-10.png);
 	background-image:none,none
 }
 .sm2-bar-ui .disabled{
@@ -683,7 +683,7 @@
 }
 .sm2-bar-ui.dark-text .label{
 	background-color:rgba(0,0,0,.1);
-	background-image:url(../img/black-10.png);
+	background-image:url(https://radiobr.vercel.app/lista-radio/_new_assets/img/black-10.png);
 	background-image:none,none
 }
 .sm2-bar-ui .sm2-playlist-drawer .label{
