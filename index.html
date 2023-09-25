@@ -379,11 +379,30 @@ input[type="text"] {
       <section class="bg-primary p-t-40 p-b-40">
 <div class="container">
 
-    <div class="col-sm-2 col-xs-4">
-      <a href="https://radiobr.vercel.app/rauland3/" class="m-b-20 btn btn-white btn-block">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGMoi2m6_JjOi0yBt8Tcz52zvzzP_AaAPLyuzldRV9Se3J_cUzSk3OpDNpj7Y87aSzPb7kTnn7F86vzPRxr9N5QT4enE-0JzcPrR6247cY3IrYAKo9pc0_yazUpq89YsUWWjMYJ0D-pUfKBraEvbo6d1WylteEvYp5SrUMlAbvXkUIv4-pM5ayrluF/s1600/rauland.png" class="m-t-10 b-radius-5 img-responsive center-block" alt="RAULAND FM" />
-      <h4 class="resumoDots p-t-15 p-b-5 no-margin text-center bold">RAULAND FM</h4></a></div> 
+  <div id="popuprau" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; width: 250px; height: 180px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); z-index: 9999; border: 2px solid #ffcc00; border-radius: 10px;">
+    <button id="closePopup" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; cursor: pointer; font-size: 25px;">&times;</button>
+    <iframe src="https://radiobr.vercel.app/rauland3/" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+  </div>
+  <div class="col-sm-2 col-xs-4">
+    <button id="openPopuprau" class="m-b-20 btn btn-white btn-block">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiGMoi2m6_JjOi0yBt8Tcz52zvzzP_AaAPLyuzldRV9Se3J_cUzSk3OpDNpj7Y87aSzPb7kTnn7F86vzPRxr9N5QT4enE-0JzcPrR6247cY3IrYAKo9pc0_yazUpq89YsUWWjMYJ0D-pUfKBraEvbo6d1WylteEvYp5SrUMlAbvXkUIv4-pM5ayrluF/s1600/rauland.png" class="m-t-10 b-radius-5 img-responsive center-block" alt="RAULAND" />
+      <h4 class="resumoDots p-t-15 p-b-5 no-margin text-center bold">RAULAND</h4>
+    </button>
+  </div>
 
+  <script>
+    var popuprau = document.getElementById("popup");
+    var openPopupButton = document.getElementById("openPopup");
+    var closePopupButton = document.getElementById("closePopup");
+  
+    openPopupButton.addEventListener("click", function() {
+      popup.style.display = "block";
+    });
+  
+    closePopupButton.addEventListener("click", function() {
+      popup.style.display = "none";
+    });
+  </script>
 
 
 
