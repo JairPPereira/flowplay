@@ -808,7 +808,29 @@ input[type="text"] {
       </script>    
     </div> 
                 
-                  
+    <div class="col-sm-2 col-xs-4">
+      <div id="popupbraspi" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; width: 250px; height: 180px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); z-index: 9999; border: 2px solid #ffcc00; border-radius: 10px;">
+        <button id="closePopupbraspi" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; cursor: pointer; font-size: 25px;">&times;</button>
+        <iframe src="https://radiobr.vercel.app/braspi/" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+      </div>
+      <button id="openPopupbraspi" class="m-b-20 btn btn-white btn-block">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLPtfpmEQjpX6CmvmXDeZEqWAH8Irxk0uF7NuXHgYSzNOSyOAXNdorlFPvk1qEJxU_oKDe4IIOPMLjzoHh1LdGFuGOgyd_oW3O4wmPIWmyC1C0fQjSkqIcVVGyfwEFDGeeDklpPauYnj-6e6cQW1JvQPJiD9EShEBlXgkyNKYr5BBiB62bxZhgXrhy/s1600/braspi.jpeg" class="m-t-10 b-radius-5 img-responsive center-block" alt="BRASPI" />
+        <h4 class="resumoDots p-t-15 p-b-5 no-margin text-center bold">BRASPI</h4>
+      </button>
+      <script>
+        var popupbraspi = document.getElementById("popupbraspi");
+        var openPopupbraspiButton = document.getElementById("openPopupbraspi");
+        var closePopupbraspiButton = document.getElementById("closePopupbraspi");
+      
+        openPopupbraspiButton.addEventListener("click", function() {
+          popupbraspi.style.display = "block";
+        });
+      
+        closePopupbraspiButton.addEventListener("click", function() {
+          popupbraspi.style.display = "none";
+        });
+      </script>    
+    </div>                   
                   
 
   
@@ -817,14 +839,7 @@ input[type="text"] {
  
   
   
-  <div class="col-sm-2 col-xs-4">
-  <a href="https://radiobr.vercel.app/braspi/" class="m-b-20 btn btn-white btn-block">
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLPtfpmEQjpX6CmvmXDeZEqWAH8Irxk0uF7NuXHgYSzNOSyOAXNdorlFPvk1qEJxU_oKDe4IIOPMLjzoHh1LdGFuGOgyd_oW3O4wmPIWmyC1C0fQjSkqIcVVGyfwEFDGeeDklpPauYnj-6e6cQW1JvQPJiD9EShEBlXgkyNKYr5BBiB62bxZhgXrhy/s1600/braspi.jpeg" class="m-t-10 b-radius-5 img-responsive center-block" alt="Rádio Braspi" />
-  <h4 class="resumoDots p-t-15 p-b-5 no-margin text-center bold">Rádio Braspi</h4>
-  
-  
-  </a>
-  </div>
+
   
 
   
