@@ -687,6 +687,30 @@ input[type="text"] {
         });
       </script>    
     </div>
+
+    <div class="col-sm-2 col-xs-4">
+      <div id="popupsobrega" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; width: 250px; height: 180px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); z-index: 9999; border: 2px solid #ffcc00; border-radius: 10px;">
+        <button id="closePopupsobrega" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; cursor: pointer; font-size: 25px;">&times;</button>
+        <iframe src="https://radiobr.vercel.app/sobrega/" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+      </div>
+      <button id="openPopupsobrega" class="m-b-20 btn btn-white btn-block">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhu1Lg_CGjieaXLRAX36ktqMCO60RjrdBYmYrlcGgMp0ZFUExhKx7Cm4muiS03D_KQWg3DLjxHyM73q0_lF3wS5Ag8c43LKsgabcoAZpDnXp-JWoBh9MTqkVXnnTF_xEre0y3grmrMpel_Rr9QM8D-3VGCdbUxciCrqJfLQVsj0h5rnHJKcWFzgxyUl/s1600/sobrega11.png" class="m-t-10 b-radius-5 img-responsive center-block" alt="SÓ BREGA" />
+        <h4 class="resumoDots p-t-15 p-b-5 no-margin text-center bold">SÓ BREGA</h4>
+      </button>
+      <script>
+        var popupsobrega = document.getElementById("popupsobrega");
+        var openPopupsobregaButton = document.getElementById("openPopupsobrega");
+        var closePopupsobregaButton = document.getElementById("closePopupsobrega");
+      
+        openPopupsobregaButton.addEventListener("click", function() {
+          popupsobrega.style.display = "block";
+        });
+      
+        closePopupsobregaButton.addEventListener("click", function() {
+          popupsobrega.style.display = "none";
+        });
+      </script>    
+    </div>
   
  
   <div class="col-sm-2 col-xs-4">
@@ -701,20 +725,7 @@ input[type="text"] {
   </div>
   
 
-  
-  <div class="col-sm-2 col-xs-4">
-  <a href="https://jptv.netlify.app/rntbelem/" class="m-b-20 btn btn-white btn-block"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDWRuz8spcKduf4fCB-MtyQMMixkGNEXPDfAKa5d3fJDIyGrb4eVTpkbu2QkTn4SmvIqXGSIHbIVCZ6Y2VuZRryhJPOOq5oUe0o20tqC8LF_fAGsnMnTGy6l4OYuzXYFjDNuh-_aAC0hJdR2cVFNSrzzuxCIEvsolN0Y4T0tozbpmuVS3otWfleUgh/s1600/novotempo200.jpg" alt="" title="" width="140" height="140" class="img-responsive center-block lazyload" /></a>
-  </div>
-  
-
-  
-  <div class="col-sm-2 col-xs-4">
-  <a href="https://jptv.netlify.app/redeal/" class="m-b-20 btn btn-white btn-block"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLZTzcEwLsjOmwmkidxvhURT6LXMk2-B6O3IYfoKeulDBi7hqd5a5UXHMsFk6OPbQn9M09xKBUJmP1m78WC69i60s3uU1id9WjasHxokb3wYGLsSbwRpoky7odnD2cDt5HSlII1oWXCAIjIPxfYWac9WPLd9yMHITdL1apvvTulaIXDPU9DTlKEFio/s1600/redealeluia.heic" alt="" title="" width="140" height="140" class="img-responsive center-block lazyload" /></a>
-  </div>
-  
-  
-  
-  
+ 
   
   <div class="col-sm-2 col-xs-4">
   <a href="https://radiobr.vercel.app/campeirafm/" class="m-b-20 btn btn-white btn-block">
