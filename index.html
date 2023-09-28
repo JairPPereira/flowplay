@@ -905,7 +905,29 @@ input[type="text"] {
     </div> 
   
  
-
+    <div class="col-sm-2 col-xs-4">
+      <div id="popupmelodybr" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; width: 250px; height: 180px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); z-index: 9999; border: 2px solid #ffcc00; border-radius: 10px;">
+        <button id="closePopupcoque" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; cursor: pointer; font-size: 25px;">&times;</button>
+        <iframe src="https://ice.fabricahost.com.br/metropolitana985sp" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+      </div>
+      <button id="openPopupmelodybr" class="m-b-20 btn btn-white btn-block">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAAKoThzTwDdakYWzyj2mk2q8u8MwwDLq2eDe6nUyTPn3SIS1B8krElRexrM3fduTFWxNCIuTb-NC7tJmjQyYBkFXPkJDdRAaeCSrQV79_SnxHy9nRMnbx0UnOMUZgiEI3WzD6hIIH6Zh6ntbUOBqtmQc-hm0nSrHfDw9nD8ARHDHBPiP8DmyB-6oF/s1600/webcoqu.jpg" class="m-t-10 b-radius-5 img-responsive center-block" alt="COQUEIRAL" />
+        <h4 class="resumoDots p-t-15 p-b-5 no-margin text-center bold">MELODY BRAZIL</h4>
+      </button>
+      <script>
+        var popupmelodybr = document.getElementById("popupmelodybr");
+        var openPopupmelodybrButton = document.getElementById("openPopupmelodybr");
+        var closePopupmelodybrButton = document.getElementById("closePopupmelodybr");
+      
+        openPopupmelodybrButton.addEventListener("click", function() {
+          popupmelodybr.style.display = "block";
+        });
+      
+        closePopupmelodybrButton.addEventListener("click", function() {
+          popupmelodybr.style.display = "none";
+        });
+      </script>    
+    </div> 
   
 
    
