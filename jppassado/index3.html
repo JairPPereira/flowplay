@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Título da Música Dinâmico</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -11,27 +10,25 @@
     <!-- O título da música será exibido aqui dinamicamente -->
 </div>
 
+<!-- Seu arquivo HTML (por exemplo, index.html) -->
 <script>
-    // Função para atualizar o título da música
     function atualizarTituloMusica() {
-        // Faz uma chamada AJAX para obter o título da música
-        $.ajax({
-            url: 'obter_titulo_musica.php', // Página PHP que faz a chamada à API
-            dataType: 'json',
-            success: function(data) {
-                // Atualiza o título da música na página HTML
-                $('#tituloMusica').html('<p>Título da música: ' + data.title + '</p>');
-            },
-            complete: function() {
-                // Define um intervalo de 30 segundos para chamar a função novamente
+        fetch('/api/titulo-musica')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('tituloMusica').innerHTML = '<p>Título da música: ' + data.title + '</p>';
+            })
+            .catch(error => {
+                console.error('Erro ao obter dados da API:', error);
+            })
+            .finally(() => {
                 setTimeout(atualizarTituloMusica, 30000); // 30 segundos
-            }
-        });
+            });
     }
 
-    // Chama a função pela primeira vez para iniciar o processo de atualização
     atualizarTituloMusica();
 </script>
+
 
 </body>
 </html>
