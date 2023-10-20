@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da Música</title>
+</head>
+
+<body>
+    <h1>Título da Música Atual:</h1>
+    <p id="titulo-da-musica"></p>
+
+    <script>
+        function obterTituloDaAPI() {
+            // Fazendo uma requisição à rota do servidor proxy local
+            fetch('https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv')
+                .then(response => response.json())
+                .then(data => {
+                    // Extraindo o título do JSON retornado
+                    const titulo = data.title;
+                    console.log('Título da música:', titulo);
+
+                    // Atualizando o HTML com o título
+                    document.getElementById('titulo-da-musica').innerText = titulo;
+                })
+                .catch(error => console.error('Erro ao obter dados da API:', error));
+        }
+
+        // Chamando a função pela primeira vez
+        obterTituloDaAPI();
+
+        // Agendando a execução da função a cada 30 segundos
+        setInterval(obterTituloDaAPI, 30000); // 30 segundos em milissegundos
+    </script>
+</body>
+
+</html>
