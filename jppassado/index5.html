@@ -20,7 +20,6 @@
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="//www.google-analytics.com">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" as="script">
     <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/jquery.maskedinput.min.js" as="script">
@@ -79,7 +78,7 @@
                  border: none;
                  max-width: 832px;
                  max-height:480px;
-                 background-color: #3057e7;
+                 background-color: black;
                  background-size: cover;
                  background-position: center;
               }
@@ -128,87 +127,6 @@
             .tit{
               background-color: white;
             }
-            .player {
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                background-color: #0000CD;
-                max-width: 800px;
-                height: 150px;
-                margin: 0 10px;
-                box-shadow: 0 1px 10px gray;
-                padding: 10px;
-                border-radius: 5px;
-              }
-              
-              .logo {
-               
-                width: 40%;
-                height: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 5px;
-              }
-              
-              .logo i {
-                font-size: 150px;
-              }
-              
-              #musicName {
-                white-space: nowrap; 
-                width: 100%;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                font-size: 15px;
-              }
-              
-              .controls button {
-                border: none;
-                background-color: #0000CD;
-                cursor: pointer;
-              }
-              
-              .controls i {
-                font-size: 60px;
-                padding: 5px;
-                border-radius: 50%;
-                background-color:#206100;
-                transition: all .2s;
-              }
-              
-              .controls i:hover {
-                background-color: #206100;
-              }
-              
-              .time {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-              }
-              
-              .time span {
-                font-size: 22px;
-                color: white;
-              }
-              
-              .footer {
-                width: 100%;
-              }
-              
-              .progress-bar {
-                height: 8px;
-                background-color: #206100;
-                cursor: pointer;
-                margin-bottom: 5px;
-                border-radius: 5px;
-              }
-              
-              .progress {
-                height: 8px;
-                background-color: #206100;
-                border-radius: 5px;
-              }
             </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" class="page-home">
@@ -507,121 +425,24 @@
     <div class="row">
         <div class="text-center-xs" style="padding: 2px; min-height: 450px;"><center>
             <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;JP PASSADO</h1>
-            <div class="player">
-
-                <div class="logo">
-           <img alt="" border="0" style="height: 140px;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuTRd7sXpWS_VkvHqZYC4LxRQJ7HD5NjREATSZiRE1DH1nCnVrzTDEC23NoouuNTmni3KnWgTUPGJViMBvL9diC9HuztyDRJTVHtuxVg-eWegpgX-ERUp4T4s3jzI8OsM5T9737-WZJuYMd9pblwZ9cy02Xa_Irg-2JmNEX-ZLYNNczhDsTfM-OJO7wwc/s1600/32c6d7cfa58d76d77e3266f902274799.png.webp"/></a>
-                  
-            </div>    
-
-                
-                <audio id="player" src="https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA"></audio>
-                <div class="controls">
-                  <button id="prevButton"><box-icon name='cool'></box-icon></button>
-                  <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-                <button id="nextButton"><box-icon name='cool'></box-icon></button>
-                </div>
-                <div class="footer">
-                  <div class="progress-bar">
-                    <div class="progress"></div>
-                  </div>
-
-                  <div class="time">
-                    <span id="currentTime">0:00</span>
-                   
-                  </div>
-               
-                </div>
-              </div></center>
-              <script>
-                const player = document.querySelector("#player");
-                const musicName = document.querySelector("#musicName");
-                const playPauseButton = document.querySelector("#playPauseButton");
-                const prevButton = document.querySelector("#prevButton");
-                const nextButton = document.querySelector("#nextButton");
-                const currentTime = document.querySelector("#currentTime");
-                const duration = document.querySelector("#duration");
-                const progressBar = document.querySelector(".progress-bar");
-                const progress = document.querySelector(".progress");
-                
-              
-                
-                const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-                const textButtonPause = "<i class='bx bx-pause'></i>";
-                
-                let index = 0;
-                
-                prevButton.onclick = () => prevNextMusic("prev");
-                nextButton.onclick = () => prevNextMusic();
-                
-                playPauseButton.onclick = () => playPause();
-                
-                const playPause = () => {
-                  if (player.paused) {
-                    player.play();
-                    playPauseButton.innerHTML = textButtonPause;
-                  } else {
-                    player.pause();
-                    playPauseButton.innerHTML = textButtonPlay;
-                  }
-                };
-                
-                player.ontimeupdate = () => updateTime();
-                
-                const updateTime = () => {
-                  const currentMinutes = Math.floor(player.currentTime / 60);
-                  const currentSeconds = Math.floor(player.currentTime % 60);
-                  currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
-                
-                  const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
-                  const durationMinutes = Math.floor(durationFormatted / 60);
-                  const durationSeconds = Math.floor(durationFormatted % 60);
-                  duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
-                
-                  const progressWidth = durationFormatted
-                    ? (player.currentTime / durationFormatted) * 100
-                    : 0;
-                
-                  progress.style.width = progressWidth + "%";
-                };
-                
-                const formatZero = (n) => (n < 10 ? "0" + n : n);
-                
-                progressBar.onclick = (e) => {
-                  const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
-                  player.currentTime = newTime;
-                };
-                
-                const prevNextMusic = (type = "next") => {
-                  if ((type == "next" && index + 1 === songs.length) || type === "init") {
-                    index = 0;
-                  } else if (type == "prev" && index === 0) {
-                    index = songs.length;
-                  } else {
-                    index = type === "prev" && index ? index - 1 : index + 1;
-                  }
-                
-                  player.src = songs[index].src;
-                  musicName.innerHTML = songs[index].name;
-                  if (type !== "init") playPause();
-                
-                  updateTime();
-                };
-                
-                prevNextMusic("init"); 
-              </script>
-            <p>Localizada em Curuçá no estado de Pará. A Rádio Web Novata FM ao vivo, tem o slogan "Sua Melhor Estação! " e é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros MPB, Pop, Variedades.</p>
-            <div>
-            <span>&nbsp;Site:</span>&nbsp;<a href="https://zeno.fm/radio/6cstfe6za0hvv/" rel="nofollow noopener" target="_blank">Acessar</a>
+          <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
+            <iframe class="lazyload"
+        src="./index2.html"
+        width="100%" height="180px" allow="autoplay; encrypted-media; fullscreen; pincture in pincture"
+        target="_blank"
+            scrolling="no"
+            data-draggable="none"
+            marginwidth="0"
+            marginheight="0"
+            data-popup="none" 
+            frameborder="0"
+        > </iframe>
+        </section>
                 </div>
   </div>
     </div>
     </div>
     </section>
-</div>
-</div>
-  </div>
-  </div>
     <section class="p-t-40 p-b-80">
         <div class="container">
         <div class="row">
