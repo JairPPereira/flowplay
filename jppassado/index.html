@@ -125,10 +125,11 @@
             float: right;
             margin-right: 20px; /* Adicione espaço à direita para separar outros itens */
             }
+            
             .tit{
               background-color: white;
             }
-            .player {
+            .player-container {
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
@@ -141,15 +142,9 @@
                 border-radius: 5px;
               }
               
-              .logo {
                
-                width: 40%;
-                height: 100px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 10px;
-              }
+                .artwork img{width:100%;border-radius:5.42857%;aspect-ratio:1;object-fit:cover}@media screen and (min-width: 647px){.artwork{position:relative;top:0;left:0;flex-shrink:0;width:144px;height:144px;margin:8px 8px 10px 8px}.artwork img{border-radius:8px}}
+              
               
               .logo i {
                 font-size: 150px;
@@ -167,6 +162,8 @@
                 border: none;
                 background-color: #0000CD;
                 cursor: pointer;
+                object-fit:cover;
+                
               }
               
               .controls i {
@@ -175,10 +172,15 @@
                 border-radius: 50%;
                 background-color:#206100;
                 transition: all .2s;
+                object-fit:cover;
+                position:relative;
               }
+        
               
               .controls i:hover {
                 background-color: #206100;
+                object-fit:cover;
+                position:relative;
               }
               
               .time {
@@ -508,12 +510,10 @@
         <div class="text-center-xs" style="padding: 2px; min-height: 450px;"><center>
             <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;JP PASSADO</h1>
             <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
-            <div class="player">
+            <div class="player-container">
 
-                <div class="logo">
-           <img alt="" border="0" style="height: 120px;" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihEYtJYt5F40M085_rGT-rj8NqabnfQLAmhkK4YqH2NYEYNZX93hUexBUXGBY1GmqgAx2EVhVQRJCW3ntgCHyHzDY9ITYCT_UAhCDa70SJJC15QZotDPxGO2GT-WXgHkcjD2kbLu4LBu8L6jblsD9EynNuu8Qiu1PlQzEdXqYLnRKS_8fNusRXFGdowc0/s1600/passado.webp"/></a>
-                  
-            </div>    
+                <div id="artwork" class="artwork"><div class="artwork-container"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihEYtJYt5F40M085_rGT-rj8NqabnfQLAmhkK4YqH2NYEYNZX93hUexBUXGBY1GmqgAx2EVhVQRJCW3ntgCHyHzDY9ITYCT_UAhCDa70SJJC15QZotDPxGO2GT-WXgHkcjD2kbLu4LBu8L6jblsD9EynNuu8Qiu1PlQzEdXqYLnRKS_8fNusRXFGdowc0/s1600/passado.webp" alt="capa"></div></div>
+ 
 
                 
                 <audio id="player" src="https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA"></audio>
