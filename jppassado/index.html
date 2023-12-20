@@ -211,6 +211,24 @@
                 background-color: #206100;
                 border-radius: 5px;
               }
+              .column {-webkit-text-size-adjust: 100%;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                color: #000;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font: inherit;
+                vertical-align: baseline;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+            }
+            h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}table{border-collapse:collapse;border-spacing:0}*{box-sizing:border-box}.title{height:62px;width:calc(100% - 68px);overflow:hidden}@media screen and (min-width: 647px){.title{height:82px;width:100%}}.titles-container{padding-right:26px;white-space:nowrap;font-family:"Open Sans",sans-serif;font-style:normal}@media screen and (min-width: 647px){.titles-container{padding:8px}}.titles-container h2{margin-top:8px;font-weight:400;font-size:14px;line-height:16px;color:#888}.episode-title{overflow:hidden;font-weight:700;font-size:18px;color:#262626;position:relative;height:25px}.episode-title:hover .marquee{animation-play-state:paused}.marquee{position:absolute;min-width:100%;animation:marquee 7s 1s linear infinite;animation-play-state:running;will-change:contents;padding-right:60px}@keyframes marquee{0%{transform:translateX(0%)}30%{transform:translateX(0%)}100%{transform:translateX(-100%)}}
+            .player-container{position:relative}.player-multicontent{padding:8px;min-width:320px;background-color:#f2f2f2;border-radius:12px;display:flex}.column{flex-grow:1;display:flex;flex-direction:column;align-items:end}@media screen and (min-width: 647px){.column{align-items:start}}.player-web{width:100%;margin-top:12px;padding-bottom:8px}
             </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" class="page-home">
@@ -506,7 +524,7 @@
   
   <section class="p-t-40 p-b-80">
     <div class="container">
-    <div class="row">
+        <div class="row">
         <div class="text-center-xs" style="padding: 2px; min-height: 450px;"><center>
             <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;JP PASSADO</h1>
             <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
@@ -535,97 +553,108 @@
                 </div>
                 
               </div><div class="row" style="max-width: 800px; padding: 20px;">
-              <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Curuçá no estado de Pará. A Rádio Web JP PASSADO, tem o slogan "AS MELODIAS QUE ENCANTARAM GERAÇÕES " e é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros BREGA.
-               </div></center></section>
-              <script>
-                const player = document.querySelector("#player");
-                const musicName = document.querySelector("#musicName");
-                const playPauseButton = document.querySelector("#playPauseButton");
-                const prevButton = document.querySelector("#prevButton");
-                const nextButton = document.querySelector("#nextButton");
-                const currentTime = document.querySelector("#currentTime");
-                const duration = document.querySelector("#duration");
-                const progressBar = document.querySelector(".progress-bar");
-                const progress = document.querySelector(".progress");
+                <div class="column">
+                                    
+                  
+                  
+                  
+                  <div id="title" class="title"><div class="titles-container"><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee">AS MELODIAS QUE ENCANTARAM GERAÇÕES</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 818px;">AS MELODIAS QUE ENCANTARAM GERAÇÕES</h1></div></div></div> <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada no estado de Pará. A Rádio Web JP PASSADO é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros BREGA.</p>
+                  </center>
                 
+                </div>
               
-                
-                const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-                const textButtonPause = "<i class='bx bx-pause'></i>";
-                
-                let index = 0;
-                
-                prevButton.onclick = () => prevNextMusic("prev");
-                nextButton.onclick = () => prevNextMusic();
-                
-                playPauseButton.onclick = () => playPause();
-                
-                const playPause = () => {
-                  if (player.paused) {
-                    player.play();
-                    playPauseButton.innerHTML = textButtonPause;
-                  } else {
-                    player.pause();
-                    playPauseButton.innerHTML = textButtonPlay;
-                  }
-                };
-                
-                player.ontimeupdate = () => updateTime();
-                
-                const updateTime = () => {
-                  const currentMinutes = Math.floor(player.currentTime / 60);
-                  const currentSeconds = Math.floor(player.currentTime % 60);
-                  currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
-                
-                  const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
-                  const durationMinutes = Math.floor(durationFormatted / 60);
-                  const durationSeconds = Math.floor(durationFormatted % 60);
-                  duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
-                
-                  const progressWidth = durationFormatted
-                    ? (player.currentTime / durationFormatted) * 100
-                    : 0;
-                
-                  progress.style.width = progressWidth + "%";
-                };
-                
-                const formatZero = (n) => (n < 10 ? "0" + n : n);
-                
-                progressBar.onclick = (e) => {
-                  const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
-                  player.currentTime = newTime;
-                };
-                
-                const prevNextMusic = (type = "next") => {
-                  if ((type == "next" && index + 1 === songs.length) || type === "init") {
-                    index = 0;
-                  } else if (type == "prev" && index === 0) {
-                    index = songs.length;
-                  } else {
-                    index = type === "prev" && index ? index - 1 : index + 1;
-                  }
-                
-                  player.src = songs[index].src;
-                  musicName.innerHTML = songs[index].name;
-                  if (type !== "init") playPause();
-                
-                  updateTime();
-                };
-                
-                prevNextMusic("init"); 
-              </script>
+              </div>
+            </div></section>
+
             
             <div>
           
                 </div>
-  </div>
+             </div>
+           </div>
     </div>
-    </div>
-    </section>
+  </section>
 </div>
 </div>
   </div>
   </div>
+  <script>
+    const player = document.querySelector("#player");
+    const musicName = document.querySelector("#musicName");
+    const playPauseButton = document.querySelector("#playPauseButton");
+    const prevButton = document.querySelector("#prevButton");
+    const nextButton = document.querySelector("#nextButton");
+    const currentTime = document.querySelector("#currentTime");
+    const duration = document.querySelector("#duration");
+    const progressBar = document.querySelector(".progress-bar");
+    const progress = document.querySelector(".progress");
+    
+  
+    
+    const textButtonPlay = "<i class='bx bx-caret-right'></i>";
+    const textButtonPause = "<i class='bx bx-pause'></i>";
+    
+    let index = 0;
+    
+    prevButton.onclick = () => prevNextMusic("prev");
+    nextButton.onclick = () => prevNextMusic();
+    
+    playPauseButton.onclick = () => playPause();
+    
+    const playPause = () => {
+      if (player.paused) {
+        player.play();
+        playPauseButton.innerHTML = textButtonPause;
+      } else {
+        player.pause();
+        playPauseButton.innerHTML = textButtonPlay;
+      }
+    };
+    
+    player.ontimeupdate = () => updateTime();
+    
+    const updateTime = () => {
+      const currentMinutes = Math.floor(player.currentTime / 60);
+      const currentSeconds = Math.floor(player.currentTime % 60);
+      currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
+    
+      const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
+      const durationMinutes = Math.floor(durationFormatted / 60);
+      const durationSeconds = Math.floor(durationFormatted % 60);
+      duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
+    
+      const progressWidth = durationFormatted
+        ? (player.currentTime / durationFormatted) * 100
+        : 0;
+    
+      progress.style.width = progressWidth + "%";
+    };
+    
+    const formatZero = (n) => (n < 10 ? "0" + n : n);
+    
+    progressBar.onclick = (e) => {
+      const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+      player.currentTime = newTime;
+    };
+    
+    const prevNextMusic = (type = "next") => {
+      if ((type == "next" && index + 1 === songs.length) || type === "init") {
+        index = 0;
+      } else if (type == "prev" && index === 0) {
+        index = songs.length;
+      } else {
+        index = type === "prev" && index ? index - 1 : index + 1;
+      }
+    
+      player.src = songs[index].src;
+      musicName.innerHTML = songs[index].name;
+      if (type !== "init") playPause();
+    
+      updateTime();
+    };
+    
+    prevNextMusic("init"); 
+  </script>
     <section class="p-t-40 p-b-80">
         <div class="container">
         <div class="row">
