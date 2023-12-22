@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br" class=" js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head>
     <meta charset="utf-8">
-    <title>RÁDIO 99 FM Ao Vivo Online Grátis | JP RÁDIOS</title>
+    <title>Super Rádio Marajoara - 1130 AM Ao Vivo Online Grátis | JP RÁDIOS</title>
     <meta name="theme-color" content="#3057e7">
-    <meta name="description" content="Ouvir RÁDIO 99 FM AO VIVO." />
+    <meta name="description" content="Ouvir Super Rádio Marajoara - 1130 AM AO VIVO." />
     <meta name="keywords" content="Rádio, rádio online, rádio ao vivo, rádios, rádios ao vivo, webrádio, rádio internet, canal online, emissora online, streaming de rádios">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:title" content="RÁDIO 99 FM - Ouvir RÁDIO Ao Vivo Grátis | JP RÁDIOS">
+    <meta property="og:title" content="Super Rádio Marajoara - 1130 AM - Ouvir RÁDIO Ao Vivo Grátis | JP RÁDIOS">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVrl3ECf_v9lpBdO4I85PPCbO1IW-mYteNGyUu4-m1dLgP22Vvcr3ReAUnVmBRfBrSuH6Y2QiWajV7g24_c8pYTh9DY1XDnWR0tucnUmqM1KohaeXnFtCSHZoZQ3SDrLABC2xcAkE-L67GaWGEIrcToU3U0OCs0_8V_9voViFFHjtClq07ySS9EWsUaXc/s1600/RADIO_99_FM_BELEM_PA.jpg.webp">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
     <meta name="monetag" content="808edd21f55aaf96ba226740e5a3fa88">
     <meta property="og:url" content="https://radiobr.vercel.app/">
-    <meta property="og:site_name" content="Ouça RÁDIO 99 FM na JP RÁDIOS">
-    <meta property="og:description" content="Ouça RÁDIO 99 FM ao VIVO.">
+    <meta property="og:site_name" content="Ouça Super Rádio Marajoara - 1130 AM na JP RÁDIOS">
+    <meta property="og:description" content="Ouça Super Rádio Marajoara - 1130 AM ao VIVO.">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="//www.google-analytics.com">
@@ -138,8 +138,10 @@
                 height: 150px;
                 margin: 0 10px;
                 box-shadow: 0 1px 10px gray;
-                padding: 10px;
+                padding: 5px;
                 border-radius: 5px;
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 15px;
               }
               
                
@@ -526,43 +528,38 @@
     <div class="container">
         <div class="row">
         <div class="text-center-xs" style="padding: 2px; min-height: 470px;"><center>
-            <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;RÁDIO 99 FM</h1>
+            <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;Super Rádio Marajoara - 1130 AM</h1>
             <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
             <div class="player-container">
-
+            
                 <div id="artwork" class="artwork"><div class="artwork-container"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVrl3ECf_v9lpBdO4I85PPCbO1IW-mYteNGyUu4-m1dLgP22Vvcr3ReAUnVmBRfBrSuH6Y2QiWajV7g24_c8pYTh9DY1XDnWR0tucnUmqM1KohaeXnFtCSHZoZQ3SDrLABC2xcAkE-L67GaWGEIrcToU3U0OCs0_8V_9voViFFHjtClq07ySS9EWsUaXc/s1600/RADIO_99_FM_BELEM_PA.jpg.webp" alt="capa"></div></div>
  
-
+              
                 
                 <audio id="player" src="https://hts02.kshost.com.br:8862/live"></audio>
                 <div class="controls">
                   <button id="prevButton"><box-icon name='cool'></box-icon></button>
                   <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-                <button id="nextButton"><box-icon name='cool'></box-icon></button>
+                  <button id="nextButton"><box-icon name='cool'></box-icon></button>
                 </div>
+                
                 <div class="footer">
                   <div class="progress-bar">
                     <div class="progress"></div>
                   </div>
 
-                  <div class="time">
-                    <span id="currentTime">0:00</span>
+                  <div id="title" class="title" style="width: 100%;">
                    
-                  </div>
-               
-                </div>
-                
-              </div><div class="row" style="max-width: 800px; padding: 20px;">
-                <div class="column">
-                                    
-                  
-                  
-                  
-                  <div id="title" class="title"><div class="titles-container"><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee">Sucesso em 1° lugar.</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 818px;">Sucesso em 1° lugar.</h1></div></div></div> <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Belém no estado de Pará. A Rádio 99FM ao vivo é transmitida via rádio online e também pela frequência 99.9 FM em toda região de Belém. Conta com uma programação ao vivo, com os gêneros Brega, Notícias.<span>&nbsp;Site:</span>&nbsp;<a href="https://www.radiorauland.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p></div></center>
-                
-                </div>
+                    <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">Sucesso em 1° lugar.</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 500px; color: white;">Sucesso em 1° lugar.</h1></center></div></div></div>
+                  </div>      
+                    <div class="text-center-xs" style="margin-top: 20px;"><center><p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Belém no estado de Pará. A Rádio 99FM ao vivo é transmitida via rádio online e também pela frequência 99.9 FM em toda região de Belém. Conta com uma programação ao vivo, com os gêneros Brega, Notícias.<span>&nbsp;Site:</span>&nbsp;<a href="https://99fm.dol.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+            </div>
+         
+        
+        </div>
+         
               
-              </div>
+              
             </div></section>
 
             
@@ -664,8 +661,7 @@
         
         <footer class="text-center-xs text-center-sm  bg-dark text-white p-t-50 p-b-10">
         <div class="container">
-      
-      
+
         <div class="col-md-3 text-center m-b-20">
       
         </div>
