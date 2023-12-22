@@ -135,19 +135,21 @@
                 justify-content: space-around;
                 background-color: #0000CD;
                 max-width: 800px;
-                height: 150px;
+                height: 100px;
                 margin: 0 10px;
                 box-shadow: 0 1px 10px gray;
-                padding: 10px;
+                padding: 5px;
                 border-radius: 5px;
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 15px;
               }
               
                
-                .artwork img{width:100%;border-radius:5.42857%;aspect-ratio:1;object-fit:cover}@media screen and (min-width: 647px){.artwork{position:relative;top:0;left:0;flex-shrink:0;width:144px;height:144px;margin:8px 8px 10px 8px}.artwork img{border-radius:8px}}
+                .artwork img{width:100%;border-radius:5.42857%;aspect-ratio:1;object-fit:cover}@media screen and (min-width: 647px){.artwork{position:relative;top:0;left:0;flex-shrink:0;width:100px;height:100px;margin:8px 8px 10px 8px}.artwork img{border-radius:8px}}
               
               
               .logo i {
-                font-size: 150px;
+                font-size: 100px;
               }
               
               #musicName {
@@ -160,14 +162,17 @@
               
               .controls button {
                 border: none;
+                width: 90%;
+                height: 20px;
                 background-color: #0000CD;
                 cursor: pointer;
                 object-fit:cover;
+                position:center;
                 
               }
               
               .controls i {
-                font-size: 60px;
+                font-size: 40px;
                 padding: 5px;
                 border-radius: 50%;
                 background-color:#206100;
@@ -529,40 +534,36 @@
             <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;RÁDIO MIX FM BELÉM</h1>
             <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
             <div class="player-container">
-
+            
                 <div id="artwork" class="artwork"><div class="artwork-container"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPfr8B8P-GZEoa4VImJdeLuTx2mTRVubd5apK69w6mmZ_H-fC7DHwzo7JVIwUqKnoaLVqDPnRL_nrnC9P6ML3gfxmTI_90JWIqvKn-lYilgSBUosg6BXPznh1BywwlA_s3t3IwDmRqhyphenhyphenZMKcmY-5bhwO-v-4NS54LenzEz6swxkoSXxnmWFd7mwaURSCA/s1600/mixfm.jpg.webp" alt="capa"></div></div>
  
-
+              
                 
                 <audio id="player" src="https://26513.live.streamtheworld.com/MIXFM_BELEMPARAAAC_SC"></audio>
                 <div class="controls">
                   <button id="prevButton"><box-icon name='cool'></box-icon></button>
                   <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-                <button id="nextButton"><box-icon name='cool'></box-icon></button>
+                  <button id="nextButton"><box-icon name='cool'></box-icon></button>
                 </div>
+                
                 <div class="footer">
                   <div class="progress-bar">
                     <div class="progress"></div>
                   </div>
 
-                  <div class="time">
-                    <span id="currentTime">0:00</span>
+                  <div id="title" class="title" style="width: 100%;">
                    
-                  </div>
-               
-                </div>
-                
-              </div><div class="row" style="max-width: 800px; padding: 20px;">
-                <div class="column">
-                                    
-                  
-                  
-                  
-                  <div id="title" class="title"><div class="titles-container"><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee">O melhor Mix do Brasil!</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 818px;">O melhor Mix do Brasil!</h1></div></div></div> <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;A Mix FM Belém é uma emissora de rádio brasileira sediada em Belém, capital do estado do Pará. Opera no dial FM, na frequência 100.9 MHz, e é afiliada à Mix FM.<span>&nbsp;Site:</span>&nbsp;<a href="https://belem.radiomixfm.com.br/home/" rel="nofollow noopener" target="_blank">Acessar</a></p></div></center>
-                
-                </div>
+                    <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">O melhor Mix do Brasil!</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 500px; color: white;">O melhor Mix do Brasil!</h1></center></div></div></div>
+                  </div>      
+                    <div class="text-center-xs" style="margin-top: 20px;"><center>
+                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;A Mix FM Belém é uma emissora de rádio brasileira sediada em Belém, capital do estado do Pará. Opera no dial FM, na frequência 100.9 MHz, e é afiliada à Mix FM.<span>&nbsp;Site:</span>&nbsp;<a href="https://belem.radiomixfm.com.br/home/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+            </div>
+         
+        
+        </div>
+         
               
-              </div>
+              
             </div></section>
 
             
@@ -664,8 +665,7 @@
         
         <footer class="text-center-xs text-center-sm  bg-dark text-white p-t-50 p-b-10">
         <div class="container">
-      
-      
+
         <div class="col-md-3 text-center m-b-20">
       
         </div>
