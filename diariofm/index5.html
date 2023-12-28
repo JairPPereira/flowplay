@@ -21,17 +21,9 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="//www.google-analytics.com">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://radiobr.vercel.app/assets/css/cxradio.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-    
-    
-    <link href="https://radiobr.vercel.app/assets/css/cxPlayer.min.css" type="text/css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js"></script>
-    <script src="https://radiobr.vercel.app/assets/plugins/player/player.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" as="script">
+    <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/jquery.maskedinput.min.js" as="script">
   
     <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/validation/js/formValidation.min.js" as="script">
     <link rel="preload" href="/assets/plugins/validation/js/language/pt_BR.js" as="script">
@@ -121,7 +113,7 @@
             }
             /* Estilize a caixa de pesquisa com bordas arredondadas e outros estilos desejados */
             input[type="text"] {
-            padding: 5px;
+            padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 18px;
@@ -137,12 +129,106 @@
             .tit{
               background-color: white;
             }
-            
+            .player-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background-color: #0000CD;
+                max-width: 800px;
+                height: 150px;
+                margin: 0 10px;
+                box-shadow: 0 1px 10px gray;
+                padding: 5px;
+                border-radius: 5px;
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 15px;
+              }
+              
                
                 .artwork img{width:100%;border-radius:5.42857%;aspect-ratio:1;object-fit:cover}@media screen and (min-width: 647px){.artwork{position:relative;top:0;left:0;flex-shrink:0;width:144px;height:144px;margin:8px 8px 10px 8px}.artwork img{border-radius:8px}}
               
               
-            
+              .logo i {
+                font-size: 150px;
+              }
+              
+              #musicName {
+                white-space: nowrap; 
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 15px;
+              }
+              
+              .controls button {
+                border: none;
+                background-color: #0000CD;
+                cursor: pointer;
+                object-fit:cover;
+                
+              }
+              
+              .controls i {
+                font-size: 60px;
+                padding: 5px;
+                border-radius: 50%;
+                background-color:#206100;
+                transition: all .2s;
+                object-fit:cover;
+                position:relative;
+              }
+        
+              
+              .controls i:hover {
+                background-color: #206100;
+                object-fit:cover;
+                position:relative;
+              }
+              
+              .time {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              
+              .time span {
+                font-size: 22px;
+                color: white;
+              }
+              
+              .footer {
+                width: 100%;
+              }
+              
+              .progress-bar {
+                height: 8px;
+                background-color: #206100;
+                cursor: pointer;
+                margin-bottom: 5px;
+                border-radius: 5px;
+              }
+              
+              .progress {
+                height: 8px;
+                background-color: #206100;
+                border-radius: 5px;
+              }
+              .column {-webkit-text-size-adjust: 100%;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                color: #000;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font: inherit;
+                vertical-align: baseline;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+            }
             h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}table{border-collapse:collapse;border-spacing:0}*{box-sizing:border-box}.title{height:62px;width:calc(100% - 68px);overflow:hidden}@media screen and (min-width: 647px){.title{height:82px;width:100%}}.titles-container{padding-right:26px;white-space:nowrap;font-family:"Open Sans",sans-serif;font-style:normal}@media screen and (min-width: 647px){.titles-container{padding:8px}}.titles-container h2{margin-top:8px;font-weight:400;font-size:14px;line-height:16px;color:#888}.episode-title{overflow:hidden;font-weight:700;font-size:18px;color:#262626;position:relative;height:25px}.episode-title:hover .marquee{animation-play-state:paused}.marquee{position:absolute;min-width:100%;animation:marquee 7s 1s linear infinite;animation-play-state:running;will-change:contents;padding-right:60px}@keyframes marquee{0%{transform:translateX(0%)}30%{transform:translateX(0%)}100%{transform:translateX(-100%)}}
             .player-container{position:relative}.player-multicontent{padding:8px;min-width:320px;background-color:#f2f2f2;border-radius:12px;display:flex}.column{flex-grow:1;display:flex;flex-direction:column;align-items:end}@media screen and (min-width: 647px){.column{align-items:start}}.player-web{width:100%;margin-top:12px;padding-bottom:8px}
             </style>
@@ -440,54 +526,42 @@
   
   <section class="p-t-40 p-b-80">
     <div class="container">
-        <div class="row" style="min-height: 460px;">
-        <center>
-         
+        <div class="row">
+        <div class="text-center-xs" style="padding: 2px; min-height: 470px;"><center>
+            <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;DIÁRIO FM 92,9</h1>
             <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
-           
-              <div id="playerbox" class="p-t-20" style=" padding: 4px;">
-                <div class="cxPlayer" id="stream1">
-                    <div class="player-wpr">
-                        <div class="bg-black accent-deeporange" style="background-color: #0000CD;">
-                                <div class="ppBtn play-btn" onclick="togglePlayPause()"></div>
-                                <div class="blur"></div>
-                                <div class="player-ctr">
-                                    <div class="album-cover-wpr">
-                                        <div class="album-cover animated" id="coverHolder" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlLQ9bg8gPxFZginEUlnTF4mKDzvNXXm385OQN74inOLPd1drdk65nFb46_MCuAz6b6xV6PY67EBh1hv9pfVdmcNhAbjxapE3_Qq1PNjGMxMwRR9WiP_iqdYIGlzcJxXOxc7D9bn8t0nw71qV6_rdXpFkVHaL9c2kKfKFr1ZZZ9e7RpNRzoBokS0ZK/s1600/diario.heic'); background-size: 100% 100%;"></div>
-                                    </div>
-                                    <div class="track-info animated">
-                                        <div id="currentSong" class="track-title animated">DIÁRIO FM 92,9</div>
-                                        <div id="title" class="title" style="width: 100%;">
-                   
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">O prazer de ouvir boa música</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;">O prazer de ouvir boa música</h1></div></center></div></div>
-                                        <div id="artistName" class="artist-name animated"></div>
-                                        <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
-                                            <source src="https://hts02.kshost.com.br:8856/live" type="audio/mp3">
-                                            Seu navegador não suporta o elemento de áudio.
-                                        </audio>
-                                    </div>
-                                    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-               
+            <div class="player-container">
             
-   
+                <div id="artwork" class="artwork"><div class="artwork-container"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlLQ9bg8gPxFZginEUlnTF4mKDzvNXXm385OQN74inOLPd1drdk65nFb46_MCuAz6b6xV6PY67EBh1hv9pfVdmcNhAbjxapE3_Qq1PNjGMxMwRR9WiP_iqdYIGlzcJxXOxc7D9bn8t0nw71qV6_rdXpFkVHaL9c2kKfKFr1ZZZ9e7RpNRzoBokS0ZK/s1600/diario.heic" alt="capa"></div></div>
+ 
+              
+                
+                <audio id="player" src="https://hts02.kshost.com.br:8856/live"></audio>
+                <div class="controls">
+                  <button id="prevButton"><box-icon name='cool'></box-icon></button>
+                  <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
+                  <button id="nextButton"><box-icon name='cool'></box-icon></button>
+                </div>
+                
+                <div class="footer">
+                  <div class="progress-bar">
+                    <div class="progress"></div>
+                  </div>
+
+                  <div id="title" class="title" style="width: 100%;">
+                   
+                    <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">O Prazer de ouvir boa música</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 500px; color: white;">O Prazer de ouvir boa música</h1></center></div></div></div>
+                  </div>      
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
                       <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Belém no estado de Pará. A Rádio Diário FM ao vivo é transmitida via rádio online e também pela frequência 92.9 FM em toda região de Belém. Conta com uma programação ao vivo, com o gênero Adulto Contemporâneo.<span>&nbsp;Site:</span>&nbsp;<a href="https://diariofm.dol.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
-               </div>
+            </div>
          
         
-     
-            </section>
+        </div>
+         
               
               
-               </div>
-            </section>
-
-
+            </div></section>
 
             
             <div>
@@ -501,7 +575,83 @@
 </div>
   </div>
   </div>
-
+  <script>
+    const player = document.querySelector("#player");
+    const musicName = document.querySelector("#musicName");
+    const playPauseButton = document.querySelector("#playPauseButton");
+    const prevButton = document.querySelector("#prevButton");
+    const nextButton = document.querySelector("#nextButton");
+    const currentTime = document.querySelector("#currentTime");
+    const duration = document.querySelector("#duration");
+    const progressBar = document.querySelector(".progress-bar");
+    const progress = document.querySelector(".progress");
+    
+  
+    
+    const textButtonPlay = "<i class='bx bx-caret-right'></i>";
+    const textButtonPause = "<i class='bx bx-pause'></i>";
+    
+    let index = 0;
+    
+    prevButton.onclick = () => prevNextMusic("prev");
+    nextButton.onclick = () => prevNextMusic();
+    
+    playPauseButton.onclick = () => playPause();
+    
+    const playPause = () => {
+      if (player.paused) {
+        player.play();
+        playPauseButton.innerHTML = textButtonPause;
+      } else {
+        player.pause();
+        playPauseButton.innerHTML = textButtonPlay;
+      }
+    };
+    
+    player.ontimeupdate = () => updateTime();
+    
+    const updateTime = () => {
+      const currentMinutes = Math.floor(player.currentTime / 60);
+      const currentSeconds = Math.floor(player.currentTime % 60);
+      currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
+    
+      const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
+      const durationMinutes = Math.floor(durationFormatted / 60);
+      const durationSeconds = Math.floor(durationFormatted % 60);
+      duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
+    
+      const progressWidth = durationFormatted
+        ? (player.currentTime / durationFormatted) * 100
+        : 0;
+    
+      progress.style.width = progressWidth + "%";
+    };
+    
+    const formatZero = (n) => (n < 10 ? "0" + n : n);
+    
+    progressBar.onclick = (e) => {
+      const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+      player.currentTime = newTime;
+    };
+    
+    const prevNextMusic = (type = "next") => {
+      if ((type == "next" && index + 1 === songs.length) || type === "init") {
+        index = 0;
+      } else if (type == "prev" && index === 0) {
+        index = songs.length;
+      } else {
+        index = type === "prev" && index ? index - 1 : index + 1;
+      }
+    
+      player.src = songs[index].src;
+      musicName.innerHTML = songs[index].name;
+      if (type !== "init") playPause();
+    
+      updateTime();
+    };
+    
+    prevNextMusic("init"); 
+  </script>
     <section class="p-t-40 p-b-80">
         <div class="container">
         <div class="row">
@@ -512,31 +662,10 @@
         
         <footer class="text-center-xs text-center-sm  bg-dark text-white p-t-50 p-b-10">
         <div class="container">
-         
-      
+
         <div class="col-md-3 text-center m-b-20">
       
         </div>
-        <script>
-            var audio = document.getElementById("audio");
-            var playBtn = document.querySelector(".ppBtn.play-btn");
-        
-            function togglePlayPause() {
-                if (audio.paused) {
-                    audio.play();
-                } else {
-                    audio.pause();
-                }
-            }
-        
-            function handlePlay() {
-                playBtn.style.backgroundImage = 'url("/assets/img/cxPlayer/pausew.svg")';
-            }
-        
-            function handlePause() {
-                playBtn.style.backgroundImage = 'url("/assets/img/cxPlayer/playw.svg")';
-            }
-        </script>
        
         <div class="col-md-12 text-right m-t-20">
         <a href="https://www.JP TV.com.br/politica-de-privacidade" class="text-white s2 m-r-10">Política de Privacidade</a>
@@ -544,16 +673,14 @@
           JP RÁDIOS</a> | All rights reserved </div>
         </div>
         </footer>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://radiobr.vercel.app/assets/css/font-open-sans.css" rel="stylesheet" type="text/css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-        <script async="" src="https://radiobr.vercel.app/assets/js/infinitta.min.js??cache=adfge" type="text/javascript"></script>
+        <script async="" src="https://jptv.netlify.app/assets/js/infinitta.min.js??cache=adfge" type="text/javascript"></script>
         
-        <script src="https://radiobr.vercel.app/assets/plugins/jquery.maskedinput.min.js" type="text/javascript"></script>
+        <script src="https://jptv.netlify.app/assets/plugins/jquery.maskedinput.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="https://radiobr.vercel.app/assets/plugins/validation/css/formValidation.min.css">
-        <script src="https://radiobr.vercel.app/assets/plugins/jquery.hc-sticky.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://jptv.netlify.app/assets/plugins/validation/css/formValidation.min.css">
+        <script src="https://jptv.netlify.app/assets/plugins/jquery.hc-sticky.min.js" type="text/javascript"></script>
         <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;767ab6a5bd67a67e&quot;,&quot;token&quot;:&quot;29f3df555cf44e79b31edba47c27cbf8&quot;,&quot;version&quot;:&quot;2022.11.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
         </body></html>
