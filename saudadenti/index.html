@@ -21,9 +21,17 @@
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="//www.google-analytics.com">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" as="script">
-    <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/jquery.maskedinput.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://radiobr.vercel.app/assets/css/cxradio.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    
+    
+    <link href="https://radiobr.vercel.app/assets/css/cxPlayer.min.css" type="text/css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js"></script>
+    <script src="https://radiobr.vercel.app/assets/plugins/player/player.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
   
     <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/validation/js/formValidation.min.js" as="script">
     <link rel="preload" href="/assets/plugins/validation/js/language/pt_BR.js" as="script">
@@ -527,37 +535,46 @@
   <section class="p-t-40 p-b-80">
     <div class="container">
         <div class="row">
-        <div class="text-center-xs" style="padding: 2px; min-height: 470px;"><center>
-            <h1 class="bold no-margin medium-3"><i class="fas fa-music fa-fw"></i>&nbsp;Rádio Studio Souto - Brega Hits</h1>
+        <center>
+         
             <section class="video bg-silver b-radius-5 padding-5" style="max-width: 832px;">
-            <div class="player-container">
-            
-                <div id="artwork" class="artwork"><div class="artwork-container"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgF_h2AFivQGWksoxxf0-nfhA0sS2K5oxKPoMcY3TuJ-LgCIqNNEGdya2Zxi1dTa1GIi54qGGuHsbXtmyE96fZInAUD86YqmOwBjJR_x8KSlz3qXwiBfHQPZeV_Bk1sMoIO9nQWyKfOCgK6Zk4aII16b1fSaxpqYmqVoPnqN65VRwhCI7cdOJztrWN9PWQ/s1600/radiosoutobr2.webp" alt="capa"></div></div>
- 
-              
-                
-                <audio id="player" src="https://centova5.transmissaodigital.com:20010/;stream.mp3"></audio>
-                <div class="controls">
-                  <button id="prevButton"><box-icon name='cool'></box-icon></button>
-                  <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-                  <button id="nextButton"><box-icon name='cool'></box-icon></button>
-                </div>
-                
-                <div class="footer">
-                  <div class="progress-bar">
-                    <div class="progress"></div>
-                  </div>
-
-                  <div id="title" class="title" style="width: 100%;">
+           
+                <div id="playerbox" class="p-t-20">
+                    <div class="cxPlayer" id="stream1">
+                        <div class="player-wpr">
+                            <div class="bg-black accent-deeporange">
+                                <div class="ppBtn play-btn" onclick="togglePlayPause()"></div>
+                                <div class="blur"></div>
+                                <div class="player-ctr">
+                                    <div class="album-cover-wpr">
+                                        <div class="album-cover animated" id="coverHolder" style="background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimvMoSQgfCV37criYqgbAu4x8bv1FqJuSxjWgmzv0AKpZjDfScA1ljdpP7knfsJF5YHyTE1CUgcZzT41lnrfsYpWqAQ90oGorPMZXJCr0dgT_61HtBM76w8SJfqaHFipXJMP6jNodZTWjLI4gXhg_21f9D8n0ommtBVlt1W1hzYOpxVpFGe749IOWGvEk/s1600/rauland.webp'); background-size: 100% 100%;"></div>
+                                    </div>
+                                    <div class="track-info animated">
+                                        <div id="currentSong" class="track-title animated">Rádio Saudade Não Tem Idade</div>
+                                        <div id="title" class="title" style="width: 100%;">
                    
-                    <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">Brega Hits - Soutinho No Ar!</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 500px; color: white;">Brega Hits - Soutinho No Ar!</h1></center></div></div></div>
-                  </div>      
+                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">Brega Hits - Soutinho No Ar!</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 500px; color: white;">Brega Hits - Soutinho No Ar!</h1></div></center></div></div>
+                                        <div id="artistName" class="artist-name animated"></div>
+                                        <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
+                                            <source src="https://s22.maxcast.com.br:8064/live?id=1240174795875" type="audio/mp3">
+                                            Seu navegador não suporta o elemento de áudio.
+                                        </audio>
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+            
+   
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
                       <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Goiânia no estado de Goiás. A Rádio Studio Souto - Brega Hits ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros Romântica, MPB, Brega.<span>&nbsp;Site:</span>&nbsp;<a href="#" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
             </div>
          
         
-        </div>
+     
          
               
               
@@ -575,83 +592,7 @@
 </div>
   </div>
   </div>
-  <script>
-    const player = document.querySelector("#player");
-    const musicName = document.querySelector("#musicName");
-    const playPauseButton = document.querySelector("#playPauseButton");
-    const prevButton = document.querySelector("#prevButton");
-    const nextButton = document.querySelector("#nextButton");
-    const currentTime = document.querySelector("#currentTime");
-    const duration = document.querySelector("#duration");
-    const progressBar = document.querySelector(".progress-bar");
-    const progress = document.querySelector(".progress");
-    
-  
-    
-    const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-    const textButtonPause = "<i class='bx bx-pause'></i>";
-    
-    let index = 0;
-    
-    prevButton.onclick = () => prevNextMusic("prev");
-    nextButton.onclick = () => prevNextMusic();
-    
-    playPauseButton.onclick = () => playPause();
-    
-    const playPause = () => {
-      if (player.paused) {
-        player.play();
-        playPauseButton.innerHTML = textButtonPause;
-      } else {
-        player.pause();
-        playPauseButton.innerHTML = textButtonPlay;
-      }
-    };
-    
-    player.ontimeupdate = () => updateTime();
-    
-    const updateTime = () => {
-      const currentMinutes = Math.floor(player.currentTime / 60);
-      const currentSeconds = Math.floor(player.currentTime % 60);
-      currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
-    
-      const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
-      const durationMinutes = Math.floor(durationFormatted / 60);
-      const durationSeconds = Math.floor(durationFormatted % 60);
-      duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
-    
-      const progressWidth = durationFormatted
-        ? (player.currentTime / durationFormatted) * 100
-        : 0;
-    
-      progress.style.width = progressWidth + "%";
-    };
-    
-    const formatZero = (n) => (n < 10 ? "0" + n : n);
-    
-    progressBar.onclick = (e) => {
-      const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
-      player.currentTime = newTime;
-    };
-    
-    const prevNextMusic = (type = "next") => {
-      if ((type == "next" && index + 1 === songs.length) || type === "init") {
-        index = 0;
-      } else if (type == "prev" && index === 0) {
-        index = songs.length;
-      } else {
-        index = type === "prev" && index ? index - 1 : index + 1;
-      }
-    
-      player.src = songs[index].src;
-      musicName.innerHTML = songs[index].name;
-      if (type !== "init") playPause();
-    
-      updateTime();
-    };
-    
-    prevNextMusic("init"); 
-  </script>
+
     <section class="p-t-40 p-b-80">
         <div class="container">
         <div class="row">
@@ -667,6 +608,26 @@
         <div class="col-md-3 text-center m-b-20">
       
         </div>
+        <script>
+            var audio = document.getElementById("audio");
+            var playBtn = document.querySelector(".ppBtn.play-btn");
+        
+            function togglePlayPause() {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            }
+        
+            function handlePlay() {
+                playBtn.style.backgroundImage = 'url("/assets/img/cxPlayer/pausew.svg")';
+            }
+        
+            function handlePause() {
+                playBtn.style.backgroundImage = 'url("/assets/img/cxPlayer/playw.svg")';
+            }
+        </script>
        
         <div class="col-md-12 text-right m-t-20">
         <a href="https://www.JP TV.com.br/politica-de-privacidade" class="text-white s2 m-r-10">Política de Privacidade</a>
@@ -675,15 +636,15 @@
         </div>
         </footer>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://jptv.netlify.app/assets/css/font-open-sans.css" rel="stylesheet" type="text/css">
+        <link href="https://radiobr.vercel.app/assets/css/font-open-sans.css" rel="stylesheet" type="text/css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
-        <script async="" src="https://jptv.netlify.app/assets/js/infinitta.min.js??cache=adfge" type="text/javascript"></script>
+        <script async="" src="https://radiobr.vercel.app/assets/js/infinitta.min.js??cache=adfge" type="text/javascript"></script>
         
-        <script src="https://jptv.netlify.app/assets/plugins/jquery.maskedinput.min.js" type="text/javascript"></script>
+        <script src="https://radiobr.vercel.app/assets/plugins/jquery.maskedinput.min.js" type="text/javascript"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="https://jptv.netlify.app/assets/plugins/validation/css/formValidation.min.css">
-        <script src="https://jptv.netlify.app/assets/plugins/jquery.hc-sticky.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://radiobr.vercel.app/assets/plugins/validation/css/formValidation.min.css">
+        <script src="https://radiobr.vercel.app/assets/plugins/jquery.hc-sticky.min.js" type="text/javascript"></script>
         <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;767ab6a5bd67a67e&quot;,&quot;token&quot;:&quot;29f3df555cf44e79b31edba47c27cbf8&quot;,&quot;version&quot;:&quot;2022.11.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
         </body></html>
