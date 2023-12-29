@@ -12,7 +12,7 @@
 <script src=./butterchurnPresets.min.js></script>
 </head>
 <body>
-    <div id=app style="display: flex;"></div>  
+    <div id=app style="display: flex; width: 100%;"></div>  
 
     <script>const Webamp=window.Webamp;new Webamp({initialTracks:[{metaData:{title:"Sertanejo FM"},url:"https://stream.zeno.fm/6045t1y3tm0uv"},],__butterchurnOptions:{importButterchurn:()=>Promise.resolve(window.butterchurn),getPresets:()=>{const e=window.butterchurnPresets.getPresets();return Object.keys(e).map(t=>({name:t,butterchurnPresetObject:e[t]}))},butterchurnOpen:!0},__initialWindowLayout:{main:{position:{x:0,y:0}},equalizer:{position:{x:0,y:116}},playlist:{position:{x:0,y:232},size:[0,4]},milkdrop:{position:{x:275,y:0},size:[7,12]}}}).renderWhenReady(document.getElementById("app"))</script>
 </body>
