@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>Seu Título Aqui</title>
     <script src=./webamp.bundle.min.js></script>
 
 <script src=./butterchurn.min.js></script>
 
 <script src=./butterchurnPresets.min.js></script>
 </head>
-<body>
-    <div id=app style="display: flex; width: 100%;"></div>  
+<body style="margin: 0; padding: 0; overflow: hidden;">
+    <div id="app" style="height: 100vh;"></div>
 
-    <script>const Webamp=window.Webamp;new Webamp({initialTracks:[{metaData:{title:"Sertanejo FM"},url:"https://stream.zeno.fm/6045t1y3tm0uv"},],__butterchurnOptions:{importButterchurn:()=>Promise.resolve(window.butterchurn),getPresets:()=>{const e=window.butterchurnPresets.getPresets();return Object.keys(e).map(t=>({name:t,butterchurnPresetObject:e[t]}))},butterchurnOpen:!0},__initialWindowLayout:{main:{position:{x:0,y:0}},equalizer:{position:{x:0,y:116}},playlist:{position:{x:0,y:232},size:[0,4]},milkdrop:{position:{x:275,y:0},size:[7,12]}}}).renderWhenReady(document.getElementById("app"))</script>
+    <script>
+        const Webamp = window.Webamp;
+        new Webamp({
+            initialTracks: [
+                { metaData: { title: "Sertanejo FM" }, url: "https://stream.zeno.fm/6045t1y3tm0uv" },
+            ],
+            __butterchurnOptions: {
+                importButterchurn: () => Promise.resolve(window.butterchurn),
+                getPresets: () => {
+                    const e = window.butterchurnPresets.getPresets();
+                    return Object.keys(e).map(t => ({ name: t, butterchurnPresetObject: e[t] }));
+                },
+                butterchurnOpen: true
+            },
+            __initialWindowLayout: {
+                main: { position: { x: 0, y: 0 } },
+                equalizer: { position: { x: 0, y: 116 } },
+                playlist: { position: { x: 0, y: 232 }, size: [0, 4] },
+                milkdrop: { position: { x: 275, y: 0 }, size: [7, 12] }
+            }
+        }).renderWhenReady(document.getElementById("app"));
+    </script>
 </body>
 </html>
