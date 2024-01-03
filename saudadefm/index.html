@@ -25,11 +25,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://radiobr.vercel.app/assets/css/cxradio.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    
+    
     <link href="https://radiobr.vercel.app/assets/css/cxPlayer.min.css" type="text/css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20170601/script/soundmanager2-nodebug-jsmin.js"></script>
     <script src="https://radiobr.vercel.app/assets/plugins/player/player.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
-   <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/validation/js/formValidation.min.js" as="script">
+  
+    <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/validation/js/formValidation.min.js" as="script">
     <link rel="preload" href="/assets/plugins/validation/js/language/pt_BR.js" as="script">
     <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/validation/js/framework/bootstrap.min.js" as="script">
     <link rel="preload" href="https://radiobr.vercel.app/assets/plugins/jquery.hc-sticky.min.js" as="script">
@@ -497,11 +501,11 @@
                 background-color:#225a06;
                 border: none;
                 color: white;
-                padding: 12px 10px;
+                padding: 14px 10px;
                 font-size: 20px;
                 font-weight: bold;
                 cursor: pointer;
-                border-radius: 80px;
+                border-radius: 10px;
                 width: 100%;
                 transition: transform .2s;
                 box-shadow: 1px 3px #30303022;
@@ -834,7 +838,11 @@
                                         <div id="title" class="title" style="width: 100%;">
                                             <h2 id="currentSong" class="current-song text-uppercase" style="color: white;">Música</h2>
                                             <h3 id="currentArtist" class="current-artist text-captalize" style="color: white;">Artista</h3>
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">Relembre os momentos que marcaram sua vida</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;">Relembre os momentos que marcaram sua vida</h1></div></center></div></div>
+                                            <div class="titles-container"><center><div class="row">
+                                                <div class="col-12 col-md-6 text-center call-lyrics">
+                                                    <a href="#" class="lyrics" style="" data-target="#modalLyrics">LYRICS</a>
+                                                    <h6 style="color: white;">Letra</h6>
+                                                </div></center></div></div>
                                             <div class="row volume-control">
                                                 <div class="volume-icon col-1"><i class="fa fa-volume-up"></i></div>
                                                 <div class="volume-slide col-10 text-center"><input type="range" id="volume"
@@ -858,7 +866,28 @@
                    
    
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
-                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Santos no estado de São Paulo. A Rádio Saudade FM ao vivo é transmitida via rádio online e também pela frequência 99.7 FM em toda região de Santos. Conta com uma programação ao vivo, com os gêneros Anos 90, Adulto Contemporâneo, Anos 80.<span>&nbsp;Site:</span>&nbsp;<a href="https://www.saudadefm.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+    
+
+                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Santos no estado de São Paulo. A Rádio Saudade FM ao vivo é transmitida via rádio online e também pela frequência 99.7 FM em toda região de Santos. Conta com uma programação ao vivo, com os gêneros Anos 90, Adulto Contemporâneo, Anos 80.<span>&nbsp;Site:</span>&nbsp;<a href="https://zeno.fm/radio/musicasonline/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+
+                      <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="lyricsSong" style="color: #fff">Lyrics</h5>
+                                
+                                    <button type="button" style="color: #fff" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body" id="lyric"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                </div>
 
                <div class="col-12 col-md-5">
