@@ -821,8 +821,8 @@
               <div id="playerbox" class="p-t-20" style=" padding: 4px;">
                 <div class="cxPlayer" id="stream1">
                     <div class="player-wpr">
-                        <div class="bg-black accent-deeporange" style="background-color: #00bbff">
-                                <div class="ppBtn play-btn" style="background-color: #00bbff"> <button  class="btn-play" onclick="togglePlay()"><i id="playerButton" class="fa fa-play"></i></button></div>
+                        <div class="bg-black accent-deeporange">
+                                <div class="ppBtn play-btn"> <button  class="btn-play" onclick="togglePlay()"><i id="playerButton" class="fa fa-play"></i></button></div>
                                 <div class="blur"></div>
                                 <div class="player-ctr">
                                     <div class="album-cover-wpr">
@@ -834,11 +834,15 @@
                                       
                                     </div>
                                     <div class="track-info animated">
-                                        <div class="track-title animated" style="color:black;">Rádio Braspi</div>
+                                        <div class="track-title animated">Rádio Braspi</div>
                                         <div id="title" class="title" style="width: 100%;">
-                                            <h2 id="currentSong" class="current-song text-uppercase" style="color:black;">Música</h2>
-                                            <h3 id="currentArtist" class="current-artist text-captalize" style="color: black;">Artista</h3>
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: black;">O Brasil se liga aqui</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: black;">O Brasil se liga aqui</h1></div></center></div></div>
+                                            <h2 id="currentSong" class="current-song text-uppercase" style="color: white;">Música</h2>
+                                            <h3 id="currentArtist" class="current-artist text-captalize" style="color: white;">Artista</h3>
+                                            <div class="titles-container"><center><div class="row">
+                                                <div class="col-12 col-md-6 text-center call-lyrics">
+                                                    <a href="#" class="lyrics" style="" data-target="#modalLyrics">LYRICS</a>
+                                                    <h6 style="color: white;">Letra</h6>
+                                                </div></center></div></div>
                                             <div class="row volume-control">
                                                 <div class="volume-icon col-1"><i class="fa fa-volume-up"></i></div>
                                                 <div class="volume-slide col-10 text-center"><input type="range" id="volume"
@@ -862,7 +866,28 @@
                    
    
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
-                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Ribeirão Preto no estado de São Paulo. A Rádio Braspi ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros Eclética, Forró, Brega.<span>&nbsp;Site:</span>&nbsp;<a href="https://www.radiobraspi.nossaradio.top/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+    
+
+                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada no estado de Pará. A Rádio Web Rádio Braspi é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros BREGA.<span>&nbsp;Site:</span>&nbsp;<a href="https://zeno.fm/radio/musicasonline/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+
+                      <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="lyricsSong">Lyrics</h5>
+                                
+                                    <button type="button" style="color: #fff" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body" id="lyric"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                </div>
 
                <div class="col-12 col-md-5">
