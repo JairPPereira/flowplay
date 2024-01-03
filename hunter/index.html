@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br" class=" js flexbox flexboxlegacy canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head>
     <meta charset="utf-8">
-    <title>Rádio Hunter.FM - Sertanejo Ao Vivo Online Grátis | JP RÁDIOS</title>
+    <title>Hunter FM - Sertanejo Ao Vivo Online Grátis | JP RÁDIOS</title>
     <meta name="theme-color" content="#3057e7">
-    <meta name="description" content="Ouvir Rádio Hunter.FM - Sertanejo AO VIVO." />
+    <meta name="description" content="Ouvir Hunter FM - Sertanejo AO VIVO." />
     <meta name="keywords" content="Rádio, rádio online, rádio ao vivo, rádios, rádios ao vivo, webrádio, rádio internet, canal online, emissora online, streaming de rádios">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:title" content="Rádio Hunter.FM - Sertanejo - Ouvir RÁDIO Ao Vivo Grátis | JP RÁDIOS">
+    <meta property="og:title" content="Hunter FM - Sertanejo - Ouvir RÁDIO Ao Vivo Grátis | JP RÁDIOS">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0gzZRZb5aFcCc6vjkyrQ1DWE4s0diZatKoJw56nFj2yPWy-6S655o76TN7waDOjuXNWFgzUtNMCF5Loj-Yqwedvad3cU4DQVS1IOjggy7vdWTeoLJoB_kKw4leUjqL53zZFMrPxg9SqWcXPqNMY96JYMJF4kMN5F07NGNs9n_TJdNUAfxuW_xJ8pD6fU/s1600/hunter2.webp">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
     <meta name="monetag" content="808edd21f55aaf96ba226740e5a3fa88">
     <meta property="og:url" content="https://radiobr.vercel.app/">
-    <meta property="og:site_name" content="Ouça Rádio Hunter.FM - Sertanejo na JP RÁDIOS">
-    <meta property="og:description" content="Ouça Rádio Hunter.FM - Sertanejo ao VIVO.">
+    <meta property="og:site_name" content="Ouça Hunter FM - Sertanejo na JP RÁDIOS">
+    <meta property="og:description" content="Ouça Hunter FM - Sertanejo ao VIVO.">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="preconnect" href="//www.google-analytics.com">
@@ -501,11 +501,11 @@
                 background-color:#225a06;
                 border: none;
                 color: white;
-                padding: 12px 10px;
+                padding: 14px 10px;
                 font-size: 20px;
                 font-weight: bold;
                 cursor: pointer;
-                border-radius: 80px;
+                border-radius: 10px;
                 width: 100%;
                 transition: transform .2s;
                 box-shadow: 1px 3px #30303022;
@@ -821,8 +821,8 @@
               <div id="playerbox" class="p-t-20" style=" padding: 4px;">
                 <div class="cxPlayer" id="stream1">
                     <div class="player-wpr">
-                        <div class="bg-black accent-deeporange" style="background-color: #f69932">
-                                <div class="ppBtn play-btn" style="background-color: #f69932"> <button  class="btn-play" onclick="togglePlay()"><i id="playerButton" class="fa fa-play"></i></button></div>
+                        <div class="bg-black accent-deeporange">
+                                <div class="ppBtn play-btn"> <button  class="btn-play" onclick="togglePlay()"><i id="playerButton" class="fa fa-play"></i></button></div>
                                 <div class="blur"></div>
                                 <div class="player-ctr">
                                     <div class="album-cover-wpr">
@@ -834,11 +834,15 @@
                                       
                                     </div>
                                     <div class="track-info animated">
-                                        <div class="track-title animated">Rádio Hunter.FM - Sertanejo</div>
+                                        <div class="track-title animated">Hunter FM - Sertanejo</div>
                                         <div id="title" class="title" style="width: 100%;">
                                             <h2 id="currentSong" class="current-song text-uppercase" style="color: white;">Música</h2>
                                             <h3 id="currentArtist" class="current-artist text-captalize" style="color: white;">Artista</h3>
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">O melhor do Sertanejo Universitário 24 horas!</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;">O melhor do Sertanejo Universitário 24 horas!</h1></div></center></div></div>
+                                            <div class="titles-container"><center><div class="row">
+                                                <div class="col-12 col-md-6 text-center call-lyrics">
+                                                    <a href="#" class="lyrics" style="" data-target="#modalLyrics">LYRICS</a>
+                                                    <h6 style="color: white;">Letra</h6>
+                                                </div></center></div></div>
                                             <div class="row volume-control">
                                                 <div class="volume-icon col-1"><i class="fa fa-volume-up"></i></div>
                                                 <div class="volume-slide col-10 text-center"><input type="range" id="volume"
@@ -862,7 +866,28 @@
                    
    
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
-                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Brasília no estado de Distrito Federal. A Rádio Hunter.FM - Sertanejo - Sertanejo ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com o gênero Sertanejo.<span>&nbsp;Site:</span>&nbsp;<a href="https://Rádio Hunter.FM - Sertanejo/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+    
+
+                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Brasília no estado de Distrito Federal. A Rádio Hunter.FM - Sertanejo - Sertanejo ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com o gênero Sertanejo.<span>&nbsp;Site:</span>&nbsp;<a href="https://xn--rdio%20hunter-3db.fm%20-%20sertanejo/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+
+                      <div class="modal fade" id="modalLyrics" tabindex="-1" role="dialog" aria-labelledby="lyricsSong" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="lyricsSong">Lyrics</h5>
+                                
+                                    <button type="button" style="color: #fff" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body" id="lyric"></div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                </div>
 
                <div class="col-12 col-md-5">
