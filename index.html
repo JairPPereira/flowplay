@@ -419,7 +419,7 @@
       
         // Carregue o conteúdo da página "canais.html" usando AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./canais.html", true);
+        xhr.open("GET", "https://radiobr.vercel.app/canais.html", true);
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             var pageContent = xhr.responseText;
@@ -429,7 +429,7 @@
             tempElement.innerHTML = pageContent;
       
             // Encontre os elementos correspondentes dentro do conteúdo carregado
-            var elements = tempElement.querySelectorAll(".item.movies"); // Seleciona elementos com a classe "item movies"
+            var elements = tempElement.querySelectorAll(".col-sm-2.col-xs-4"); // Seleciona elementos com a classe "item movies"
             var results = [];
       
             elements.forEach(function (element) {
@@ -456,22 +456,22 @@
       
         // Carregue o conteúdo da página "canais.html" usando AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "canais.html", true);
+        xhr.open("GET", "https://radiobr.vercel.app/canais.html", true);
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             var pageContent = xhr.responseText;
       
             // Crie um elemento temporário para analisar o HTML
-            var tempElement = document.createElement("article");
+            var tempElement = document.createElement("div");
             tempElement.innerHTML = pageContent;
       
             // Encontre os elementos correspondentes dentro do conteúdo carregado
-            var elements = tempElement.querySelectorAll(".item.movies"); // Seleciona elementos com a classe "item movies"
+            var elements = tempElement.querySelectorAll(".col-sm-2.col-xs-4"); // Seleciona elementos com a classe "item movies"
             var results = [];
       
             elements.forEach(function (element) {
-              var articleContent = element.textContent.toLowerCase();
-              if (articleContent.includes(searchTerm)) {
+              var divContent = element.textContent.toLowerCase();
+              if (divContent.includes(searchTerm)) {
                 results.push(element.outerHTML);
               }
             });
@@ -490,17 +490,24 @@
       
     </script>
       <center>
-        <div class="items featured">
-          <div id="searchResults"></div>
-          </div>
+
         
         <div class="text-center-xs" style="padding: 2px;">
          <h1 class="bold no-margin medium-3"><i class="fas fa-tv fa-fw"></i>&nbsp;RÁDIOS</h1> </center>
         
          <section class="bg-primary p-t-40 p-b-40">
            <div class="row min-gutter">
+    <div class="container">
+
+      <div class="items featured">
+        <div id="searchResults"></div>
+        </div>
+
+
+    </div>
    
    <div class="container">
+
    
     <div class="col-sm-2 col-xs-4"><a href="https://radiobr.vercel.app/rauland3/" class="m-b-20 btn btn-white btn-block">   <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimvMoSQgfCV37criYqgbAu4x8bv1FqJuSxjWgmzv0AKpZjDfScA1ljdpP7knfsJF5YHyTE1CUgcZzT41lnrfsYpWqAQ90oGorPMZXJCr0dgT_61HtBM76w8SJfqaHFipXJMP6jNodZTWjLI4gXhg_21f9D8n0ommtBVlt1W1hzYOpxVpFGe749IOWGvEk/s1600/rauland.webp" class="m-t-10 b-radius-5 img-responsive center-block" alt="RAULAND FM" /><p class="resumoDots p-t-15 p-b-5 no-margin text-center bold">RAULAND FM</p></a></div>
 
