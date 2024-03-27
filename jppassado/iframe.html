@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo de uso do Axios com Proxy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exibir trecho de JSON</title>
+<script>
+  setInterval(function(){
+      location.reload();
+  }, 60 * 1000);
+</script>
 </head>
 <body>
-  <div id="title"></div>
+  <div id="output"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    async function fetchData() {
-      try {
-        const response = await axios.get('https://cors-anywhere.herokuapp.com/https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv');
-        const title = response.data.title;
-        document.getElementById('title').innerText = title;
-      } catch (error) {
-        console.error('Ocorreu um erro ao recuperar os dados:', error);
+    // Função para fazer uma solicitação HTTP GET
+    function httpGet(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200)
+          callback(xhr.responseText);
       }
+      xhr.open("GET", url, true);
+      xhr.send();
     }
 
-    fetchData();
+    // URL do seu serviço proxy
+    var url = "https://api.allorigins.win/get?url=https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv";
+
+    // Função para processar a resposta JSON e extrair o trecho desejado
+    function extractAndDisplay(jsonString) {
+      var data = JSON.parse(jsonString);
+      var contents = JSON.parse(data.contents);
+      var title = contents.title;
+
+      // Exibir o título na página HTML
+      document.getElementById("output").innerText = title;
+    }
+
+    // Fazer solicitação HTTP e chamar a função para exibir o resultado
+    httpGet(url, extractAndDisplay);
   </script>
 </body>
 </html>
