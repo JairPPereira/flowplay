@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exibir trecho de JSON</title>
-    <script>
-    setInterval(function(){
-        location.reload();
-    }, 30 * 1000);
+
+<script>
+  setInterval(function(){
+      location.reload(true); // O argumento true força a recarga ignorando o cache
+  }, 30 * 1000);
 </script>
+
 </head>
 <body>
   <div id="output"></div>
