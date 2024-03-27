@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de uso do Axios com Proxy</title>
+</head>
+<body>
+  <div id="title"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    async function fetchData() {
+      try {
+        const response = await axios.get('https://cors-anywhere.herokuapp.com/https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv');
+        const title = response.data.title;
+        document.getElementById('title').innerText = title;
+      } catch (error) {
+        console.error('Ocorreu um erro ao recuperar os dados:', error);
+      }
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>
