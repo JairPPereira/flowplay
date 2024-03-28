@@ -7,6 +7,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      setInterval(function(){
+          location.reload(true); // O argumento true força a recarga ignorando o cache
+      }, 30 * 1000);
+    </script>
   <style>
 
 
@@ -26,6 +31,7 @@
     }
 
   </style>
+ 
 </head>
 <body style="width: 400px; height: 50px; overflow: hidden; margin: 0; padding: 0;">
   <center><div id="output"></div></center>
