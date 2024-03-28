@@ -1,19 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exibir trecho de JSON</title>
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" as="script">
-<script>
-  setInterval(function(){
-      location.reload(true); // O argumento true força a recarga ignorando o cache
-  }, 30 * 1000);
-</script>
+  <meta charset="UTF-8">
+  <title>Exemplo de Estilização de Texto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
 
+
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+    #output {
+      color: blue; /* Cor do texto */
+      font-family: "Oswald", sans-serif; /* Estilo da fonte */
+      font-size: 20px; /* Tamanho da fonte */
+      font-weight: bold; /* Peso da fonte */
+      text-align: center; /* Alinhamento do texto */
+      padding: 5px 10px;
+    }
+
+  </style>
 </head>
 <body style="width: 400px; height: 50px; overflow: hidden; margin: 0; padding: 0;">
- <center> <div id="output"></div></center>
+  <center><div id="output"></div></center>
 
   <script>
     // Função para fazer uma solicitação HTTP GET
@@ -36,13 +51,16 @@
       var contents = JSON.parse(data.contents);
       var title = contents.title;
 
-      // Exibir o título na página HTML
-      document.getElementById("output").innerText = title;
+      // Exibir o título na página HTML e aplicar estilos
+      var outputElement = document.getElementById("output");
+      outputElement.innerText = title;
+      outputElement.style.color = "black"; // Mudar a cor do texto
+      outputElement.style.fontWeight = "normal";
+      
     }
 
     // Fazer solicitação HTTP e chamar a função para exibir o resultado
     httpGet(url, extractAndDisplay);
   </script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
 </body>
 </html>
