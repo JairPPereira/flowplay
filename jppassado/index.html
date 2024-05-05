@@ -460,7 +460,7 @@
                                         <div id="title" class="title" style="width: 100%;">
                    
 
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="output" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;">As melodias que encantaram gerações</h1></div></center></div></div>
+                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="output1" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;"><div id="output2" style="color: white;"></div></div></center></div></div>
                                         <div id="artistName" class="artist-name animated"></div>
                                         <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
                                             <source src="https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA" type="audio/mp3">
@@ -538,42 +538,48 @@
                 playBtn.style.backgroundImage = 'url("https://radiobr.vercel.app/assets/img/cxPlayer/playw.svg")';
             }
         </script>
-         <script>
+        <script>
           // Função para fazer uma solicitação HTTP GET
           function httpGet(url, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-              if (xhr.readyState == 4 && xhr.status == 200)
-                callback(xhr.responseText);
-            }
-            xhr.open("GET", url, true);
-            xhr.send();
+              var xhr = new XMLHttpRequest();
+              xhr.onreadystatechange = function() {
+                  if (xhr.readyState == 4 && xhr.status == 200)
+                      callback(xhr.responseText);
+              }
+              xhr.open("GET", url, true);
+              xhr.send();
           }
       
           // URL do seu serviço proxy
-          var url = "https://api.allorigins.win/get?url=https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv";
+          var baseUrl = "https://api.allorigins.win/get?url=";
+          var apiUrl = "https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv";
       
-          // Função para processar a resposta JSON e extrair o trecho desejado
+          // Função para processar a resposta JSON e extrair os trechos desejados
           function extractAndDisplay(jsonString) {
-            var data = JSON.parse(jsonString);
-            var contents = JSON.parse(data.contents);
-            var title = contents.title;
+              var data = JSON.parse(jsonString);
+              var contents = JSON.parse(data.contents);
+              var title = contents.title;
       
-            // Exibir o título na página HTML e aplicar estilos
-            var outputElement = document.getElementById("output");
-            outputElement.innerText = title;
+              // Exibir o título na página HTML e aplicar estilos
+              var outputElement1 = document.getElementById("output1");
+              var outputElement2 = document.getElementById("output2");
+              outputElement1.innerText = title;
+              outputElement2.innerText = title; // Altere esta linha conforme necessário
           }
       
           // Fazer solicitação HTTP e chamar a função para exibir o resultado a cada 30 segundos
           function updateData() {
-            httpGet(url, extractAndDisplay);
+              var timestamp = new Date().getTime(); // Carimbo de data e hora atual
+              var url = baseUrl + encodeURIComponent(apiUrl + "?timestamp=" + timestamp); // Adiciona o carimbo de data e hora à URL
+              httpGet(url, extractAndDisplay);
           }
       
           updateData(); // Chama a função pela primeira vez
       
           // Atualiza os dados a cada 30 segundos
           setInterval(updateData, 30000);
-        </script>
+      </script>
+      
        
         <div class="col-md-12 text-right m-t-20">
         <a href="https://www.JP TV.com.br/politica-de-privacidade" class="text-white s2 m-r-10">Política de Privacidade</a>
