@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Requisição HTTP</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        // Função para fazer uma solicitação HTTP GET
+        function httpGet(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200)
+                    callback(xhr.responseText);
+            }
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        // Função para extrair e exibir os itens da tabela
+        function updateTable() {
+            // Limpar a tabela antes de atualizar
+            var outputElement = document.getElementById("output");
+            outputElement.innerHTML = '';
+
+            // URL da API
+            var url = "https://api.allorigins.win/get?url=https://centova5.transmissaodigital.com:20024/played.html?sid=1";
+
+            // Processar a resposta JSON
+            function extractAndDisplay(jsonString) {
+                var data = JSON.parse(jsonString);
+                var htmlString = data.contents;
+
+                // Remover referências aos ícones listen.png e lock.png
+                htmlString = htmlString.replace(/<img[^>]*src=["']([^"']+)["'][^>]*>/g, '');
+
+                // Criar um elemento temporário para analisar o HTML
+                var tempElement = document.createElement('div');
+                tempElement.innerHTML = htmlString;
+
+                // Extrair os itens da tabela
+                var tableRows = tempElement.querySelectorAll('table tr');
+                var tableData = '';
+                for (var i = 1; i < tableRows.length; i++) { // Começamos em 1 para ignorar o cabeçalho da tabela
+                    var rowData = tableRows[i].querySelectorAll('td');
+                    if (rowData.length >= 2) {
+                        var time = rowData[0].innerText;
+                        var song = rowData[1].innerText;
+                        tableData += '<tr><td>' + time + '</td><td>' + song + '</td></tr>';
+                    }
+                }
+
+                // Construir a tabela com os itens extraídos
+                var outputHTML = '<table border="1"><tr><th>Played @</th><th>Song Title</th></tr>' + tableData + '</table>';
+
+                // Exibir a tabela na página HTML
+                var outputElement = document.getElementById("output");
+                outputElement.innerHTML = outputHTML;
+            }
+
+            // Fazer solicitação HTTP e chamar a função para exibir o resultado
+            httpGet(url, extractAndDisplay);
+        }
+
+        // Chamar a função para atualizar a tabela a cada 30 segundos
+        updateTable(); // Chama a função pela primeira vez
+        setInterval(updateTable, 30000); // Chama a função a cada 30 segundos
+    </script>
+</body>
+</html>
