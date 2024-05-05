@@ -9,30 +9,47 @@
 
 <body>
     <h1>Título da Música Atual:</h1>
-    <p id="titulo-da-musica"></p>
+   
+    <center><div id="output"></div></center>
 
     <script>
-        function obterTituloDaAPI() {
-            // Fazendo uma requisição à rota do servidor proxy local
-            fetch('https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv')
-                .then(response => response.json())
-                .then(data => {
-                    // Extraindo o título do JSON retornado
-                    const titulo = data.title;
-                    console.log('Título da música:', titulo);
-
-                    // Atualizando o HTML com o título
-                    document.getElementById('titulo-da-musica').innerText = titulo;
-                })
-                .catch(error => console.error('Erro ao obter dados da API:', error));
+        // Função para fazer uma solicitação HTTP GET
+        function httpGet(url, callback) {
+          var xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200)
+              callback(xhr.responseText);
+          }
+          xhr.open("GET", url, true);
+          xhr.send();
         }
-
-        // Chamando a função pela primeira vez
-        obterTituloDaAPI();
-
-        // Agendando a execução da função a cada 30 segundos
-        setInterval(obterTituloDaAPI, 30000); // 30 segundos em milissegundos
-    </script>
+    
+        // URL do seu serviço proxy
+        var url = "https://api.allorigins.win/get?url=https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv";
+    
+        // Função para processar a resposta JSON e extrair o trecho desejado
+        function extractAndDisplay(jsonString) {
+          var data = JSON.parse(jsonString);
+          var contents = JSON.parse(data.contents);
+          var title = contents.title;
+    
+          // Exibir o título na página HTML e aplicar estilos
+          var outputElement = document.getElementById("output");
+          outputElement.innerText = title;
+          outputElement.style.color = "black"; // Mudar a cor do texto
+          outputElement.style.fontWeight = "normal";
+        }
+    
+        // Fazer solicitação HTTP e chamar a função para exibir o resultado a cada 30 segundos
+        function updateData() {
+          httpGet(url, extractAndDisplay);
+        }
+    
+        updateData(); // Chama a função pela primeira vez
+    
+        // Atualiza os dados a cada 30 segundos
+        setInterval(updateData, 30000);
+      </script>
 </body>
 
 </html>
