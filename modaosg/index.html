@@ -460,7 +460,7 @@
                                         <div id="title" class="title" style="width: 100%;">
                    
 
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="output" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;">Modão Com Wisley Souto Soutinho No Ar!</h1></div></center></div></div>
+                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="output" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;"><div id="output3" style="color: white;"></div></div></center></div></div>
                                         <div id="artistName" class="artist-name animated"></div>
                                         <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
                                             <source src="https://centova5.transmissaodigital.com:20024/stream/;stream.mp3" type="audio/mp3">
@@ -478,7 +478,9 @@
    
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
                       <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Goiânia no estado de Goiás. A Rádio Modão ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com o gênero Sertanejo.<span>&nbsp;Site:</span>&nbsp;<a href="http://www.radiostudiosouto.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p>
+                     
                       <div id="output2" style="font-size: 15px; background-color: #040404; color: white; width: 100%;"></div>
+                      
                       </center>
                </div>
          
@@ -572,6 +574,43 @@
             // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
             makeRequest();
             setInterval(makeRequest, 30000); // 30 segundos em milissegundos
+
+            
+        </script>
+         <script>
+            // Função para fazer uma solicitação HTTP GET
+            function httpGet(url, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200)
+                        callback(xhr.responseText);
+                }
+                xhr.open("GET", url, true);
+                xhr.send();
+            }
+        
+            // Função para processar a resposta JSON e extrair o título
+            function extractAndDisplay(jsonString) {
+                var data = JSON.parse(jsonString);
+                var title = data.contents.split('-')[1].trim(); // Extrai o título após o '-' e remove espaços em branco
+        
+                // Exibir o título na página HTML e aplicar estilos
+                var outputElement = document.getElementById("output3");
+                outputElement.innerText = title;
+            }
+        
+            // Função para fazer a solicitação HTTP e chamar a função para exibir o resultado
+            function makeRequest() {
+                var timestamp = new Date().getTime(); // Obter o timestamp atual
+                var url = "https://api.allorigins.win/get?url=https://centova5.transmissaodigital.com:20024/currentsong?sid=1&_=" + timestamp; // Adicionar timestamp como parâmetro
+                httpGet(url, extractAndDisplay);
+            }
+        
+            // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
+            makeRequest();
+            setInterval(makeRequest, 30000); // 30 segundos em milissegundos
+
+            
         </script>
         <script>
             // Função para fazer uma solicitação HTTP GET
