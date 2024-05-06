@@ -357,83 +357,80 @@
          
       <div id="searchResults"></div></div></div>
       </section>
-      <script>
-        function search() {
-          var searchTerm = document.getElementById("searchInput").value.toLowerCase();
-          var searchResultsDiv = document.getElementById("searchResults");
-        
-          // Carregue o conteúdo da página "canais.html" usando AJAX
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET", "https://radiobr.vercel.app/canais.html", true);
-          xhr.onreadystatechange = function () {
+  <script>
+    function search() {
+        var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        var searchResultsDiv = document.getElementById("searchResults");
+    
+        // Carregue o conteúdo da página "canais.html" usando AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "canais.html", true);
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
+                var pageContent = xhr.responseText;
+    
+                // Crie um elemento temporário para analisar o HTML
+                var tempElement = document.createElement("div");
+                tempElement.innerHTML = pageContent;
+    
+                // Encontre os elementos correspondentes dentro do conteúdo carregado
+                var elements = tempElement.querySelectorAll(".col-sm-2");
+                var results = [];
+    
+                elements.forEach(function (element) {
+                    var channelName = element.querySelector("h4").textContent.toLowerCase();
+                    if (channelName.includes(searchTerm)) {
+                        results.push(element.outerHTML);
+                    }
+                });
+    
+                // Exiba os resultados na página
+                if (results.length > 0) {
+                    searchResultsDiv.innerHTML = results.join("");
+                } else {
+                    searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
+                }
+            }
+        };
+        xhr.send();
+    }
+    function searchMobile() {
+      var searchTerm = document.getElementById("searchInputMobile").value.toLowerCase();
+      var searchResultsDiv = document.getElementById("searchResults");
+  
+      // Carregue o conteúdo da página "canais.html" usando AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "canais.html", true);
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
               var pageContent = xhr.responseText;
-        
+  
               // Crie um elemento temporário para analisar o HTML
               var tempElement = document.createElement("div");
               tempElement.innerHTML = pageContent;
-        
+  
               // Encontre os elementos correspondentes dentro do conteúdo carregado
-              var elements = tempElement.querySelectorAll(".col-sm-2.col-xs-4"); // Seleciona elementos com a classe "item movies"
+              var elements = tempElement.querySelectorAll(".col-sm-2");
               var results = [];
-        
+  
               elements.forEach(function (element) {
-                var articleContent = element.textContent.toLowerCase();
-                if (articleContent.includes(searchTerm)) {
-                  results.push(element.outerHTML);
-                }
+                  var channelName = element.querySelector("h4").textContent.toLowerCase();
+                  if (channelName.includes(searchTerm)) {
+                      results.push(element.outerHTML);
+                  }
               });
-        
+  
               // Exiba os resultados na página
               if (results.length > 0) {
-                searchResultsDiv.innerHTML = results.join("");
+                  searchResultsDiv.innerHTML = results.join("");
               } else {
-                searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
+                  searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
               }
-            }
-          };
-          xhr.send();
-        }
-        
-        function searchMobile() {
-          var searchTerm = document.getElementById("searchInputMobile").value.toLowerCase();
-          var searchResultsDiv = document.getElementById("searchResults");
-        
-          // Carregue o conteúdo da página "canais.html" usando AJAX
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET", "https://radiobr.vercel.app/canais.html", true);
-          xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-              var pageContent = xhr.responseText;
-        
-              // Crie um elemento temporário para analisar o HTML
-              var tempElement = document.createElement("div");
-              tempElement.innerHTML = pageContent;
-        
-              // Encontre os elementos correspondentes dentro do conteúdo carregado
-              var elements = tempElement.querySelectorAll(".col-sm-2.col-xs-4"); // Seleciona elementos com a classe "item movies"
-              var results = [];
-        
-              elements.forEach(function (element) {
-                var divContent = element.textContent.toLowerCase();
-                if (divContent.includes(searchTerm)) {
-                  results.push(element.outerHTML);
-                }
-              });
-        
-              // Exiba os resultados na página
-              if (results.length > 0) {
-                searchResultsDiv.innerHTML = results.join("");
-              } else {
-                searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
-              }
-            }
-          };
-          xhr.send();
-        }
-        
-        
-      </script>
+          }
+      };
+      xhr.send();
+  }
+    </script>
     <script>
       function openNewWindow(url, width, height) {
         window.open(url, '', `width=${width},height=${height}`);
@@ -451,7 +448,7 @@
               <div id="playerbox" class="p-t-20" style=" padding: 4px;">
                 <div class="cxPlayer" id="stream1">
                     <div class="player-wpr">
-                        <div class="bg-black accent-deeporange" style="background-color: #875a1f;">
+                        <div class="bg-black accent-deeporange" style="background-color: #040404;">
                                 <div class="ppBtn play-btn" onclick="togglePlayPause()"></div>
                                 <div class="blur"></div>
                                 <div class="player-ctr">
@@ -462,7 +459,8 @@
                                         <div id="currentSong" class="track-title animated">Web Rádio Belém Mix</div>
                                         <div id="title" class="title" style="width: 100%;">
                    
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;">A princezinha do pará</h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;">A princezinha do pará</h1></div></center></div></div>
+
+                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="output1" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 700px; color: white;"><div id="output3" style="color: white;"></div></div></center></div></div>
                                         <div id="artistName" class="artist-name animated"></div>
                                         <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
                                             <source src="https://stm2.pousadavirtual.com.br:7158/stream" type="audio/mp3">
@@ -475,19 +473,23 @@
                             </div>
                         </div>
                     </div>
-               
+                    <div id="output2" style="font-size: 15px; background-color: #040404; color: white; width: 100%;"></div>
             
    
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
-                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Belém no estado de Pará. A Web Rádio Belém Mix ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros Brega, Eclética.<span>&nbsp;Site:</span>&nbsp;<a href="https://webradiobelemmix.studioshopping.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
+                      <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Belém no estado de Pará. A Web Rádio Belém Mix ao vivo é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros Brega, Eclética.<span>&nbsp;Site:</span>&nbsp;<a href="https://webradiobelemmix.studioshopping.com.br/" rel="nofollow noopener" target="_blank">Acessar</a></p>
+                     
+                     
+                      
+                      </center>
                </div>
          
         
      
             </section>
-              
-              
-               </div>
+           
+           
+             
             </section>
 
 
@@ -533,14 +535,105 @@
             }
         
             function handlePlay() {
-                playBtn.style.backgroundImage = 'url("/assets/img/cxPlayer/pausew.svg")';
+                playBtn.style.backgroundImage = 'url("https://radiobr.vercel.app/assets/img/cxPlayer/pausew.svg")';
             }
         
             function handlePause() {
-                playBtn.style.backgroundImage = 'url("/assets/img/cxPlayer/playw.svg")';
+                playBtn.style.backgroundImage = 'url("https://radiobr.vercel.app/assets/img/cxPlayer/playw.svg")';
             }
         </script>
+         <script>
+            // Função para fazer uma solicitação HTTP GET
+            function httpGet(url, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200)
+                        callback(xhr.responseText);
+                }
+                xhr.open("GET", url, true);
+                xhr.send();
+            }
+        
+            // Função para processar a resposta JSON e extrair o título
+                 // Função para processar a resposta JSON e extrair o título
+                 function extractAndDisplay(jsonString, outputElement) {
+    var data = JSON.parse(jsonString);
+    var contents = data.contents; // Obtém o valor da chave "contents"
+
+    // Exibir o conteúdo na página HTML
+    outputElement.innerText = contents;
+}
+
+        
+            // Função para fazer a solicitação HTTP e chamar a função para exibir o resultado
+            function makeRequest() {
+                var timestamp = new Date().getTime(); // Obter o timestamp atual
+                var url = "https://api.allorigins.win/get?url=https://stm2.pousadavirtual.com.br:7158/currentsong?sid=1&_=" + timestamp; // Adicionar timestamp como parâmetro
+                httpGet(url, function(responseText) {
+                    var outputElement1 = document.getElementById("output1");
+                    var outputElement3 = document.getElementById("output3"); // Nova saída
+                    extractAndDisplay(responseText, outputElement1);
+                    extractAndDisplay(responseText, outputElement3); // Duplicar a saída
+                });
+            }
+        
+            // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
+            makeRequest();
+            setInterval(makeRequest, 30000); // 30 segundos em milissegundos
+        </script>
        
+        <script>
+            // Função para fazer uma solicitação HTTP GET
+            function httpGet(url, callback) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200)
+                        callback(xhr.responseText);
+                }
+                xhr.open("GET", url, true);
+                xhr.send();
+            }
+        
+            // Função para extrair e exibir os itens da tabela
+            function updateTable() {
+                // URL da API com parâmetro de timestamp para evitar cache
+                var timestamp = new Date().getTime(); // Obter o timestamp atual
+                var url = "https://api.allorigins.win/get?url=https://stm2.pousadavirtual.com.br:7158/played.html?sid=1&_=" + timestamp;
+        
+                // Processar a resposta HTML e extrair os itens da tabela
+                function extractAndDisplay(htmlString) {
+                    // Criar um elemento temporário para analisar o HTML
+                    var tempElement = document.createElement('div');
+                    tempElement.innerHTML = htmlString;
+        
+                    // Extrair os itens da tabela
+                    var tableRows = tempElement.querySelectorAll('table tr');
+                    var tableData = '';
+                    for (var i = 1; i < tableRows.length; i++) { // Começamos em 1 para ignorar o cabeçalho da tabela
+                        var rowData = tableRows[i].querySelectorAll('td');
+                        if (rowData.length >= 2) {
+                            var time = rowData[0].innerText;
+                            var song = rowData[1].innerText;
+                            tableData += '<tr><td>' + song + '</td></tr>';
+                        }
+                    }
+        
+                    // Construir a tabela com os itens extraídos
+                    var outputHTML = '<table border="1" style="border: 1px solid #000000;"><tr></tr>' + tableData + '</table>';
+        
+                    // Exibir a tabela na página HTML
+                    var outputElement = document.getElementById("output2");
+                    outputElement.innerHTML = outputHTML;
+                }
+        
+                // Fazer solicitação HTTP e chamar a função para exibir o resultado
+                httpGet(url, extractAndDisplay);
+            }
+        
+            // Chamar a função para atualizar a tabela a cada 30 segundos
+            updateTable(); // Chama a função pela primeira vez
+            setInterval(updateTable, 30000); // Chama a função a cada 30 segundos
+        </script>
         <div class="col-md-12 text-right m-t-20">
         <a href="https://www.JP TV.com.br/politica-de-privacidade" class="text-white s2 m-r-10">Política de Privacidade</a>
         @2022 <a href="https://radiobr.vercel.app/" style="color: #23AD00;">
