@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duplicar Saída do Título</title>
+    <title>Exemplo de Requisição à API XML</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <div id="output1"></div>
-    <div id="output2"></div> <!-- Nova saída duplicada -->
+    <div id="nowPlaying"></div>
+    <div id="nowPlaying2"></div>
 
     <script>
-        // Função para fazer uma solicitação HTTP GET
-        function httpGet(url, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200)
-                    callback(xhr.responseText);
-            }
-            xhr.open("GET", url, true);
-            xhr.send();
+        // Função para fazer a requisição à API e exibir os dados em duas divs diferentes
+        function fetchNowPlaying() {
+            // Gerar um timestamp único para evitar o cache do navegador
+            let timestamp = new Date().getTime();
+            let apiUrl = `https://np.tritondigital.com/public/nowplaying?mountName=JBFMAAC&numberToFetch=1&eventType=track&_=${timestamp}`;
+
+            fetch(apiUrl)
+                .then(response => response.text())
+                .then(data => {
+                    // Parse do XML retornado
+                    let parser = new DOMParser();
+                    let xmlDoc = parser.parseFromString(data, "text/xml");
+
+                    // Extrair os valores desejados do XML
+                    let title = xmlDoc.querySelector("property[name='cue_title']").textContent.trim();
+                    let artist = xmlDoc.querySelector("property[name='track_artist_name']").textContent.trim();
+
+                    // Exibir os dados nas duas divs diferentes
+                    document.getElementById("nowPlaying").textContent = title + " - " + artist;
+                    document.getElementById("nowPlaying2").textContent = title + " - " + artist;
+                })
+                .catch(error => console.error('Erro ao buscar dados:', error));
         }
-    
-     
-        // Função para fazer a solicitação HTTP e chamar a função para exibir o resultado
-        function makeRequest() {
-            var timestamp = new Date().getTime(); // Obter o timestamp atual
-            var url = "https://api.allorigins.win/get?url=https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv" + timestamp; // Adicionar timestamp como parâmetro
-            httpGet(url, function(responseText) {
-                var outputElement1 = document.getElementById("output1");
-                var outputElement2 = document.getElementById("output2"); // Nova saída
-                extractAndDisplay(responseText, outputElement1);
-                extractAndDisplay(responseText, outputElement2); // Duplicar a saída
-            });
-        }
-    
-        // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
-        makeRequest();
-        setInterval(makeRequest, 30000); // 30 segundos em milissegundos
+
+        // Chamar a função de busca inicialmente
+        fetchNowPlaying();
+
+        // Atualizar a cada 30 segundos (30000 milissegundos)
+        setInterval(fetchNowPlaying, 30000);
     </script>
-
-
-
 </body>
 </html>
