@@ -555,13 +555,15 @@
             }
         
             // Função para processar a resposta JSON e extrair o título
-            function extractAndDisplay(jsonString, outputElement) {
-                var data = JSON.parse(jsonString);
-                var title = data.contents.split('-')[1].trim(); // Extrai o título após o '-' e remove espaços em branco
-            
-                // Exibir o título na página HTML e aplicar estilos
-                outputElement.innerText = title;
-            }
+                 // Função para processar a resposta JSON e extrair o título
+                 function extractAndDisplay(jsonString, outputElement) {
+    var data = JSON.parse(jsonString);
+    var contents = data.contents; // Obtém o valor da chave "contents"
+
+    // Exibir o conteúdo na página HTML
+    outputElement.innerText = contents;
+}
+
         
             // Função para fazer a solicitação HTTP e chamar a função para exibir o resultado
             function makeRequest() {
