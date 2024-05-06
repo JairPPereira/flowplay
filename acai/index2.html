@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de atualização a cada 30 segundos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <p id="conteudo1"></p>
+    <p id="conteudo2"></p>
+
+    <script>
+        function fetchData() {
+            // Chamada para a API
+            fetch('https://s02.painelstream.net/musicas.php?ip=s02&porta=8930')
+            .then(response => response.text())
+            .then(data => {
+                // Separando a parte desejada
+                const partes = data.split('||');
+                const textoDesejado = partes[0];
+
+                // Imprimindo no HTML
+                document.getElementById('conteudo1').innerText = textoDesejado;
+                document.getElementById('conteudo2').innerText = textoDesejado;
+            })
+            .catch(error => console.error('Ocorreu um erro:', error));
+        }
+
+        // Chamar a função fetchData inicialmente
+        fetchData();
+
+        // Atualizar a cada 30 segundos
+        setInterval(fetchData, 30000); // 30000 milissegundos = 30 segundos
+    </script>
+</body>
+</html>
