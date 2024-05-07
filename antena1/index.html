@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informações da Música</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="artistTitle1"></div>
+<div id="artistTitle2"></div>
+<div id="albumCover"></div>
+<div id="lyrics"></div>
+<div id="translation"></div>
+
+<script>
+function fetchMusicInfo() {
+    var timestamp = new Date().getTime(); // Obtém o timestamp atual para criar um parâmetro de consulta único
+    var url = 'https://api.allorigins.win/get?url=https://www.antena1.com.br/api/v1/aovivo/getCurrentSongInfo/antena_1&timestamp=' + timestamp;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        var songInfo = JSON.parse(data.contents).data;
+
+        // Cria elementos HTML para cada informação
+        var artistTitleDiv1 = document.getElementById('artistTitle1');
+        var artistTitle1 = document.createElement('h2');
+        artistTitle1.textContent = songInfo.artist + ' - ' + songInfo.song;
+        artistTitleDiv1.innerHTML = ''; // Limpa o conteúdo anterior antes de adicionar o novo
+        artistTitleDiv1.appendChild(artistTitle1);
+
+        var artistTitleDiv2 = document.getElementById('artistTitle2');
+        var artistTitle2 = document.createElement('h2');
+        artistTitle2.textContent = songInfo.artist + ' - ' + songInfo.song;
+        artistTitleDiv2.innerHTML = ''; // Limpa o conteúdo anterior antes de adicionar o novo
+        artistTitleDiv2.appendChild(artistTitle2);
+
+        var albumCoverDiv = document.getElementById('albumCover');
+        var albumCoverImg = document.createElement('img');
+        albumCoverImg.setAttribute('src', songInfo.cover);
+        albumCoverImg.setAttribute('alt', 'Capa do álbum');
+        albumCoverDiv.innerHTML = ''; // Limpa o conteúdo anterior antes de adicionar o novo
+        albumCoverDiv.appendChild(albumCoverImg);
+
+        var lyricsDiv = document.getElementById('lyrics');
+        var lyricsParagraph = document.createElement('p');
+        lyricsParagraph.innerHTML = songInfo.lyrics;
+        lyricsDiv.innerHTML = ''; // Limpa o conteúdo anterior antes de adicionar o novo
+        lyricsDiv.appendChild(lyricsParagraph);
+
+        var translationDiv = document.getElementById('translation');
+        var translationParagraph = document.createElement('p');
+        translationParagraph.innerHTML = songInfo.lyricsTranslation;
+        translationDiv.innerHTML = ''; // Limpa o conteúdo anterior antes de adicionar o novo
+        translationDiv.appendChild(translationParagraph);
+    })
+    .catch(error => console.error('Erro ao obter informações da música:', error));
+}
+
+// Chama a função fetchMusicInfo() inicialmente
+fetchMusicInfo();
+
+// Atualiza as informações a cada 20 segundos
+setInterval(fetchMusicInfo, 20000); // 20000 milissegundos = 20 segundos
+</script>
+
+</body>
+</html>
