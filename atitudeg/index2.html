@@ -11,6 +11,7 @@
         <p id="songTitle1"></p>
         <p id="songTitle2"></p>
         <img id="coverImage" src="" alt="Capa da música">
+        <img id="coverImage2" src="" alt="Capa da música">
     </div>
 
     <script>
@@ -26,6 +27,7 @@
                     document.getElementById('songTitle1').textContent = data.playing.current;
                     document.getElementById('songTitle2').textContent = data.playing.current; // Duplica o título da música
                     document.getElementById('coverImage').src = data.song_data.cover;
+                    document.getElementById('coverImage2').src = data.song_data.cover;
                 })
                 .catch(error => console.error('Erro ao buscar dados da API:', error));
         }
