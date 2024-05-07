@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Atualização de Dados da API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="songInfo">
+        <p id="songTitle1"></p>
+        <p id="songTitle2"></p>
+        <img id="coverImage" src="" alt="Capa da música">
+    </div>
+
+    <script>
+        // Função para fazer uma solicitação HTTP GET para a API
+        function fetchSongData() {
+            // Adiciona um parâmetro de consulta único para evitar o cache do navegador
+            const url = 'https://s14.maxcast.com.br/api/status/atitudegospelmix/current.json?_=' + Date.now();
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Atualiza o HTML com os dados obtidos da API
+                    document.getElementById('songTitle1').textContent = data.playing.current;
+                    document.getElementById('songTitle2').textContent = data.playing.current; // Duplica o título da música
+                    document.getElementById('coverImage').src = data.song_data.cover;
+                })
+                .catch(error => console.error('Erro ao buscar dados da API:', error));
+        }
+
+        // Chama a função para buscar os dados da API quando a página carrega
+        fetchSongData();
+
+        // Atualiza os dados a cada 10 segundos (10000 milissegundos)
+        setInterval(fetchSongData, 10000);
+    </script>
+</body>
+</html>
