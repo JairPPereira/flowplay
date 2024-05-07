@@ -41,8 +41,13 @@ function fetchMusicInfo() {
         var albumCoverImg = document.createElement('img');
         albumCoverImg.setAttribute('src', songInfo.cover);
         albumCoverImg.setAttribute('alt', 'Capa do álbum');
+        albumCoverImg.style.maxWidth = '200px'; // Definindo o tamanho máximo da imagem
+        albumCoverImg.style.maxwidth = '200px'; // Garantindo que a imagem seja responsiva
         albumCoverDiv.innerHTML = ''; // Limpa o conteúdo anterior antes de adicionar o novo
         albumCoverDiv.appendChild(albumCoverImg);
+
+
+  
 
         var lyricsDiv = document.getElementById('lyrics');
         var lyricsParagraph = document.createElement('p');
