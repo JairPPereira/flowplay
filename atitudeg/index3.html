@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Exibição de Dados da API</title>
+</head>
+<body>
+    <div id="musicInfo">
+        <h2>Informações da Música</h2>
+        <p id="musicTitle1"></p>
+        <p id="musicTitle2"></p> <!-- Adicionado novo elemento com ID diferente -->
+        <img id="musicCover" src="" alt="Capa da Música">
+        <p id="musicLyrics"></p>
+    </div>
+
+    <script>
+        function fetchAndUpdateData() {
+            // Adiciona um timestamp como parâmetro de consulta para evitar o cache do navegador
+            const timestamp = new Date().getTime();
+
+            // Constrói a URL da API com o parâmetro de consulta
+            const apiUrl = `https://api.allorigins.win/get?url=https://s14.maxcast.com.br/api/status/atitudegospelmix/current.json&_=${timestamp}`;
+
+            // Fazendo uma requisição para a API
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Extrai os dados relevantes da resposta da API
+                    const responseData = JSON.parse(data.contents);
+                    const musicTitle = responseData.playing.current;
+                    const musicCover = responseData.song_data.cover;
+                    const musicLyrics = responseData.song_data.lyric;
+
+                    // Atualiza o conteúdo da página HTML com os dados extraídos
+                    document.getElementById('musicTitle1').textContent = musicTitle;
+                    document.getElementById('musicTitle2').textContent = musicTitle; // Atualizado com o segundo ID
+                    document.getElementById('musicCover').src = musicCover;
+                    document.getElementById('musicLyrics').textContent = musicLyrics;
+                })
+                .catch(error => console.error('Erro ao buscar dados da API:', error));
+        }
+
+        // Executar a função inicialmente
+        fetchAndUpdateData();
+
+        // Atualizar os dados a cada 20 segundos
+        setInterval(fetchAndUpdateData, 20000); // 20 segundos em milissegundos
+    </script>
+</body>
+</html>

@@ -462,7 +462,7 @@
                                         <div id="title" class="title" style="width: 100%;">
                                            
 
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="musicTitle1" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 700px; color: white;"><div id="musicTitle2" style="color: white;"></div></div></center></div></div>
+                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="songTitle1" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 700px; color: white;"><div id="songTitle1" style="color: white;"></div></div></center></div></div>
                                         <div id="artistName" class="artist-name animated"></div>
                                         <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
                                             <source src="https://s14.maxcast.com.br:8044/live" type="audio/mp3">
@@ -475,21 +475,8 @@
                             </div>
                         </div>
                     </div>
-                    <img id="musicCover" src="" alt="Capa da Música" style="max-width: 150px; max-height: 150px;">
-                    <p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                          Letra
-                        </a>
-                     
-                      </p>
-                      <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                          
-                          <div class="info" id="musicLyrics" style="font-size: 15px; background-color: #040404; color: white; width: 100%; padding-top: 5px;"></div>
-                          
-                        </div>
-                      </div>
-                      
+                  
+   
                     <div class="text-center-xs" style="margin-top: 20px;"><center>
                        
                       <p class="bold no-margin medium-4"><i class="fas fa-music fa-fw"></i>&nbsp;Localizada em Parauapebas no estado de Pará. A Rádio Atitude Gospel ao vivo, tem o slogan "A Rádio que louva a Deus" e é transmitida via rádio online. Conta com uma programação ao vivo, com os gêneros Gospel, Pop, Jovem.<span>&nbsp;Site:</span>&nbsp;<a href="https://www.radioatitudegospel.com/?utm_source=cxradio" rel="nofollow noopener" target="_blank">Acessar</a></p></center>
@@ -554,40 +541,30 @@
                 playBtn.style.backgroundImage = 'url("https://radiobr.vercel.app/assets/img/cxPlayer/playw.svg")';
             }
         </script>
-       <script>
-        function fetchAndUpdateData() {
-            // Adiciona um timestamp como parâmetro de consulta para evitar o cache do navegador
-            const timestamp = new Date().getTime();
+      
+      <script>
+        // Função para fazer uma solicitação HTTP GET para a API
+        function fetchSongData() {
+            // Adiciona um parâmetro de consulta único para evitar o cache do navegador
+            const url = 'https://s14.maxcast.com.br/api/status/atitudegospelmix/current.json?_=' + Date.now();
 
-            // Constrói a URL da API com o parâmetro de consulta
-            const apiUrl = `https://api.allorigins.win/get?url=https://s14.maxcast.com.br/api/status/atitudegospelmix/current.json&_=${timestamp}`;
-
-            // Fazendo uma requisição para a API
-            fetch(apiUrl)
+            fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    // Extrai os dados relevantes da resposta da API
-                    const responseData = JSON.parse(data.contents);
-                    const musicTitle = responseData.playing.current;
-                    const musicCover = responseData.song_data.cover;
-                    const musicLyrics = responseData.song_data.lyric;
-
-                    // Atualiza o conteúdo da página HTML com os dados extraídos
-                    document.getElementById('musicTitle1').textContent = musicTitle;
-                    document.getElementById('musicTitle2').textContent = musicTitle; // Atualizado com o segundo ID
-                    document.getElementById('musicCover').src = musicCover;
-                    document.getElementById('musicLyrics').textContent = musicLyrics;
+                    // Atualiza o HTML com os dados obtidos da API
+                    document.getElementById('songTitle1').textContent = data.playing.current;
+                    document.getElementById('songTitle2').textContent = data.playing.current; // Duplica o título da música
+                    document.getElementById('albumCover').src = data.song_data.cover;
                 })
                 .catch(error => console.error('Erro ao buscar dados da API:', error));
         }
 
-        // Executar a função inicialmente
-        fetchAndUpdateData();
+        // Chama a função para buscar os dados da API quando a página carrega
+        fetchSongData();
 
-        // Atualizar os dados a cada 20 segundos
-        setInterval(fetchAndUpdateData, 20000); // 20 segundos em milissegundos
-    </script>
-  
+        // Atualiza os dados a cada 10 segundos (10000 milissegundos)
+        setInterval(fetchSongData, 10000);
+    </script> 
        
         <div class="col-md-12 text-right m-t-20">
         <a href="https://www.JP TV.com.br/politica-de-privacidade" class="text-white s2 m-r-10">Política de Privacidade</a>
