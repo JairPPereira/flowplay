@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplo de Requisição de API</title>
+</head>
+<body>
+<div id="resultado1"></div>
+<div id="resultado2"></div>
+
+<script>
+function carregarConteudo() {
+    // Adicionando um timestamp único para evitar o cache
+    const url = 'https://api.allorigins.win/get?url=https://socialradio.com.br/radio/radiotropicalvix/metadata.php&t=' + new Date().getTime();
+
+    // Fazendo uma requisição para a API
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Obtendo o conteúdo desejado da resposta da API
+            const conteudo = data.contents;
+            
+            // Inserindo o conteúdo nas páginas HTML
+            document.getElementById('resultado1').innerText = conteudo;
+            document.getElementById('resultado2').innerText = conteudo;
+        })
+        .catch(error => console.error('Ocorreu um erro:', error));
+}
+
+// Carregar conteúdo inicialmente
+carregarConteudo();
+
+// Recarregar a cada 20 segundos
+setInterval(carregarConteudo, 20000);
+</script>
+</body>
+</html>
