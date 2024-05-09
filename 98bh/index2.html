@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemplo de API</title>
+</head>
+<body>
+
+<div id="program-name"></div>
+<div id="program-slug"></div>
+<div id="program-description"></div>
+<div id="program-hours"></div>
+  
+<script>
+function fetchData() {
+  // Adicionar timestamp para evitar cache
+  const timestamp = new Date().getTime();
+
+  // URL da API com parâmetro de timestamp
+  const apiUrl = `https://api.allorigins.win/get?url=https://www.98live.com.br/api/programs/current/&timestamp=${timestamp}`;
+
+  // Chamada à API
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Extrair os valores relevantes do JSON
+      const program = JSON.parse(data.contents);
+      const slug = program.slug;
+      const name = program.name;
+      const description = program.description;
+      const hours = program.hours;
+
+      // Exibir os valores nas divs separadas
+      document.getElementById('program-slug').innerText = slug;
+      document.getElementById('program-name').innerText = name;
+      document.getElementById('program-description').innerText = description;
+      document.getElementById('program-hours').innerText = hours;
+    })
+    .catch(error => console.error('Erro ao buscar dados da API:', error));
+}
+
+// Chamar a função fetchData inicialmente
+fetchData();
+
+// Chamar a função fetchData a cada 20 segundos
+setInterval(fetchData, 20000); // 20 segundos em milissegundos
+</script>
+
+</body>
+</html>
