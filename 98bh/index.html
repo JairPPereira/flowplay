@@ -162,14 +162,14 @@
                         .then(data => {
                           // Extrair os valores relevantes do JSON
                           const program = JSON.parse(data.contents);
-                          const slug = program.slug;
                           const name = program.name;
+                          const name2 = program.name;
                           const description = program.description;
                           const hours = program.hours;
                     
                           // Exibir os valores nas divs separadas
-                          document.getElementById('program-slug').innerText = slug;
                           document.getElementById('program-name').innerText = name;
+                          document.getElementById('program-name2').innerText = name2;
                           document.getElementById('program-description').innerText = description;
                           document.getElementById('program-hours').innerText = hours;
                         })
@@ -499,7 +499,7 @@
                                         <div id="title" class="title" style="width: 100%;">
                    
 
-                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="program-name" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 800px; color: white;"><div id="program-slug" style="color: white;"></div></div></center></div></div>
+                                            <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="program-name" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 600px; color: white;"><div id="program-name2" style="color: white;"></div></div></center></div></div>
                                         <div id="artistName" class="artist-name animated"></div>
                                         <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
                                             <source src="https://9554.brasilstream.com.br/stream" type="audio/mp3">
