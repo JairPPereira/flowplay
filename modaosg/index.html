@@ -161,15 +161,13 @@
                     }
                 
                     // Função para processar a resposta JSON e extrair o título
-                         // Função para processar a resposta JSON e extrair o título
-                         function extractAndDisplay(jsonString, outputElement) {
-                var data = JSON.parse(jsonString);
-                var contents = data.contents; // Obtém o valor da chave "contents"
+                    function extractAndDisplay(jsonString, outputElement) {
+                        var data = JSON.parse(jsonString);
+                        var contents = data.contents; // Obtém o valor da chave "contents"
                 
-                // Exibir o conteúdo na página HTML
-                outputElement.innerText = contents;
-                }
-                
+                        // Exibir o conteúdo na página HTML
+                        outputElement.innerText = contents;
+                    }
                 
                     // Função para fazer a solicitação HTTP e chamar a função para exibir o resultado
                     function makeRequest() {
@@ -180,19 +178,39 @@
                             var outputElement3 = document.getElementById("output3"); // Nova saída
                             extractAndDisplay(responseText, outputElement1);
                             extractAndDisplay(responseText, outputElement3); // Duplicar a saída
+                
+                            var title = outputElement1.innerText; // Obter o título da música
+                            var itunesApiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://itunes.apple.com/search?term=" + title + "&country=us&media=music&entity=song&limit=1&lang=pt_br&explicit=No&version=2");
+                
+                            // Fazer solicitação HTTP para a próxima API
+                            httpGet(itunesApiUrl, function(response) {
+                                var imageData = JSON.parse(response);
+                                var results = JSON.parse(imageData.contents).results;
+                
+                                // Obter a URL da imagem
+                                var imageUrl = results[0].artworkUrl100;
+                
+                                // Construir a URL da imagem em tamanho desejado
+                                var imageUrlModified = imageUrl.replace(/100x100bb\.jpg$/, "250x250bb.jpg");
+                
+                                // Remover a imagem anterior, se houver
+                                var imageContainer = document.getElementById("imageContainer");
+                                while (imageContainer.firstChild) {
+                                    imageContainer.removeChild(imageContainer.firstChild);
+                                }
+                
+                                // Exibir a nova imagem na página HTML
+                                var imageElement = document.createElement("img");
+                                imageElement.src = imageUrlModified;
+                                imageContainer.appendChild(imageElement);
+                            });
                         });
                     }
                 
-                    // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
+                    // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 20 segundos
                     makeRequest();
                     setInterval(makeRequest, 20000); // 20 segundos em milissegundos
                 </script>
-
-
-
-
-
-
 
 
                 <script>
@@ -567,7 +585,7 @@
                                             <div class="titles-container"><center><div class="episode-title" id="episode-title"><h1 class="marquee" id="marquee" data-testid="marquee" style="color: white;"><div id="output1" style="color: white;"></div></h1><h1 class="marquee" id="marquee-duplicated" data-testid="marquee-duplicated" style="left: 800px; color: white;"><div id="output3" style="color: white;"></div></div></center></div></div>
                                         <div id="artistName" class="artist-name animated"></div>
                                         <audio id="audio" onplay="handlePlay()" onpause="handlePause()">
-                                            <source src="https://9554.brasilstream.com.br/stream" type="audio/mp3">
+                                            <source src="https://www.cxradio.com.br/radio/radio-modao" type="audio/mp3">
                                             Seu navegador não suporta o elemento de áudio.
                                         </audio>
                                     </div>
@@ -577,6 +595,9 @@
                             </div>
                         </div>
                     </div>
+                    <div id="imageContainer">
+                        <!-- A imagem será exibida aqui -->
+                      </div>
                     <p>
                         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                           Já tocadas
