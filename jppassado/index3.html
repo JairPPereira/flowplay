@@ -10,6 +10,12 @@
   <div id="imageContainer">
     <!-- A imagem será exibida aqui -->
   </div>
+  <div id="output1">
+    <!-- A imagem será exibida aqui -->
+  </div>
+  <div id="output2">
+    <!-- A imagem será exibida aqui -->
+  </div>
 
   <script>
     // Função para fazer uma solicitação HTTP GET
@@ -32,6 +38,12 @@
         var data = JSON.parse(jsonString);
         var contents = JSON.parse(data.contents);
         var title = contents.title;
+
+        // Exibir o título na página HTML e aplicar estilos
+        var outputElement1 = document.getElementById("output1");
+        var outputElement2 = document.getElementById("output2");
+        outputElement1.innerText = title;
+        outputElement2.innerText = title; // Altere esta linha conforme necessário
 
         // Montar a URL para a próxima API com o título
         var itunesApiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://itunes.apple.com/search?term=" + title + "&country=us&media=music&entity=song&limit=1&lang=pt_br&explicit=No&version=2");
@@ -60,11 +72,6 @@
         });
     }
 
-    // Atualizar a cada 20 segundos
-    setInterval(function() {
-        updateData();
-    }, 20 * 1000);
-
     // Função para fazer a primeira solicitação e iniciar o processo de atualização
     function updateData() {
         var timestamp = new Date().getTime(); // Carimbo de data e hora atual
@@ -74,6 +81,11 @@
 
     // Chamar a função de atualização pela primeira vez
     updateData();
+
+    // Atualizar a cada 20 segundos
+    setInterval(function() {
+        updateData();
+    }, 20 * 1000);
   </script>
 </body>
 </html>
