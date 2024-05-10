@@ -185,9 +185,16 @@
                 
                     // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
                     makeRequest();
-                    setInterval(makeRequest, 30000); // 30 segundos em milissegundos
+                    setInterval(makeRequest, 20000); // 20 segundos em milissegundos
                 </script>
-                
+
+
+
+
+
+
+
+
                 <script>
                     // Função para fazer uma solicitação HTTP GET
                     function httpGet(url, callback) {
@@ -238,7 +245,7 @@
                 
                     // Chamar a função para atualizar a tabela a cada 30 segundos
                     updateTable(); // Chama a função pela primeira vez
-                    setInterval(updateTable, 30000); // Chama a função a cada 30 segundos
+                    setInterval(updateTable, 20000); // Chama a função a cada 20 segundos
                 </script>                
 
   </head>

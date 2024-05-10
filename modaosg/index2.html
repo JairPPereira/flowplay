@@ -7,8 +7,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div id="output"></div>
-
+    <div id="output1"></div>
+    <div id="output3"></div>
+    <div id="output2" style="font-size: 15px; background-color: #040404; color: white; max-width: 800px;"></div>
+    <div id="imageContainer">
+        <!-- A imagem será exibida aqui -->
+      </div>
     <script>
         // Função para fazer uma solicitação HTTP GET
         function httpGet(url, callback) {
@@ -22,27 +26,117 @@
         }
     
         // Função para processar a resposta JSON e extrair o título
-        function extractAndDisplay(jsonString) {
+        function extractAndDisplay(jsonString, outputElement) {
             var data = JSON.parse(jsonString);
-            var title = data.contents.split('-')[1].trim(); // Extrai o título após o '-' e remove espaços em branco
+            var contents = data.contents; // Obtém o valor da chave "contents"
     
-            // Exibir o título na página HTML e aplicar estilos
-            var outputElement = document.getElementById("output");
-            outputElement.innerText = title;
+            // Exibir o conteúdo na página HTML
+            outputElement.innerText = contents;
         }
     
         // Função para fazer a solicitação HTTP e chamar a função para exibir o resultado
         function makeRequest() {
             var timestamp = new Date().getTime(); // Obter o timestamp atual
             var url = "https://api.allorigins.win/get?url=https://centova5.transmissaodigital.com:20024/currentsong?sid=1&_=" + timestamp; // Adicionar timestamp como parâmetro
+            httpGet(url, function(responseText) {
+                var outputElement1 = document.getElementById("output1");
+                var outputElement3 = document.getElementById("output3"); // Nova saída
+                extractAndDisplay(responseText, outputElement1);
+                extractAndDisplay(responseText, outputElement3); // Duplicar a saída
+    
+                var title = outputElement1.innerText; // Obter o título da música
+                var itunesApiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://itunes.apple.com/search?term=" + title + "&country=us&media=music&entity=song&limit=1&lang=pt_br&explicit=No&version=2");
+    
+                // Fazer solicitação HTTP para a próxima API
+                httpGet(itunesApiUrl, function(response) {
+                    var imageData = JSON.parse(response);
+                    var results = JSON.parse(imageData.contents).results;
+    
+                    // Obter a URL da imagem
+                    var imageUrl = results[0].artworkUrl100;
+    
+                    // Construir a URL da imagem em tamanho desejado
+                    var imageUrlModified = imageUrl.replace(/100x100bb\.jpg$/, "250x250bb.jpg");
+    
+                    // Remover a imagem anterior, se houver
+                    var imageContainer = document.getElementById("imageContainer");
+                    while (imageContainer.firstChild) {
+                        imageContainer.removeChild(imageContainer.firstChild);
+                    }
+    
+                    // Exibir a nova imagem na página HTML
+                    var imageElement = document.createElement("img");
+                    imageElement.src = imageUrlModified;
+                    imageContainer.appendChild(imageElement);
+                });
+            });
+        }
+    
+        // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 20 segundos
+        makeRequest();
+        setInterval(makeRequest, 20000); // 20 segundos em milissegundos
+    </script>
+    
+
+
+
+
+
+
+
+
+    <script>
+        // Função para fazer uma solicitação HTTP GET
+        function httpGet(url, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200)
+                    callback(xhr.responseText);
+            }
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+    
+        // Função para extrair e exibir os itens da tabela
+        function updateTable() {
+            // URL da API com parâmetro de timestamp para evitar cache
+            var timestamp = new Date().getTime(); // Obter o timestamp atual
+            var url = "https://api.allorigins.win/get?url=https://centova5.transmissaodigital.com:20024/played.html?sid=1&_=" + timestamp;
+    
+            // Processar a resposta HTML e extrair os itens da tabela
+            function extractAndDisplay(htmlString) {
+                // Criar um elemento temporário para analisar o HTML
+                var tempElement = document.createElement('div');
+                tempElement.innerHTML = htmlString;
+    
+                // Extrair os itens da tabela
+                var tableRows = tempElement.querySelectorAll('table tr');
+                var tableData = '';
+                for (var i = 1; i < tableRows.length; i++) { // Começamos em 1 para ignorar o cabeçalho da tabela
+                    var rowData = tableRows[i].querySelectorAll('td');
+                    if (rowData.length >= 2) {
+                        var time = rowData[0].innerText;
+                        var song = rowData[1].innerText;
+                        tableData += '<tr><td>' + song + '</td></tr>';
+                    }
+                }
+    
+                // Construir a tabela com os itens extraídos
+                var outputHTML = '<table border="1" style="border: 1px solid #000000;"><tr></tr>' + tableData + '</table>';
+    
+                // Exibir a tabela na página HTML
+                var outputElement = document.getElementById("output2");
+                outputElement.innerHTML = outputHTML;
+            }
+    
+            // Fazer solicitação HTTP e chamar a função para exibir o resultado
             httpGet(url, extractAndDisplay);
         }
     
-        // Fazer a primeira solicitação e, em seguida, configurar o intervalo de 30 segundos
-        makeRequest();
-        setInterval(makeRequest, 30000); // 30 segundos em milissegundos
-    </script>
-    
+        // Chamar a função para atualizar a tabela a cada 30 segundos
+        updateTable(); // Chama a função pela primeira vez
+        setInterval(updateTable, 20000); // Chama a função a cada 20 segundos
+    </script>              
     
 </body>
 </html>
