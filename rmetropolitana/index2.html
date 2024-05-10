@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exibir Dados da API</title>
+</head>
+<body>
+
+<div id="imageContainer">
+    <img id="coverImage" src="loading.gif" alt="Capa do álbum">
+</div>
+
+<div id="songInfo">
+    <h1>Loading...</h1>
+</div>
+
+<script>
+// Função para buscar e exibir os dados da API
+function fetchAndDisplayData() {
+    // Gera um número aleatório para ser usado como parâmetro de consulta
+    var randomParam = Math.floor(Math.random() * 10000);
+    
+    // URL da API com o parâmetro de consulta único
+    var apiUrl = 'https://api.allorigins.win/get?url=https://m985.com.br/api/last/aovivo&nocache=' + randomParam;
+
+    // Fazendo a requisição para a API
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Extrai os dados relevantes da resposta da API
+        var responseData = JSON.parse(data.contents);
+        var songData = responseData.song;
+        var artistName = responseData.artist.name; // Tentativa de acessar o nome do artista diretamente
+        var songName = songData.name;
+        var coverUrl = songData.cover;
+
+        // Exibe a imagem na div separada
+        document.getElementById('coverImage').src = coverUrl;
+
+        // Cria o HTML para exibir os dados do artista e da música
+        var html = '<h1>' + artistName + ' - ' + songName + '</h1>';
+
+        // Exibe os dados na div songInfo
+        document.getElementById('songInfo').innerHTML = html;
+    })
+    .catch(error => console.error('Erro ao buscar dados da API:', error));
+}
+
+// Chama a função para exibir os dados quando a página carregar
+window.onload = fetchAndDisplayData;
+</script>
+
+</body>
+</html>
