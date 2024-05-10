@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da Música</title>
+</head>
+
+<body>
+    <h1>Título da Música Atual:</h1>
+
+    <center><div id="output"></div></center>
+    <center><div id="output2"></div></center>
+    <center><div id="image"></div></center>
+
+    <script>
+        // Mapeamento entre títulos de músicas e links de imagens correspondentes
+        var tituloImagemMap = {
+            "Wando - Amor Gostoso É Bicho Perigoso": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglvG0eL5HTrAYI0gWuUAss6QwmFgyJ7yDlN65fvcn5u1pyOkcjtmAE978r6b0xs5b-Ba2UPstmsIXlVfqpCvDYFhFR7Cmm3PZ4SV6PCEwIA0KU5fOyN5EfAQyKSNlnFDRoUwSy4Md7vG7udAjPafd5-v4YHqoXNw14xzDm1eJaM_5hS0uXiqq6Vh8yme0/s1600/ebrm.webp",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZltPxrEwDZauyDQGCDlyyUWBA5YiI5i80KbXujU2i4BGQpP8u0EqTT5FbPVjbU0wyLgylyk3MNL_OJ4IJ_CpTzot7Dm2sr_xd1iiwk3PMKg3KIV61s1RQ1DOVC4PHwtBvLeR30JA75gxsmbxXVKkl8mSOZm_4gJF-AwCfznfCowsQ4zqnkVaY31HkBmI/s1600/mtrop.png",
+            "Wando - Dor Romântica": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMuGNWuxeeCGM84Ss5ydPqBcx6mxflnjTgak230t1O4Ql1gzJ3xyyW35xCOBS6XM7QBmu3VztBKM6noutUo3Bn4MnM_dSq8FXS0NrCiWoOo9KYqkDNhsKlbd32U_s9yZYF9FMjHNtk4MZu3gf1uoE_3p7WNQ5Q4T41UoV57ko4sisKkSWpgL7zTJpORNQ/s1600/boogie.png",
+            "Wando - Gazela": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Wando - Se Tu Não Existes Mais": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Paulo Márcio - Jóia Rara": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Chico Roque - Doces Palavras": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Chico Roque - Sou Eu": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Chico Roque - Ah! Coração": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Chico Roque - Não Dá Pra Te Esquecer": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Chico Roque - Volte Logo": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Chico Roque - Mil Razões Para Chorar": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Erasmo Carlos - Sentado à Beira do Caminho": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Erasmo Carlos - Vou Ficar Nu Para Chamar Sua Atenção": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Erasmo Carlos - Mulher": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Erasmo Carlos - Mesmo que seja eu": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Lucho Bermúdez - Fiesta de negritos": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Esperando Você Chegar": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Moreno": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Meu Grande Bem": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Fantasia": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Esperança": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Máscara": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Vá Com Deus": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Dia D": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Champagne": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Alma Sertaneja": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Dói": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Desespero de Uma Noite": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberta Miranda - Duas Taças": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - Amiga Amante": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - Esse Amor Não Tem Hora": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - Aquela Canção": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - Matinê": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - Até Que Amanheça": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - Fim de Festa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Adilson Ramos - A Chuva Me Lembrou Você": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "César Sampaio - Frases": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Carlos André - Saxofone Por Que Choras (Jamais Te Esquecerei)": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Carlos André - Siboney": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Carlos André - Castelo de Sonhos": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Cassiano Costa - Agora É Tarde": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Marcelo Clayton - Bandido": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Marcelo Clayton - Nathaly": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Gilberto Lemos - Te Voglio Bene": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Evaldo Freire - Marcas": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Evaldo Freire - Chega": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Banda Libanos - Siga seu rumo": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Rodrigo Otarola - É Saudade": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Rodrigo Otarola - Mulher": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Marcelo Wall - Don't Cry": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Marcelo Wall - Palavras": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Vinícius Cantuária - Só você": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Leonardo Sullivan - Pra Sempre": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Leonardo Sullivan - Quando Chegar o Amanhã": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Parada Popular - A cruz que carrego-uma lagrima na garganta-o menino da gaita": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Parada Popular - Domingo feliz-cadê você-passagem só de ida": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Parada Popular - Meu grito-não se vá-garçon": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Reginaldo Rossi - Mulher": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Reginaldo Rossi - Um milhão de vezes": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Reginaldo Rossi - Um romance que ninguem leu": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Lenne Bandeira - Louca Saudade": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Almir Rogério - Canção pra você": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberto Makassa - Adeus Meu Antigo Amor": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberto Makassa - Um Caso Especial": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Roberto Makassa - Só Quero Amar Você": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Diogo - A noite do meu fim": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Diogo - Feito um jogo": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Diogo - Nina": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - Abraça-me": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Angel - Por Amor": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "Angel - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+            "AURÉLIO SANTOS - LEMBRE DE MIM": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig-lAP8cbmxBeTCP930hI3KQIuvwcEt7ssHXPCknmUU9_SjsM5x6q4uWXJYZUfny0tjNmt45TNKkuWOlPAwB_1-Jk6YR7_aMlu12B18I0nNyvFFkV0v2chtB7iOfAovpOw9vCm3tOZQykqgKW3PeohwmR6-r9jK8k_qzYt6VAPDazRSqpIZwclrkShpsk/s1600/cacv.png",
+                   
+            // Adicione os demais títulos e links correspondentes aqui
+        };
+
+        // Função para fazer uma solicitação HTTP GET com parâmetro de timestamp para evitar o cache
+        function httpGet(url, callback) {
+            var xhr = new XMLHttpRequest();
+            var timestamp = new Date().getTime(); // Obtém o timestamp atual
+            var urlWithTimestamp = url + "?timestamp=" + timestamp; // Adiciona o timestamp à URL
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200)
+                    callback(xhr.responseText);
+            }
+            xhr.open("GET", urlWithTimestamp, true);
+            xhr.send();
+        }
+
+        // URL do seu serviço proxy
+        var url = "https://api.allorigins.win/get?url=https://zenoplay.zenomedia.com/api/zenofm/nowplaying/2cgy8mzvsy8uv";
+
+        // Função para processar a resposta JSON e extrair o título e a imagem correspondente
+        function extractAndDisplay(jsonString) {
+            var data = JSON.parse(jsonString);
+            var contents = JSON.parse(data.contents);
+            var title = contents.title;
+            var imageLink = tituloImagemMap[title];
+
+            // Exibir o título e a imagem na página HTML e aplicar estilos
+            var outputElement = document.getElementById("output");
+            var output2Element = document.getElementById("output2");
+            outputElement.innerText = title;
+            output2Element.innerText = title;
+            outputElement.style.color = "black"; 
+            output2Element.style.color = "black"; // Mudar a cor do texto
+            outputElement.style.fontWeight = "normal";
+            output2Element.style.fontWeight = "normal";
+
+            var imageElement = document.getElementById("image");
+            if (imageLink) {
+                imageElement.innerHTML = '<img src="' + imageLink + '" alt="Capa do Álbum">';
+            } else {
+                imageElement.innerHTML = '<p>Imagem não encontrada</p>';
+            }
+        }
+
+        // Fazer solicitação HTTP e chamar a função para exibir o resultado a cada 30 segundos
+        function updateData() {
+            httpGet(url, extractAndDisplay);
+        }
+
+        updateData(); // Chama a função pela primeira vez
+
+        // Atualiza os dados a cada 30 segundos
+        setInterval(updateData, 20000);
+    </script>
+</body>
+
+</html>
