@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Requisição à API XML</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="nowPlaying"></div>
+    <div id="nowPlaying2"></div>
+    <img id="songImage" src=""></img>
+
+    <script>
+        // Função para fazer a requisição à API e exibir os dados em duas divs diferentes
+        function fetchNowPlaying() {
+            // Gerar um timestamp único para evitar o cache do navegador
+            let timestamp = new Date().getTime();
+            let apiUrl = `https://np.tritondigital.com/public/nowplaying?mountName=JBFMAAC&numberToFetch=1&eventType=track&_=${timestamp}`;
+    
+            fetch(apiUrl)
+                .then(response => response.text())
+                .then(data => {
+                    // Parse do XML retornado
+                    let parser = new DOMParser();
+                    let xmlDoc = parser.parseFromString(data, "text/xml");
+    
+                    // Extrair os valores desejados do XML
+                    let title = xmlDoc.querySelector("property[name='cue_title']").textContent.trim();
+                    let artist = xmlDoc.querySelector("property[name='track_artist_name']").textContent.trim();
+    
+                    // Exibir os dados nas duas divs diferentes
+                    document.getElementById("nowPlaying").textContent = artist + " - " + title;
+                    document.getElementById("nowPlaying2").textContent = artist + " - " + title;
+    
+                    // Montar a URL para a próxima API com o título
+                    var itunesApiUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://itunes.apple.com/search?term=" + nowPlaying + "&country=us&media=music&entity=song&limit=1&lang=pt_br&explicit=No&version=2");
+    
+                    // Fazer a requisição à API do iTunes para obter os dados da música
+                    fetch(itunesApiUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Extrair a URL da imagem da resposta JSON
+                            let imageUrl = data.contents.results[0].artworkUrl100;
+    
+                            // Exibir a imagem
+                            document.getElementById("songImage").src = imageUrl;
+                        })
+                        .catch(error => console.error('Erro ao buscar dados do iTunes:', error));
+                })
+                .catch(error => console.error('Erro ao buscar dados:', error));
+        }
+    
+        // Chamar a função de busca inicialmente
+        fetchNowPlaying();
+    
+        // Atualizar a cada 30 segundos (30000 milissegundos)
+        setInterval(fetchNowPlaying, 30000);
+    </script>
+    
+</body>
+</html>
