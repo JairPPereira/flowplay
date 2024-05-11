@@ -220,17 +220,7 @@
   </script>
  
   </head>
-  <body data-spy="scroll" data-target=".navbar" class="page-home">
-  
- 
-
-    <div class="modal fade" id="modalDinamica" tabindex="-1" role="dialog" aria-labelledby="modalDinamica" aria-hidden="true">
-    <div class="conteudo"></div>
-    
-    </div>
-  
-    
-    <header>
+  <header>
     <div class="bg-dark">
   
     </div>
@@ -254,31 +244,15 @@
     <li><a href="https://radiobr.vercel.app/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
   
     <li class="dropdown">
-    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-tv fa-fw"></i>&nbsp;TV's<i class="fa fa-angle-down fa-fw"></i></a>
+    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-headphones fa-fw"></i>&nbsp;RÁDIOS<i class="fa fa-angle-down fa-fw"></i></a>
     <ul class="dropdown-menu">
-    <li><a href='https://jptv.netlify.app/jornalismo'>JORNALISMO</a></li>
-    <li> <a class='dropdown-item' href='https://jptv.netlify.app/tvaberta'>TV ABERTA</a></li>
-    <li><a class='dropdown-item' href='https://jptv.netlify.app/religiosos'>RELIGIOSOS</a></li>
-    <li> <a class='dropdown-item' href='https://jptv.netlify.app/tvfilmes'>TV FILMES</a></li>
-    <li><a class='dropdown-item' href='https://jptv.netlify.app/esporte'>ESPORTE</a></li>
-    <li><a class='dropdown-item' href='https://jptv.netlify.app/estados'>ESTADOS</a></li>
-    <li><a class='dropdown-item' href='https://jptv.netlify.app/musicas'>MUSICAS</a></li>
+      <li><a class='dropdown-item' href='https://radiobr.vercel.app/estados.html'>ESTADOS</a></li>
+      <li><a class="dropdown-item" href="https://radiobr.vercel.app/generos.html">GÊNEROS</a></li>
     
   
     </ul>
     </li>
-    <li class="dropdown">
-    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa-thin fa-radio"></i>&nbsp;Rádios<i class="fa fa-angle-down fa-fw"></i></a>
-     <ul class="dropdown-menu">
-     
-    <li> <a class="dropdown-item" href="https://radiobr.vercel.app/">Rádios 1</a></li>
   
-    <li> <a class='dropdown-item' href='https://radiobr.vercel.app/radios'>Rádios 2</a></li>
-    <li><a class="dropdown-item" href="https://radiobr.vercel.app/radiosjp">Seleções de músicas</a></li>
-  
-    <li><a class="dropdown-item" href="https://radiobr.vercel.app/jpradio/">Seleções de músicas 2</a></li>
-  
-    </ul>
     <li class="nav-item">
       <a class="nav-link" href="https://jptv.netlify.app/jogosdj">JOGOS DE HOJE</a>
     </li>
@@ -336,34 +310,14 @@
     <ul class="flexbox">
     <li class="hidden-md"><a href="https://radiobr.vercel.app/"><i class="fa fa-home fa-fw"></i>&nbsp;Home</a></li>
     
-    <li class="has-dropdown">
-    <a href="https://jptv.netlify.app/"><i class="fas fa-tv fa-fw"></i>&nbsp;Tv Ao Vivo<i class="fa fa-angle-down fa-fw"></i></a>
-    <div class="dropdown">
-    <ul class="flexbox">
-        <li><a href='https://jptv.netlify.app/jornalismo'>JORNALISMO</a></li>
-        <li> <a class='dropdown-item' href='https://jptv.netlify.app/tvaberta'>TV ABERTA</a></li>
-        <li><a class='dropdown-item' href='https://jptv.netlify.app/religiosos'>RELIGIOSOS</a></li>
-        <li> <a class='dropdown-item' href='https://jptv.netlify.app/tvfilmes'>TV FILMES</a></li>
-        <li><a class='dropdown-item' href='https://jptv.netlify.app/esporte'>SPORT</a></li>
-        <li><a class='dropdown-item' href='https://jptv.netlify.app/estados'>ESTADOS</a></li>
-        <li><a class='dropdown-item' href='https://jptv.netlify.app/musicas'>MUSICAS</a></li>
-  
-        
-    
-    </ul>
-  
-    </div>
-  
+
   
     <li class="has-dropdown">
-    <a href="https://jptv.netlify.app/radios/">&nbsp;Rádios<i class="fa fa-angle-down fa-fw"></i></a>
+    <a href="https://jptv.netlify.app/radios/"><i class="fa fa-headphones fa-fw"></i>&nbsp;Rádios<i class="fa fa-angle-down fa-fw"></i></a>
     <div class="dropdown">
     <ul class="flexbox">
-      <li> <a class="dropdown-item" href="https://radiobr.vercel.app/">Rádios 1</a></li>
-        <li> <a class='dropdown-item' href='https://radiobr.vercel.app/radios'>Rádios 2</a></li>
-        <li><a class="dropdown-item" href="https://radiobr.vercel.app/radiosjp">Seleções de músicas</a></li>
-  
-    <li><a class="dropdown-item" href="https://radiobr.vercel.app/jpradio/">Seleções de músicas 2</a></li>
+      <li><a class='dropdown-item' href='https://radiobr.vercel.app/estados.html'>ESTADOS</a></li>
+      <li><a class="dropdown-item" href="https://radiobr.vercel.app/generos.html">GÊNEROS</a></li>
     </ul>
     </div>
   
@@ -405,6 +359,14 @@
     </div>
     </div>
     </header>
+    <section class="bg-primary p-t-40 p-b-40">
+    
+      <div class="container">
+        
+        <div class="row min-gutter">
+         
+      <div id="searchResults"></div></div></div>
+      </section>
   
     <script type="text/javascript">
     
@@ -423,95 +385,83 @@
     });
     
     </script>
- 
-    <section class="bg-primary p-t-40 p-b-40">
-    
-      <div class="container">
-        
-        <div class="row min-gutter">
-         
-      <div id="searchResults"></div></div></div>
-      </section>
-  <script>
-    function search() {
+    <script>
+      function search() {
         var searchTerm = document.getElementById("searchInput").value.toLowerCase();
         var searchResultsDiv = document.getElementById("searchResults");
-    
+      
         // Carregue o conteúdo da página "canais.html" usando AJAX
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "canais.html", true);
+        xhr.open("GET", "https://radiobr.vercel.app/canais.html", true);
         xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                var pageContent = xhr.responseText;
-    
-                // Crie um elemento temporário para analisar o HTML
-                var tempElement = document.createElement("div");
-                tempElement.innerHTML = pageContent;
-    
-                // Encontre os elementos correspondentes dentro do conteúdo carregado
-                var elements = tempElement.querySelectorAll(".col-sm-2");
-                var results = [];
-    
-                elements.forEach(function (element) {
-                    var channelName = element.querySelector("h4").textContent.toLowerCase();
-                    if (channelName.includes(searchTerm)) {
-                        results.push(element.outerHTML);
-                    }
-                });
-    
-                // Exiba os resultados na página
-                if (results.length > 0) {
-                    searchResultsDiv.innerHTML = results.join("");
-                } else {
-                    searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
-                }
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var pageContent = xhr.responseText;
+      
+            // Crie um elemento temporário para analisar o HTML
+            var tempElement = document.createElement("div");
+            tempElement.innerHTML = pageContent;
+      
+            // Encontre os elementos correspondentes dentro do conteúdo carregado
+            var elements = tempElement.querySelectorAll(".col-sm-2.col-xs-4"); // Seleciona elementos com a classe "item movies"
+            var results = [];
+      
+            elements.forEach(function (element) {
+              var articleContent = element.textContent.toLowerCase();
+              if (articleContent.includes(searchTerm)) {
+                results.push(element.outerHTML);
+              }
+            });
+      
+            // Exiba os resultados na página
+            if (results.length > 0) {
+              searchResultsDiv.innerHTML = results.join("");
+            } else {
+              searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
             }
+          }
         };
         xhr.send();
-    }
-    function searchMobile() {
-      var searchTerm = document.getElementById("searchInputMobile").value.toLowerCase();
-      var searchResultsDiv = document.getElementById("searchResults");
-  
-      // Carregue o conteúdo da página "canais.html" usando AJAX
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", "canais.html", true);
-      xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-              var pageContent = xhr.responseText;
-  
-              // Crie um elemento temporário para analisar o HTML
-              var tempElement = document.createElement("div");
-              tempElement.innerHTML = pageContent;
-  
-              // Encontre os elementos correspondentes dentro do conteúdo carregado
-              var elements = tempElement.querySelectorAll(".col-sm-2");
-              var results = [];
-  
-              elements.forEach(function (element) {
-                  var channelName = element.querySelector("h4").textContent.toLowerCase();
-                  if (channelName.includes(searchTerm)) {
-                      results.push(element.outerHTML);
-                  }
-              });
-  
-              // Exiba os resultados na página
-              if (results.length > 0) {
-                  searchResultsDiv.innerHTML = results.join("");
-              } else {
-                  searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
-              }
-          }
-      };
-      xhr.send();
-  }
-    </script>
-    <script>
-      function openNewWindow(url, width, height) {
-        window.open(url, '', `width=${width},height=${height}`);
       }
-    </script>
       
+      function searchMobile() {
+        var searchTerm = document.getElementById("searchInputMobile").value.toLowerCase();
+        var searchResultsDiv = document.getElementById("searchResults");
+      
+        // Carregue o conteúdo da página "canais.html" usando AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://radiobr.vercel.app/canais.html", true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var pageContent = xhr.responseText;
+      
+            // Crie um elemento temporário para analisar o HTML
+            var tempElement = document.createElement("div");
+            tempElement.innerHTML = pageContent;
+      
+            // Encontre os elementos correspondentes dentro do conteúdo carregado
+            var elements = tempElement.querySelectorAll(".col-sm-2.col-xs-4"); // Seleciona elementos com a classe "item movies"
+            var results = [];
+      
+            elements.forEach(function (element) {
+              var divContent = element.textContent.toLowerCase();
+              if (divContent.includes(searchTerm)) {
+                results.push(element.outerHTML);
+              }
+            });
+      
+            // Exiba os resultados na página
+            if (results.length > 0) {
+              searchResultsDiv.innerHTML = results.join("");
+            } else {
+              searchResultsDiv.innerHTML = "Nenhum resultado encontrado.";
+            }
+          }
+        };
+        xhr.send();
+      }
+      
+      
+    </script>
   
   <section class="p-t-40 p-b-80">
     <div class="container">
