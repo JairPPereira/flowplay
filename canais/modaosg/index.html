@@ -191,7 +191,7 @@
                                 var imageUrl = results[0].artworkUrl100;
                 
                                 // Construir a URL da imagem em tamanho desejado
-                                var imageUrlModified = imageUrl.replace(/100x100bb\.jpg$/, "200x200bb.jpg");
+                                var imageUrlModified = imageUrl.replace(/100x100bb\.jpg$/, "150x150bb.jpg");
                 
                                 // Remover a imagem anterior, se houver
                                 var imageContainer = document.getElementById("imageContainer");
@@ -547,7 +547,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="imageContainer">
+                    <div id="imageContainer" style="padding: 5px;">
                         <!-- A imagem será exibida aqui -->
                       </div>
                     <p>
