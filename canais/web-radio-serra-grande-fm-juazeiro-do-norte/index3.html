@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de exibição de dados da API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="trackInfo">
+   
+    <div id="albumCoverContainer"></div>
+</div>
+<h2>Informações da Faixa</h2>
+<p><strong>Nome da Faixa:</strong> <span id="trackName"></span></p>
+<span id="trackName2"></span></p>
+<script>
+    // Função para buscar os dados da API e exibir na página
+    function getDataFromAPI() {
+        fetch('https://api.allorigins.win/get?url=https://www.radiojuaforrofm.redederadio.com.br/api/playingNow')
+            .then(response => response.json())
+            .then(data => {
+                // Verifica se a resposta foi bem-sucedida
+                if (data.status && data.status.http_code === 200) {
+                    const responseData = JSON.parse(data.contents);
+                    const trackName = responseData.data.trackName;
+                    const trackName2 = responseData.data.trackName;
+                    let albumCover = responseData.data.albumCover;
+                    
+                    // Substituir barras invertidas por barras normais
+                    albumCover = albumCover.replace(/\\/g, '/');
+                    
+                    // Adicionar um parâmetro de consulta único para evitar o cache
+                    albumCover += '?' + new Date().getTime();
+                    
+                    // Atualizar o HTML com os dados obtidos usando jQuery
+                    $('#trackName').text(trackName);
+                    $('#trackName2').text(trackName);
+                    $('#albumCoverContainer').html(`<img src="${albumCover}" alt="Capa do Álbum">`);
+                } else {
+                    console.error('Erro ao buscar dados da API');
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar dados da API:', error);
+            });
+    }
+
+    // Chama a função para buscar os dados da API imediatamente
+    getDataFromAPI();
+
+    // Define um intervalo de atualização a cada 20 segundos
+    setInterval(getDataFromAPI, 20000); // 20 segundos em milissegundos
+</script>
+
+</body>
+</html>
