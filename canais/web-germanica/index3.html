@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibição de Dados da API</title>
+</head>
+<body>
+    <div id="songTitle"></div>
+    <div id="songTitle1"></div>
+
+    <div id="imageContainer"></div>
+
+    <script>
+        // Função para obter um carimbo de data/hora atual
+        function getCurrentTimestamp() {
+            return new Date().getTime();
+        }
+
+        // Função para atualizar os dados da API
+        function updateDataFromAPI() {
+            // Fazendo uma solicitação à API usando JavaScript
+            fetch(`https://api.allorigins.win/get?url=https://s18.maxcast.com.br/api/status/sc_germa/current.json&timestamp=${getCurrentTimestamp()}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Manipulando os dados recebidos
+                    const responseData = JSON.parse(data.contents);
+
+                    // Extraindo o título completo da música do campo "current"
+                    const currentSong = responseData.playing.current;
+
+                    // Exibindo o título completo da música em divs separadas
+                    const songTitleDiv = document.getElementById('songTitle');
+                    songTitleDiv.textContent = currentSong;
+
+                    const songTitleDiv1 = document.getElementById('songTitle1');
+                    songTitleDiv1.textContent = currentSong;
+
+                    // Criando a imagem da capa da música
+                    const coverImage = new Image();
+                    coverImage.src = responseData.song_data.cover;
+                    coverImage.alt = 'Capa da Música';
+
+                    // Definindo as dimensões da imagem para 150px por 150px
+                    coverImage.width = 150;
+                    coverImage.height = 150;
+
+                    // Exibindo a imagem dentro da div "imageContainer"
+                    const imageContainerDiv = document.getElementById('imageContainer');
+                    imageContainerDiv.innerHTML = '';
+                    imageContainerDiv.appendChild(coverImage);
+                })
+                .catch(error => console.error('Erro ao buscar dados da API:', error));
+        }
+
+        // Atualizar os dados da API a cada 20 segundos
+        setInterval(updateDataFromAPI, 20000);
+        
+        // Atualizar os dados pela primeira vez ao carregar a página
+        updateDataFromAPI();
+    </script>
+</body>
+</html>
