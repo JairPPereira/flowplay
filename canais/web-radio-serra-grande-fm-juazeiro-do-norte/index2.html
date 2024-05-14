@@ -34,18 +34,18 @@
                     albumCover = albumCover.replace(/\\/g, '/');
                     
                     // Adicionar um parâmetro de consulta único para evitar o cache
-                    albumCover += '?' + new Date().getTime();
+
                     
                     // Atualizar o HTML com os dados obtidos usando jQuery
                     $('#trackName').text(trackName);
                     $('#trackName2').text(trackName);
+                    // Remover a imagem após obter os novos dados e antes de adicionar a nova imagem
+                    $('#albumCoverContainer').find('img').remove();
+                    // Adicionar a nova imagem
                     $('#albumCoverContainer').html(`<img src="${albumCover}" alt="">`);
                 } else {
                     console.error('Erro ao buscar dados da API');
                 }
-            })
-            .catch(error => {
-                console.error('Erro ao buscar dados da API:', error);
             });
     }
 
@@ -55,7 +55,6 @@
     // Define um intervalo de atualização a cada 20 segundos
     setInterval(getDataFromAPI, 20000); // 20 segundos em milissegundos
 </script>
-
 
 
 </body>
