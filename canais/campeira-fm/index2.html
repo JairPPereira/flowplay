@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Requisição de API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="currentTrack"></div>
+<div id="currentTrack2"></div>
+
+<script>
+    function fetchData() {
+        // Adiciona um parâmetro de consulta único à URL da API para evitar o cache
+        const url = 'https://api.allorigins.win/get?url=https://d36nr0u3xmc4mm.cloudfront.net/index.php/api/streaming/status/8164/27d713ca675e3bc6e3e6834a2ffe046b/SV5BR&' + new Date().getTime();
+
+        // Fazendo uma requisição GET para a API
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Extrai o valor de currentTrack da resposta
+            const currentTrack = JSON.parse(data.contents).currentTrack;
+            
+            // Atualiza o conteúdo da div com o título da música
+            document.getElementById('currentTrack').innerText = currentTrack;
+            // Atualiza o conteúdo da div com o título da música
+            document.getElementById('currentTrack2').innerText = currentTrack;
+        })
+        .catch(error => console.error('Erro ao recuperar dados da API:', error));
+    }
+
+    // Chama a função fetchData() imediatamente
+    fetchData();
+
+    // Define um intervalo de 20 segundos para chamar a função fetchData()
+    setInterval(fetchData, 20000);
+</script>
+
+</body>
+</html>
