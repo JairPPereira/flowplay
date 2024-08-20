@@ -205,9 +205,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '93.1',
-    title: "Rádio Vale do Xingu FM",
-    src: 'https://8010.brasilstream.com.br/stream',
+    freq: 'Web',
+    title: "Estação Metrópole",
+    src: 'https://azura11.w3bserver.com/radio/8150/radio.mp3',
     howl: null
   },
   {
