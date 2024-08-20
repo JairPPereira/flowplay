@@ -169,9 +169,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '92.1',
-    title: "Rádio Você FM",
-    src: 'https://stream02.ouveai.com.br/8018/stream',
+    freq: '94.3',
+    title: "Metropolitana FM",
+    src: 'https://stm6.xcast.com.br:10616/stream',
     howl: null
   },
   {
