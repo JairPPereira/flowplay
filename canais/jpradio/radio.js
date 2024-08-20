@@ -61,7 +61,7 @@ Radio.prototype = {
       sound = data.howl = new Howl({
         src: data.src,
         html5: true, // A live stream can only be played through HTML5 Audio.
-        format: ['mp3', 'aac','aacp']
+        format: ['mp3', 'aac','aacp','m3u8']
       });
     }
 
@@ -211,9 +211,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '104.7',
-    title: "Rádio Floresta FM",
-    src: 'https://s30.maxcast.com.br:8180/live',
+    freq: '93.7',
+    title: "Cultura FM",
+    src: 'https://www.portalcultura.com.br/playerhtml/funtelpa/radio_funtelpa/playlist.m3u8',
     howl: null
   },
   {
