@@ -211,9 +211,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '93.7',
-    title: "Cultura FM",
-    src: 'https://www.portalcultura.com.br/playerhtml/funtelpa/radio_funtelpa/playlist.m3u8',
+    freq: '98.5',
+    title: "Rede Aleluia FM Belém",
+    src: 'https://204398c.ha.azioncdn.net/primary/radio98_5fm.sdp/playlist.m3u8',
     howl: null
   },
   {
