@@ -116,55 +116,55 @@ Radio.prototype = {
 var radio = new Radio([
   {
     freq: 'JP.M',
-    title: "Rádio Top Hits",
+    title: "Top Hits",
     src: 'https://stream-59.zeno.fm/p3yys99taphvv?zs=YmiO2TgATMaHAKx7t057pw',
     howl: null
   },
   {
     freq: 'JP.M',
-    title: "Rádio Passado",
+    title: "Passado",
     src: 'https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA.mp3',
     howl: null
   },
   {
     freq: 'JP.M',
-    title: "Rádio Pop Rock",
+    title: "Pop Rock",
     src: 'https://stream-57.zeno.fm/9ts1tgxryhhvv?zs=cwpQYLFdTxmVOaOVAJ_rYQ&aw_0_req_lsid=1663871100546_0.44668418486659633&an-uid=8773777118362868920&triton-uid=cookie%3Ab9e998c5-ed73-45ba-983a-4fef71654a75.mp3',
     howl: null
   },
   {
     freq: '95.1',
-    title: "Rádio Rauland FM",
+    title: "Rauland FM",
     src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live',
     howl: null
   },
   {
     freq: '1130',
-    title: "Rádio Marajoara AM",
+    title: "Marajoara AM",
     src: 'https://www.bravecenterhost.com:8020/stream',
     howl: null
   },
   {
     freq: '690',
-    title: "Rádio Clube AM",
+    title: "Clube AM",
     src: 'https://carajas2.jmvstream.com/live',
     howl: null
   },
   {
     freq: '95.9',
-    title: "Rádio Liberdade FM",
+    title: "Liberdade FM",
     src: 'https://s28.maxcast.com.br:8060/live',
     howl: null
   },
   {
     freq: '102.1',
-    title: "Rádio Paraense FM",
+    title: "Paraense FM",
     src: 'https://stm01.virtualcast.com.br:8614/live',
     howl: null
   },
   {
     freq: '88.5',
-    title: "Rádio Amazônia FM",
+    title: "Amazônia FM",
     src: 'https://s18.maxcast.com.br:8707/live',
     howl: null
   },
@@ -182,14 +182,14 @@ var radio = new Radio([
   },
   {
     freq: '90.5',
-    title: "Rádio Roma FM",
+    title: "Roma FM",
     src: 'https://www.bravecenterhost.com:8014/stream',
     howl: null
   },
   {
-    freq: '97.5',
-    title: "Rádio Rondon FM",
-    src: 'https://radios.digital:8034/stream',
+    freq: 'web',
+    title: "Amazônia Sonora",
+    src: 'https://stm9.xcast.com.br:12396/stream',
     howl: null
   },
   {
