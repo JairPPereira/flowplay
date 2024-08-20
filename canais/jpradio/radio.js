@@ -175,9 +175,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '91.3',
-    title: "Rádio Regional FM",
-    src: 'https://wms5.webradios.com.br:19050/9050',
+    freq: '87.5',
+    title: "Sorriso FM",
+    src: 'https://stm1.streaminghd.net.br:7236//;stream.mp3',
     howl: null
   },
   {
