@@ -61,7 +61,7 @@ Radio.prototype = {
       sound = data.howl = new Howl({
         src: data.src,
         html5: true, // A live stream can only be played through HTML5 Audio.
-        format: ['mp3', 'aac']
+        format: ['mp3', 'aac','aacp']
       });
     }
 
@@ -147,7 +147,7 @@ var radio = new Radio([
   {
     freq: '690',
     title: "Rádio Clube AM",
-    src: 'https://ice01.kshost.com.br:8000/live',
+    src: 'https://carajas2.jmvstream.com/live',
     howl: null
   },
   {
