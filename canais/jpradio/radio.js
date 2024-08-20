@@ -134,79 +134,79 @@ var radio = new Radio([
   },
   {
     freq: '95.1',
-    title: "Rauland FM",
+    title: "Rauland FM Belém",
     src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live',
     howl: null
   },
   {
     freq: '1130',
-    title: "Marajoara AM",
+    title: "Marajoara AM Belém",
     src: 'https://www.bravecenterhost.com:8020/stream',
     howl: null
   },
   {
     freq: '690',
-    title: "Clube AM",
+    title: "Clube AM Belém",
     src: 'https://carajas2.jmvstream.com/live',
     howl: null
   },
   {
     freq: '95.9',
-    title: "Liberdade FM",
+    title: "Liberdade FM Belém",
     src: 'https://s28.maxcast.com.br:8060/live',
     howl: null
   },
   {
     freq: '102.1',
-    title: "Paraense FM",
+    title: "Paraense FM Belém",
     src: 'https://stm01.virtualcast.com.br:8614/live',
     howl: null
   },
   {
     freq: '88.5',
-    title: "Amazônia FM",
+    title: "Amazônia FM Belém",
     src: 'https://s18.maxcast.com.br:8707/live',
     howl: null
   },
   {
     freq: '94.3',
-    title: "Metropolitana FM",
+    title: "Metropolitana FM Belém",
     src: 'https://stm6.xcast.com.br:10616/stream',
     howl: null
   },
   {
     freq: '87.5',
-    title: "Sorriso FM",
+    title: "Sorriso FM Belém",
     src: 'https://stm1.streaminghd.net.br:7236//;stream.mp3',
     howl: null
   },
   {
     freq: '90.5',
-    title: "Roma FM",
+    title: "Roma FM Belém",
     src: 'https://www.bravecenterhost.com:8014/stream',
     howl: null
   },
   {
     freq: 'web',
-    title: "Amazônia Sonora",
+    title: "Amazônia Sonora Belém",
     src: 'https://stm9.xcast.com.br:12396/stream',
     howl: null
   },
   {
     freq: '89.5',
-    title: "Amazônia Viva FM",
+    title: "Amazônia Viva FM Belém",
     src: 'https://s03.maxcast.com.br:8112/live',
     howl: null
   },
   {
     freq: '91.9',
-    title: "Rádio Boas Novas FM",
+    title: "Rádio Boas Novas FM Belém",
     src: 'https://boasnovasaac.jmvstream.com/stream/;stream.mp3',
     howl: null
   },
   {
     freq: 'Web',
-    title: "Estação Metrópole",
+    title: "Estação Metrópole Belém",
     src: 'https://azura11.w3bserver.com/radio/8150/radio.mp3',
     howl: null
   },
@@ -218,7 +218,7 @@ var radio = new Radio([
   },
   {
     freq: '99.9',
-    title: "Rádio 99 FM Belém",
+    title: "99 FM Belém",
     src: 'https://hts02.kshost.com.br:8862/;stream/1',
     howl: null
   },
@@ -230,14 +230,14 @@ var radio = new Radio([
   },
   {
     freq: '100.9',
-    title: "Rádio Mix FM",
+    title: "Mix FM Belém",
     src: 'https://22823.live.streamtheworld.com/MIXFM_BELEMPARAAAC.aac',
     howl: null
   },
 
   {
     freq: '92.9',
-    title: "Rádio Diário FM",
+    title: "Diário FM Belém",
     src: 'https://hts02.kshost.com.br:8856/;stream/1',
     howl: null
   },
