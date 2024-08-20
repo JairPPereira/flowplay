@@ -193,9 +193,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '90.1',
-    title: "Rádio Terra FM",
-    src: 'https://ssl.srvstm.com:6862//;stream.mp3',
+    freq: '89.5',
+    title: "Amazônia Viva FM",
+    src: 'https://s03.maxcast.com.br:8112/live',
     howl: null
   },
   {
