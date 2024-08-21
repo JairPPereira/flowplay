@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16', 'station17', 'title17', 'live17', 'playing17', 'station18', 'title18', 'live18', 'playing18', 'station19', 'title19', 'live19', 'playing19', 'station20', 'title20', 'live20', 'playing20'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16', 'station17', 'title17', 'live17', 'playing17', 'station18', 'title18', 'live18', 'playing18', 'station19', 'title19', 'live19', 'playing19', 'station20', 'title20', 'live20', 'playing20','station21', 'title21', 'live21', 'playing21'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -117,128 +117,135 @@ var radio = new Radio([
   {
     freq: 'JP.M',
     title: "Top Hits",
-    src: 'https://stream-59.zeno.fm/p3yys99taphvv?zs=YmiO2TgATMaHAKx7t057pw',
+    src: 'https://stream-59.zeno.fm/p3yys99taphvv?zs=YmiO2TgATMaHAKx7t057pw', // estação 0
     howl: null
   },
   {
     freq: 'JP.M',
     title: "Passado",
-    src: 'https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA.mp3',
+    src: 'https://stream-41.zeno.fm/2cgy8mzvsy8uv?zs=yo4PyEhfTWK29YRfVvNeWA.mp3', // estação 1
     howl: null
   },
   {
     freq: 'JP.M',
     title: "Pop Rock",
-    src: 'https://stream-57.zeno.fm/9ts1tgxryhhvv?zs=cwpQYLFdTxmVOaOVAJ_rYQ&aw_0_req_lsid=1663871100546_0.44668418486659633&an-uid=8773777118362868920&triton-uid=cookie%3Ab9e998c5-ed73-45ba-983a-4fef71654a75.mp3',
+    src: 'https://stream-57.zeno.fm/9ts1tgxryhhvv?zs=cwpQYLFdTxmVOaOVAJ_rYQ&aw_0_req_lsid=1663871100546_0.44668418486659633&an-uid=8773777118362868920&triton-uid=cookie%3Ab9e998c5-ed73-45ba-983a-4fef71654a75.mp3', // estação 2
     howl: null
   },
   {
     freq: '95.1',
     title: "Rauland FM Belém",
-    src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live',
+    src: 'https://stm1.srvif.com:6672/streamhttps://hts02.kshost.com.br:8856/live', // estação 3
     howl: null
   },
   {
     freq: '1130',
     title: "Marajoara AM Belém",
-    src: 'https://www.bravecenterhost.com:8020/stream',
+    src: 'https://www.bravecenterhost.com:8020/stream', // estação 4
     howl: null
   },
   {
     freq: '690',
     title: "Clube AM Belém",
-    src: 'https://carajas2.jmvstream.com/live',
+    src: 'https://carajas2.jmvstream.com/live', // estação 5
     howl: null
   },
   {
     freq: '95.9',
     title: "Liberdade FM Belém",
-    src: 'https://s28.maxcast.com.br:8060/live',
+    src: 'https://s28.maxcast.com.br:8060/live', // estação 6
     howl: null
   },
   {
     freq: '102.1',
     title: "Paraense FM Belém",
-    src: 'https://stm01.virtualcast.com.br:8614/live',
+    src: 'https://stm01.virtualcast.com.br:8614/live', // estação 7
     howl: null
   },
   {
     freq: '88.5',
     title: "Amazônia FM Belém",
-    src: 'https://s18.maxcast.com.br:8707/live',
+    src: 'https://s18.maxcast.com.br:8707/live', // estação 8
     howl: null
   },
   {
     freq: '94.3',
     title: "Metropolitana FM Belém",
-    src: 'https://stm6.xcast.com.br:10616/stream',
+    src: 'https://stm6.xcast.com.br:10616/stream', // estação 9
     howl: null
   },
   {
     freq: '87.5',
     title: "Sorriso FM Belém",
-    src: 'https://stm1.streaminghd.net.br:7236//;stream.mp3',
+    src: 'https://stm1.streaminghd.net.br:7236//;stream.mp3', // estação 10
     howl: null
   },
   {
     freq: '90.5',
     title: "Roma FM Belém",
-    src: 'https://www.bravecenterhost.com:8014/stream',
+    src: 'https://www.bravecenterhost.com:8014/stream', // estação 11
     howl: null
   },
   {
     freq: 'web',
     title: "Amazônia Sonora Belém",
-    src: 'https://stm9.xcast.com.br:12396/stream',
+    src: 'https://stm9.xcast.com.br:12396/stream', // estação 12
     howl: null
   },
   {
     freq: '89.5',
     title: "Amazônia Viva FM Belém",
-    src: 'https://s03.maxcast.com.br:8112/live',
+    src: 'https://s03.maxcast.com.br:8112/live', // estação 13
     howl: null
   },
   {
     freq: '91.9',
     title: "Rádio Boas Novas FM Belém",
-    src: 'https://boasnovasaac.jmvstream.com/stream/;stream.mp3',
+    src: 'https://boasnovasaac.jmvstream.com/stream/;stream.mp3', // estação 14
     howl: null
   },
   {
     freq: 'Web',
     title: "Estação Metrópole Belém",
-    src: 'https://azura11.w3bserver.com/radio/8150/radio.mp3',
+    src: 'https://azura11.w3bserver.com/radio/8150/radio.mp3', // estação 15
     howl: null
   },
   {
     freq: '87.5',
     title: " Belém FM",
-    src: 'https://stm13.painelcast.com:7406/stream/;stream/1',
+    src: 'https://stm13.painelcast.com:7406/stream/;stream/1', // estação 16
     howl: null
   },
   {
     freq: '99.9',
     title: "99 FM Belém",
-    src: 'https://hts02.kshost.com.br:8862/;stream/1',
+    src: 'https://hts02.kshost.com.br:8862/;stream/1', // estação 17
     howl: null
   },
   {
     freq: '',
     title: "RETRÔ LC MUSIC Belém",
-    src: 'https://hts02.kshost.com.br:9362/live',
+    src: 'https://hts02.kshost.com.br:9362/live', // estação 18
     howl: null
   },
   {
     freq: '100.9',
     title: "Mix FM Belém",
-    src: 'https://22823.live.streamtheworld.com/MIXFM_BELEMPARAAAC.aac',
+    src: 'https://22823.live.streamtheworld.com/MIXFM_BELEMPARAAAC.aac', // estação 19
     howl: null
   },
 
   {
     freq: '92.9',
     title: "Diário FM Belém",
-    src: 'https://hts02.kshost.com.br:8856/;stream/1',
+    src: 'https://hts02.kshost.com.br:8856/;stream/1', // estação 20
+    howl: null
+  },
+
+  {
+    freq: '92.9',
+    title: "Diário FM Belém",
+    src: 'https://stm2.pousadavirtual.com.br:7158/;stream.mp3', // estação 21
     howl: null
   },
 
