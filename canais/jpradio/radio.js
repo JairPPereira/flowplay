@@ -157,9 +157,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '102.1',
-    title: "Paraense FM Belém",
-    src: 'https://stm01.virtualcast.com.br:8614/live', // estação 7
+    freq: '',
+    title: "Am Brasil Belém",
+    src: 'https://s28.maxcast.com.br:8060/live', // estação 7
     howl: null
   },
   {
