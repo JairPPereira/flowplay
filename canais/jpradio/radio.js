@@ -211,9 +211,9 @@ var radio = new Radio([
     howl: null
   },
   {
-    freq: '98.5',
-    title: "Rede Aleluia FM Belém",
-    src: 'https://204398c.ha.azioncdn.net/primary/radio98_5fm.sdp/playlist.m3u8',
+    freq: '87.5',
+    title: " Belém FM",
+    src: 'https://stm13.painelcast.com:7406/stream/;stream/1',
     howl: null
   },
   {
