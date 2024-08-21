@@ -224,8 +224,8 @@ var radio = new Radio([
   },
   {
     freq: '',
-    title: "Rádio Sistema Miriense",
-    src: 'https://hts07.kshost.com.br:11102/live/;stream.mp3',
+    title: "RETRÔ LC MUSIC Belém",
+    src: 'https://hts02.kshost.com.br:9362/live',
     howl: null
   },
   {
