@@ -243,8 +243,8 @@ var radio = new Radio([
   },
 
   {
-    freq: '92.9',
-    title: "Diário FM Belém",
+    freq: '',
+    title: "Belém Mix",
     src: 'https://stm2.pousadavirtual.com.br:7158/;stream.mp3', // estação 21
     howl: null
   },
