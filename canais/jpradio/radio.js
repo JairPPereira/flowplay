@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16', 'station17', 'title17', 'live17', 'playing17', 'station18', 'title18', 'live18', 'playing18', 'station19', 'title19', 'live19', 'playing19', 'station20', 'title20', 'live20', 'playing20','station21', 'title21', 'live21', 'playing21','station22', 'title22', 'live22', 'playing22','station23', 'title23', 'live23', 'playing23','station24', 'title24', 'live24', 'playing24','station25', 'title25', 'live25', 'playing25'];
+var elms = ['station0', 'title0', 'live0', 'playing0', 'station1', 'title1', 'live1', 'playing1', 'station2', 'title2', 'live2', 'playing2', 'station3', 'title3', 'live3', 'playing3', 'station4', 'title4', 'live4', 'playing4', 'station5', 'title5', 'live5', 'playing5', 'station6', 'title6', 'live6', 'playing6', 'station7', 'title7', 'live7', 'playing7', 'station8', 'title8', 'live8', 'playing8', 'station9', 'title9', 'live9', 'playing9', 'station10', 'title10', 'live10', 'playing10', 'station11', 'title11', 'live11', 'playing11', 'station12', 'title12', 'live12', 'playing12', 'station13', 'title13', 'live13', 'playing13', 'station14', 'title14', 'live14', 'playing14', 'station15', 'title15', 'live15', 'playing15', 'station16', 'title16', 'live16', 'playing16', 'station17', 'title17', 'live17', 'playing17', 'station18', 'title18', 'live18', 'playing18', 'station19', 'title19', 'live19', 'playing19', 'station20', 'title20', 'live20', 'playing20','station21', 'title21', 'live21', 'playing21','station22', 'title22', 'live22', 'playing22','station23', 'title23', 'live23', 'playing23','station24', 'title24', 'live24', 'playing24','station25', 'title25', 'live25', 'playing25','station26', 'title26', 'live26', 'playing26'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -271,6 +271,12 @@ var radio = new Radio([
     freq: '',
     title: "Manuzé Digital Belém",
     src: 'https://stream-174.zeno.fm/0zf97cv9uuhvv', // estação 25
+    howl: null
+  },
+  {
+    freq: '',
+    title: "Belem FM Belém",
+    src: 'https://sonicpanel.oficialserver.com/8110/stream', // estação 26
     howl: null
   },
 
