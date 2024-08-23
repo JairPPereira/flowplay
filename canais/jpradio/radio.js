@@ -200,7 +200,7 @@ var radio = new Radio([
   },
   {
     freq: '91.9',
-    title: "Rádio Boas Novas FM Belém",
+    title: "Boas Novas FM Belém",
     src: 'https://boasnovasaac.jmvstream.com/stream/;stream.mp3', // estação 14
     howl: null
   },
