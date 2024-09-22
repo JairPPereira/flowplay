@@ -7,23 +7,12 @@ html, body {
     height: 100%;
 }
 
-
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
 body {
     display: flex;
     flex-flow: row;
     justify-content: center;
-    align-items: center; /* Alinha verticalmente dentro do iframe */
+    overflow-x: hidden;
 }
-
 
 
 .cover-site {
